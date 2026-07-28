@@ -15,6 +15,7 @@ import { TexturaCapas } from "@/components/piezas/TexturaCapas";
 import { Reviews } from "@/components/sections/Reviews";
 import { Button } from "@/components/ui/button";
 import { BRAND, waLink } from "@/lib/brand";
+import { medio } from "@/lib/rutas";
 import { schemaServicios } from "@/lib/schema";
 
 /* Las tres líneas de negocio — §7.1 sección 3.
@@ -133,7 +134,15 @@ export default function Inicio() {
               {/* Plano 2 · la pieza imprimiéndose capa por capa */}
               <div className="relative px-10 py-14 sm:px-16 sm:py-16">
                 <PrintReveal>
-                  <Pieza forma="soporte" conCama invertido />
+                  {/* Única imagen con `priority`: es el LCP (§6). */}
+                  <Foto
+                    nombre="hero-pieza"
+                    alt="Pieza recién impresa en filamento color hueso, todavía sobre la cama de impresión, con las líneas de capa visibles."
+                    ancho={1200}
+                    alto={1200}
+                    sizes="(min-width: 768px) 46vw, 100vw"
+                    priority
+                  />
                 </PrintReveal>
               </div>
 
@@ -303,10 +312,10 @@ export default function Inicio() {
                   loop
                   playsInline
                   preload="metadata"
-                  poster="/medios/timelapse-poster.webp"
+                  poster={medio("timelapse-poster.webp")}
                   aria-label="Timelapse de una impresora 3D construyendo una pieza capa por capa."
                 >
-                  <source src="/medios/timelapse.mp4" type="video/mp4" />
+                  <source src={medio("timelapse.mp4")} type="video/mp4" />
                 </video>
                 <span className="cifra absolute right-2 bottom-2 border border-grafito bg-hueso/95 px-2 py-1 text-[0.625rem] tracking-wide text-grafito uppercase">
                   Video generado

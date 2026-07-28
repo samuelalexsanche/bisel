@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/cn";
+import { medio } from "@/lib/rutas";
 
 type Props = {
   /** Ruta dentro de /medios, sin extensión. Ej. "taller". */
@@ -44,7 +45,7 @@ export function Foto({
   return (
     <div className={cn("relative overflow-hidden", className)}>
       <Image
-        src={`/medios/${nombre}.webp`}
+        src={medio(`${nombre}.webp`)}
         alt={alt}
         width={ancho}
         height={alto}
