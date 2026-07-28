@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { JsonLd } from "@/components/JsonLd";
-import { Placeholder } from "@/components/brand/Placeholder";
+import { Foto } from "@/components/brand/Foto";
 import { TrustStrip } from "@/components/brand/TrustStrip";
 import { Seccion } from "@/components/layout/Seccion";
 import { DimensionLine } from "@/components/motion/DimensionLine";
@@ -170,10 +170,12 @@ export default function Inicio() {
           <div className="mt-14 grid gap-10 md:grid-cols-[1.4fr_auto] md:gap-16">
             <div>
               {/* Foto de la pieza EN USO REAL: en la mano, en el cajón, montada. */}
-              <Placeholder
-                etiqueta="Pieza en uso real — en la mano o montada — pendiente §14.3"
-                ratio="3 / 2"
-                forma="organizador"
+              <Foto
+                nombre="pieza-en-uso"
+                alt="Una mano sostiene una pieza impresa en 3D, de forma que se aprecia su tamaño real contra los dedos."
+                ancho={1500}
+                alto={1000}
+                sizes="(min-width: 768px) 60vw, 100vw"
               />
 
               <ParallaxLayer depth={3} className="mt-4">
@@ -289,11 +291,26 @@ export default function Inicio() {
                 <div className="h-full w-full border border-cemento" />
               </ParallaxLayer>
               <div className="relative">
-                <Placeholder
-                  etiqueta="Timelapse de impresión 9:16 — pendiente §14.4"
-                  ratio="9 / 16"
-                  forma="maceta"
-                />
+                {/* §7.1 sección 5: autoplay muted loop playsinline, con
+                    poster y preload="metadata", NUNCA preload="auto".
+                    width/height reservan el hueco: CLS cero. */}
+                <video
+                  className="block h-auto w-full"
+                  width={720}
+                  height={1280}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/medios/timelapse-poster.webp"
+                  aria-label="Timelapse de una impresora 3D construyendo una pieza capa por capa."
+                >
+                  <source src="/medios/timelapse.mp4" type="video/mp4" />
+                </video>
+                <span className="cifra absolute right-2 bottom-2 border border-grafito bg-hueso/95 px-2 py-1 text-[0.625rem] tracking-wide text-grafito uppercase">
+                  Video generado
+                </span>
               </div>
             </div>
           </div>

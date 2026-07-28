@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/motion/Reveal";
 import { Strata } from "@/components/motion/Strata";
+import { Foto } from "@/components/brand/Foto";
 import { Pieza } from "@/components/piezas/Pieza";
 import { TexturaCapas } from "@/components/piezas/TexturaCapas";
 import { Button } from "@/components/ui/button";
@@ -73,9 +74,20 @@ export default function Catalogo() {
                   />
 
                   <div className="absolute inset-0 transition-opacity duration-[120ms] group-hover:opacity-0">
-                    <div className="flex h-full w-full items-center justify-center p-10">
-                      <Pieza forma={p.forma} conCama />
-                    </div>
+                    {p.foto ? (
+                      <Foto
+                        nombre={`catalogo/${p.foto}`}
+                        alt={`${p.nombre}. ${p.descripcion}`}
+                        ancho={900}
+                        alto={900}
+                        sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
+                        className="h-full w-full"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center p-10">
+                        <Pieza forma={p.forma} conCama />
+                      </div>
+                    )}
                   </div>
 
                   <div

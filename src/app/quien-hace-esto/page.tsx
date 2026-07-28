@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Placeholder } from "@/components/brand/Placeholder";
+import { Foto } from "@/components/brand/Foto";
 import { TrustStrip } from "@/components/brand/TrustStrip";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
@@ -84,13 +84,19 @@ export default function QuienHaceEsto() {
         {/* Foto real del espacio de trabajo. Desordenado está bien: es prueba
             de que existe. Nunca una foto de stock (§14). */}
         <div className="space-y-6">
-          <Placeholder
-            etiqueta="Foto del taller, tal como está — pendiente §14.3"
-            ratio="4 / 5"
+          <Foto
+            nombre="taller"
+            alt="Rincón del taller: dos impresoras 3D de escritorio sobre un banco de madera, bobinas de filamento en un estante y herramientas de mano."
+            ancho={1200}
+            alto={1500}
+            sizes="(min-width: 1024px) 34vw, 100vw"
           />
-          <Placeholder
-            etiqueta={`Foto de ${BRAND.founder} — pendiente §14.3`}
-            ratio="1 / 1"
+          <Foto
+            nombre="fundador"
+            alt={`${BRAND.founder}, en el banco de trabajo, midiendo una pieza impresa con un calibrador.`}
+            ancho={1100}
+            alto={1100}
+            sizes="(min-width: 1024px) 34vw, 100vw"
           />
         </div>
       </div>

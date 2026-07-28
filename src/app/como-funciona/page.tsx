@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Placeholder } from "@/components/brand/Placeholder";
+import { Foto } from "@/components/brand/Foto";
 import { PrintReveal } from "@/components/motion/PrintReveal";
 import { Reveal } from "@/components/motion/Reveal";
 import { Strata } from "@/components/motion/Strata";
@@ -214,9 +214,12 @@ export default function ComoFunciona() {
             </p>
           </div>
           <div className="mx-auto w-full max-w-[220px]">
-            <Placeholder
-              etiqueta="Foto del empaque y la guía — pendiente §14.3"
-              ratio="3 / 4"
+            <Foto
+              nombre="empaque"
+              alt="Pieza impresa envuelta en papel kraft dentro de una caja de cartón lista para enviar."
+              ancho={900}
+              alto={1200}
+              sizes="(min-width: 768px) 220px, 60vw"
             />
           </div>
         </div>

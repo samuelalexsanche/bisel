@@ -10,8 +10,10 @@ export type Producto = {
   material: "PLA" | "PETG" | "TPU";
   /** Precio en MXN. */
   precio: number;
-  /** Dibujo técnico de la pieza mientras no exista la foto (§14.3). */
+  /** Dibujo técnico de la pieza, respaldo si no hay foto (§14.3). */
   forma: NombreForma;
+  /** Nombre del archivo en /medios/catalogo, sin extensión. */
+  foto?: string;
   /** Enlace saliente a MercadoLibre o a la tienda. Este sitio no cobra. */
   enlace?: string;
   /**
@@ -40,6 +42,7 @@ export type Producto = {
 export const PRODUCTOS: readonly Producto[] = [
   {
     id: "organizador-escritorio",
+    foto: "organizador-escritorio",
     nombre: "Organizador de escritorio",
     descripcion:
       "Tres compartimentos para plumas, clips y cables. Se apoya sin resbalar.",
@@ -51,6 +54,7 @@ export const PRODUCTOS: readonly Producto[] = [
   },
   {
     id: "soporte-audifonos",
+    foto: "soporte-audifonos",
     nombre: "Soporte para audífonos",
     descripcion:
       "Se atornilla bajo el escritorio y libera la superficie. Aguanta diademas anchas.",
@@ -62,6 +66,7 @@ export const PRODUCTOS: readonly Producto[] = [
   },
   {
     id: "perilla-repuesto",
+    foto: "perilla-repuesto",
     nombre: "Perilla de repuesto",
     descripcion:
       "Para estufas y lavadoras cuyo refaccionario ya cerró. El eje se hace a tu medida.",
@@ -73,6 +78,7 @@ export const PRODUCTOS: readonly Producto[] = [
   },
   {
     id: "maceta-interior",
+    foto: "maceta-interior",
     nombre: "Maceta de paredes rectas",
     descripcion:
       "Con plato integrado, no gotea sobre el mueble. Para suculentas y cactus.",
@@ -84,6 +90,7 @@ export const PRODUCTOS: readonly Producto[] = [
   },
   {
     id: "tope-puerta",
+    foto: "tope-puerta",
     nombre: "Tope de puerta",
     descripcion:
       "Cuña flexible que agarra en piso liso. No raya y no se desliza.",
@@ -95,6 +102,7 @@ export const PRODUCTOS: readonly Producto[] = [
   },
   {
     id: "gancho-pared",
+    foto: "gancho-pared",
     nombre: "Gancho de pared",
     descripcion:
       "Se atornilla o se pega. Probado con 4 kg colgando sin deformarse.",
