@@ -83,7 +83,10 @@ const SITIO = [
     w: 1200,
     h: 1200,
     prompt:
-      "A freshly 3D printed matte bone-white part still sitting on the textured print bed of a desktop 3D printer, close up, visible print layer lines and a faint brim around the base, warm side light from a window.",
+      /* El primer intento devolvió una pieza con forma de engrane, y §13 los
+       prohíbe expresamente junto a robots y circuitos. Se describe la pieza de
+       forma explícita en positivo: el negative prompt por sí solo no bastó. */
+      "A freshly 3D printed matte bone-white rectangular L-shaped mounting bracket with two screw holes, still sitting on the textured print bed of a desktop 3D printer, close up, visible print layer lines and a faint brim around the base, warm side light from a window. The part is a simple flat angular bracket, absolutely not a gear, not a cog, not round, no teeth, no spokes.",
   },
   {
     fase: 2,
