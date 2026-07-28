@@ -1,0 +1,350 @@
+/* ============================================================================
+   Sistema de movimiento — "La página se imprime sola" (§5)
+
+   Reglas que este archivo hace cumplir (§5.4, no negociables):
+     1. Cero librerías de animación.
+     2. CSS scroll-driven animations como técnica base.
+     3. Progressive enhancement: todo lo ligado al scroll va dentro de
+        @supports (animation-timeline: view()). El fallback es un ÚNICO
+        IntersectionObserver compartido que dispara la clase .is-in.
+     4. Solo se animan transform y opacity. Ninguna otra propiedad.
+     5. prefers-reduced-motion: reduce → estado final estático, cero movimiento.
+     6. Móvil <768px: se congelan los planos 0 y 1.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------------------
+   1 · <Reveal> — entrada estándar de bloques de contenido (§5.3)
+   opacity 0→1, translateY 16px→0, 400ms, cubic-bezier(0.2, 0, 0, 1).
+   Sin escala, sin rotación, sin rebote.
+
+   Es una entrada puntual, no un efecto ligado a la posición del scroll, así que
+   se dispara siempre por el IntersectionObserver compartido. Se usa `transition`
+   en lugar de `animation` para que sea interrumpible.
+   ------------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 400ms cubic-bezier(0.2, 0, 0, 1),
+    transform 400ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Escalonado de listas y rejillas. */
+.reveal-d1 {
+  transition-delay: 60ms;
+}
+.reveal-d2 {
+  transition-delay: 120ms;
+}
+.reveal-d3 {
+  transition-delay: 180ms;
+}
+
+/* ---------------------------------------------------------------------------
+   2 · <Strata> — la firma gráfica (§5.3)
+   Líneas horizontales de 1px, separación 12px, en Cemento.
+
+   Nota sobre §4.1 regla 2 ("prohibido: degradados"): esto es
+   repeating-linear-gradient con paradas duras, es decir líneas regladas sin
+   ninguna transición de color. No produce degradado visual; es la forma de
+   dibujar las líneas sin nodos extra en el DOM ni peticiones de red.
+   ------------------------------------------------------------------------ */
+.strata {
+  --strata-alpha: 0.04; /* plano 0 — §5.2 */
+  --strata-sep: 12px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(201 197 188 / var(--strata-alpha)) 0,
+    rgb(201 197 188 / var(--strata-alpha)) 1px,
+    transparent 1px,
+    transparent var(--strata-sep)
+  );
+}
+
+/* Separador entre secciones: mismas líneas, ya no como textura de fondo.
+   Cemento sobre Hueso da 1.53:1 — decorativo únicamente, nunca como único
+   indicador del borde de un control (§4.1.1, consecuencia 2). */
+.strata--separador {
+  --strata-alpha: 1;
+  height: 85px; /* 7 líneas + remate */
+}
+
+/* Barrido de entrada: 6-8 líneas entran desde el borde con stagger de 40ms. */
+.strata-sweep > * {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition:
+    opacity 320ms cubic-bezier(0.2, 0, 0, 1),
+    transform 320ms cubic-bezier(0.2, 0, 0, 1);
+}
+.strata-sweep.is-in > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.strata-sweep > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.strata-sweep > *:nth-child(2) {
+  transition-delay: 40ms;
+}
+.strata-sweep > *:nth-child(3) {
+  transition-delay: 80ms;
+}
+.strata-sweep > *:nth-child(4) {
+  transition-delay: 120ms;
+}
+.strata-sweep > *:nth-child(5) {
+  transition-delay: 160ms;
+}
+.strata-sweep > *:nth-child(6) {
+  transition-delay: 200ms;
+}
+.strata-sweep > *:nth-child(7) {
+  transition-delay: 240ms;
+}
+.strata-sweep > *:nth-child(8) {
+  transition-delay: 280ms;
+}
+
+/* ---------------------------------------------------------------------------
+   3 · <PrintReveal> — la firma del sitio (§5.3)
+
+   El contenido se revela de abajo hacia arriba en 40 bandas discretas: se debe
+   VER el escalón de cada capa, no un barrido continuo. Lo consigue
+   `steps(40, end)` sobre un clip-path animado.
+
+   La boquilla es un div a tamaño completo con borde superior de 2px en Grafito:
+   al trasladarlo con el mismo steps(), su borde queda pegado al canto de lo ya
+   impreso sin necesidad de conocer la altura del contenedor.
+   ------------------------------------------------------------------------ */
+.print {
+  position: relative;
+  display: block;
+}
+
+.print__cuerpo {
+  clip-path: inset(100% 0 0 0);
+}
+
+.print__boquilla {
+  position: absolute;
+  inset: 0;
+  border-top: 2px solid var(--color-grafito);
+  transform: translate3d(0, 100%, 0);
+  pointer-events: none;
+}
+
+@keyframes print-capas {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0% 0 0 0);
+  }
+}
+
+@keyframes print-boquilla {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Al completarse, la línea desaparece (§5.3). */
+@keyframes print-boquilla-fin {
+  0%,
+  93% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Fallback sin soporte de scroll-driven: el IO comparte la clase .is-in y la
+   impresión corre en tiempo. Se conserva el escalonado de 40 capas. */
+.print.is-in .print__cuerpo {
+  animation: print-capas 1400ms steps(40, end) both;
+}
+.print.is-in .print__boquilla {
+  animation:
+    print-boquilla 1400ms steps(40, end) both,
+    print-boquilla-fin 1400ms linear both;
+}
+
+@supports (animation-timeline: view()) {
+  /* Con soporte nativo, la progresión se liga al scroll y se ignora el estado
+     del IntersectionObserver. */
+  .print .print__cuerpo,
+  .print.is-in .print__cuerpo {
+    animation: print-capas linear both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 65%;
+    animation-timing-function: steps(40, end);
+  }
+
+  .print .print__boquilla,
+  .print.is-in .print__boquilla {
+    animation:
+      print-boquilla linear both,
+      print-boquilla-fin linear both;
+    animation-timeline: view(), view();
+    animation-range:
+      entry 15% cover 65%,
+      entry 15% cover 65%;
+    animation-timing-function: steps(40, end), linear;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   4 · <DimensionLine> — cotas estilo plano técnico (§5.3)
+
+   §5.3 sugiere stroke-dasharray/stroke-dashoffset, pero §5.4 regla 4 prohíbe
+   animar cualquier propiedad que no sea transform u opacity, y esa regla está
+   marcada como no negociable. Para una línea recta, scaleX() desde
+   transform-origin:left es visualmente idéntico al trazo por dashoffset, así
+   que se dibuja con transform y la regla dura queda intacta.
+   ------------------------------------------------------------------------ */
+.cota__linea {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 520ms cubic-bezier(0.2, 0, 0, 1);
+}
+.cota.is-in .cota__linea {
+  transform: scaleX(1);
+}
+
+/* Cota vertical — para el alto de la pieza. */
+.cota--v .cota__linea {
+  transform: scaleY(0);
+  transform-origin: center top;
+}
+.cota--v.is-in .cota__linea {
+  transform: scaleY(1);
+}
+
+/* Topes de los extremos y cifra central: entran cuando la línea ya llegó. */
+.cota__tope,
+.cota__cifra {
+  opacity: 0;
+  transition: opacity 200ms linear;
+}
+.cota.is-in .cota__tope {
+  opacity: 1;
+  transition-delay: 460ms;
+}
+.cota.is-in .cota__cifra {
+  opacity: 1;
+  transition-delay: 520ms;
+}
+
+/* ---------------------------------------------------------------------------
+   5 · <ParallaxLayer depth={0|1|3}> — las cuatro profundidades (§5.2)
+
+   Un solo keyframe: el signo de --par-amp codifica la dirección.
+   Planos 0 y 1 van más lentos que el contenido, así que se desplazan hacia
+   abajo respecto de él (amplitud positiva). El plano 3 (cotas) va MÁS RÁPIDO
+   que el contenido — amplitud negativa — y eso es lo que produce la sensación
+   de acetato flotando por delante del objeto.
+
+   Solo se anima transform (§5.4.4). No hay listener de scroll (§5.4.3):
+   sin soporte de view-timeline los planos quedan estáticos, que es la
+   degradación aceptable y coincide con el congelado en móvil.
+   ------------------------------------------------------------------------ */
+@keyframes par-desplaza {
+  from {
+    transform: translate3d(0, calc(-1 * var(--par-amp)), 0);
+  }
+  to {
+    transform: translate3d(0, var(--par-amp), 0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  /* §5.4.6 — el parallax entero solo existe en ≥768px.
+     La regla dice literalmente "los planos 0 y 1 se congelan; solo sobreviven
+     PrintReveal y Reveal". Las dos mitades de la frase no coinciden respecto al
+     plano 3, así que se aplica la lectura que cumple ambas: ningún plano de
+     parallax se mueve en móvil. Coincide además con el motivo declarado — más
+     del 70% del tráfico es móvil y el parallax multiplano es el camino más
+     rápido a un INP malo. */
+  @media (min-width: 768px) {
+    .par {
+      animation: par-desplaza linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+      will-change: transform;
+    }
+    .par[data-depth="0"] {
+      --par-amp: 7%; /* estratos — 0.15x */
+    }
+    .par[data-depth="1"] {
+      --par-amp: 4.5%; /* superficie — 0.40x */
+    }
+    .par[data-depth="3"] {
+      --par-amp: -1.4%; /* cotas — 1.12x, dirección invertida */
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   6 · prefers-reduced-motion — §5.4.5
+   Estado final estático. No "movimiento suave": cero. Es un requisito de
+   accesibilidad (criterio 5), no una preferencia estética.
+   ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-in,
+  .strata-sweep > *,
+  .strata-sweep.is-in > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+
+  .print__cuerpo,
+  .print.is-in .print__cuerpo {
+    clip-path: none;
+    animation: none;
+  }
+
+  /* La boquilla es puro adorno de proceso: sin movimiento no significa nada. */
+  .print__boquilla,
+  .print.is-in .print__boquilla {
+    display: none;
+    animation: none;
+  }
+
+  .cota__linea,
+  .cota.is-in .cota__linea,
+  .cota--v .cota__linea,
+  .cota--v.is-in .cota__linea {
+    transform: none;
+    transition: none;
+  }
+  .cota__tope,
+  .cota__cifra,
+  .cota.is-in .cota__tope,
+  .cota.is-in .cota__cifra {
+    opacity: 1;
+    transition: none;
+    transition-delay: 0ms;
+  }
+
+  .par,
+  .par[data-depth="0"],
+  .par[data-depth="1"],
+  .par[data-depth="3"] {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+}

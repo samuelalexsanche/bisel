@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "./motion.css";
+
+@source "../";
+
+/* ============================================================================
+   Design tokens — §4 del spec.
+   Configuración CSS-first de Tailwind v4. No existe tailwind.config.js.
+   ========================================================================= */
+@theme {
+  /* ---- Color — §4.1. NO agregar colores que no estén en esta lista. ---- */
+  --color-hueso: #f4f1ea; /* Base — 60% de cada pantalla */
+  --color-grafito: #1c1e1f; /* Estructura — 25%, títulos y cuerpo */
+  --color-arcilla: #c0492c; /* Acento — 10%, UN solo elemento por vista */
+  --color-cemento: #c9c5bc; /* Apoyo — 5%, bordes y separadores */
+
+  --color-texto-secundario: #4a4e50;
+  --color-arcilla-oscura: #93361f; /* hover, pressed y texto pequeño en acento */
+  --color-arcilla-suave: #f7e9e4; /* fondo de avisos */
+  --color-blanco: #ffffff; /* SOLO foto de producto recortada */
+
+  /* ---- Tipografía — §4.2 ---- */
+  --font-titulo: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
+  --font-cuerpo: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+
+  /* Escala fluida: el mínimo del rango a 375px, el máximo a 1200px. */
+  --text-h1: clamp(3rem, 2.773rem + 0.97vw, 3.5rem); /* 48 → 56 */
+  --text-h1--line-height: 1.1;
+  --text-h1--font-weight: 700;
+
+  --text-h2: clamp(2rem, 1.886rem + 0.485vw, 2.25rem); /* 32 → 36 */
+  --text-h2--line-height: 1.2;
+  --text-h2--font-weight: 700;
+
+  --text-h3: clamp(1.375rem, 1.318rem + 0.242vw, 1.5rem); /* 22 → 24 */
+  --text-h3--line-height: 1.3;
+  --text-h3--font-weight: 600;
+
+  --text-cuerpo: clamp(1.0625rem, 1.034rem + 0.121vw, 1.125rem); /* 17 → 18 */
+  --text-cuerpo--line-height: 1.6;
+
+  --text-detalle: 0.875rem; /* 14 */
+  --text-detalle--line-height: 1.5;
+
+  /* ---- Layout — §4.3 ---- */
+  --container-contenido: 1200px;
+
+  /* ---- Esquinas rectas, sin excepción — §4.1 / §4.3 / criterio 9 ----
+     Se anula toda la escala de radios para que ninguna utilidad de Tailwind
+     ni ningún componente de shadcn pueda reintroducir un redondeo. */
+  --radius: 0px;
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  /* ---- Sombras difusas prohibidas — §4.1 regla 2 / criterio 9 ----
+     Igual que los radios: se anulan en el token para que la regla la haga
+     cumplir el código y no el criterio de quien escriba el componente. */
+  --shadow-2xs: none;
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
+}
+
+/* ============================================================================
+   Alias semánticos para shadcn/ui — §11.
+   NO introducen ni un color nuevo: son punteros a la paleta del §4.1.
+   Los bordes de control apuntan a texto-secundario (7.46:1) y no a Cemento
+   (1.53:1), que no pasa el mínimo de 3:1 de WCAG 2.2 (§4.1.1, consecuencia 2).
+   ========================================================================= */
+:root {
+  --background: var(--color-hueso);
+  --foreground: var(--color-grafito);
+  --card: var(--color-hueso);
+  --card-foreground: var(--color-grafito);
+  --popover: var(--color-hueso);
+  --popover-foreground: var(--color-grafito);
+  --primary: var(--color-grafito);
+  --primary-foreground: var(--color-hueso);
+  --secondary: var(--color-cemento);
+  --secondary-foreground: var(--color-grafito);
+  --muted: var(--color-cemento);
+  --muted-foreground: var(--color-texto-secundario);
+  --accent: var(--color-arcilla);
+  --accent-foreground: var(--color-blanco);
+  --destructive: var(--color-arcilla-oscura);
+  --destructive-foreground: var(--color-blanco);
+  --border: var(--color-texto-secundario);
+  --input: var(--color-texto-secundario);
+  --ring: var(--color-grafito);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* §5.4.8 — nada de scroll suave forzado. El usuario manda sobre su scroll. */
+  }
+
+  body {
+    background-color: var(--color-hueso);
+    color: var(--color-grafito);
+    font-family: var(--font-cuerpo);
+    font-size: var(--text-cuerpo);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-titulo);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* §5.5 — foco de teclado: contorno 2px Grafito, 2px de offset, siempre visible. */
+  :focus-visible {
+    outline: 2px solid var(--color-grafito);
+    outline-offset: 2px;
+  }
+
+  /* Sobre fondo Grafito el contorno Grafito sería invisible: se invierte a Hueso.
+     Contraste Hueso/Grafito = 14.84:1. */
+  .sobre-grafito :focus-visible {
+    outline-color: var(--color-hueso);
+  }
+
+  ::selection {
+    background-color: var(--color-arcilla);
+    color: var(--color-blanco);
+  }
+}
+
+/* ============================================================================
+   Utilidades de proyecto
+   ========================================================================= */
+
+/* Rejilla de contenido — máx. 1200px, gutter 24px (§4.3). */
+@utility contenido {
+  width: 100%;
+  max-width: var(--container-contenido);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Ancho máximo de línea 65-75 caracteres (§4.2). Nunca justificado. */
+@utility medida {
+  max-width: 68ch;
+  text-align: left;
+}
+
+/* Cifras destacadas: medidas, pesos, tiempos, precios (§4.2). */
+@utility cifra {
+  font-family: var(--font-titulo);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* §5.4.7 — content-visibility en toda sección bajo el fold.
+   contain-intrinsic-size reserva altura para que no cueste CLS. */
+@utility bajo-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}

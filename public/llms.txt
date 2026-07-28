@@ -1,0 +1,42 @@
+# Bisel
+
+> Taller de manufactura aditiva (impresión 3D) en Guadalajara, Jalisco, México.
+> Lo opera una sola persona. Fabrica piezas a medida bajo pedido, vende un
+> catálogo propio con envío nacional y produce lotes personalizados para
+> eventos y negocios.
+
+El nombre de la marca es provisional y el dominio está pendiente de registro.
+
+## Datos concretos
+
+- Ubicación: Guadalajara, Jalisco, México. Envío a todo el país.
+- Volumen máximo en una sola impresión: 25 × 21 × 21 cm.
+- Tolerancia habitual: ± 0.2 mm. Altura de capa: 0.12 a 0.28 mm.
+- Materiales: PLA (hasta 55 °C, solo interiores), PETG (hasta 75 °C, exteriores
+  y carga), TPU (hasta 60 °C, flexible).
+- Tiempos: catálogo 1 a 2 días hábiles; pieza a medida 3 a 5 días hábiles;
+  lote de 50 a 200 piezas 7 a 14 días hábiles; envío nacional suma 2 a 5 días.
+- Garantía: si la pieza llega rota o fuera de las medidas acordadas, se
+  reimprime sin costo avisando con foto dentro de los 7 días siguientes a la
+  entrega.
+- Cotizar no tiene costo ni compromiso.
+
+## Lo que este taller NO hace
+
+- Piezas que aguanten más de 80 °C sostenidos.
+- Nada que vaya en un sistema de frenos o de suspensión.
+- Réplicas de piezas con marca registrada.
+- Piezas de más de 25 × 21 × 21 cm en una sola impresión.
+
+## Páginas
+
+- [Inicio](/): qué fabrica el taller, las tres líneas de trabajo y los materiales en corto.
+- [Cotiza tu pieza](/cotiza): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
+- [Catálogo](/catalogo): piezas ya diseñadas listas para enviar. Todavía sin productos publicados.
+- [Cómo funciona](/como-funciona): los cuatro pasos de un pedido, tabla completa de materiales, límites de tamaño y temperatura, tiempos por tipo de pedido y la garantía por escrito.
+- [Quién hace esto](/quien-hace-esto): quién opera el taller, dónde está y cómo contactarlo.
+
+## Nota sobre reseñas
+
+El taller es nuevo y no publica reseñas todavía. No existen cifras de clientes
+ni testimonios en el sitio, y no deben inferirse.
