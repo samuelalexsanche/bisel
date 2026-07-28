@@ -55,15 +55,27 @@
    dibujar las líneas sin nodos extra en el DOM ni peticiones de red.
    ------------------------------------------------------------------------ */
 .strata {
-  --strata-alpha: 0.04; /* plano 0 — §5.2 */
+  /* Color de las líneas.
+     Cemento sobre Hueso da 1.53:1 — con eso la textura no se percibe y la
+     sección se lee como papel en blanco. Sobre superficies claras las líneas
+     van en texto-secundario (7.46:1), que sí se ve como estrato. Sobre Grafito
+     se invierte a Cemento (9.72:1). Ninguno es color nuevo: son los tokens del
+     §4.1, cambia la superficie. */
+  --strata-rgb: 74 78 80; /* texto-secundario */
+  --strata-alpha: 0.1;
   --strata-sep: 12px;
   background-image: repeating-linear-gradient(
     to bottom,
-    rgb(201 197 188 / var(--strata-alpha)) 0,
-    rgb(201 197 188 / var(--strata-alpha)) 1px,
+    rgb(var(--strata-rgb) / var(--strata-alpha)) 0,
+    rgb(var(--strata-rgb) / var(--strata-alpha)) 1px,
     transparent 1px,
     transparent var(--strata-sep)
   );
+}
+
+/* Sobre Grafito las líneas se invierten para seguir existiendo. */
+.strata--oscuro {
+  --strata-rgb: 201 197 188; /* cemento */
 }
 
 /* Separador entre secciones: mismas líneas, ya no como textura de fondo.
@@ -282,14 +294,19 @@
       animation-range: cover 0% cover 100%;
       will-change: transform;
     }
+    /* Amplitudes.
+       Las anteriores (7% / 4.5% / -1.4%) eran tan pequeñas que el
+       desplazamiento no se percibía y los cuatro planos se leían como uno.
+       Se suben hasta que la profundidad se note de verdad, manteniendo la
+       proporción entre planos que fija el §5.2. */
     .par[data-depth="0"] {
-      --par-amp: 7%; /* estratos — 0.15x */
+      --par-amp: 16%; /* estratos — 0.15x */
     }
     .par[data-depth="1"] {
-      --par-amp: 4.5%; /* superficie — 0.40x */
+      --par-amp: 9%; /* superficie — 0.40x */
     }
     .par[data-depth="3"] {
-      --par-amp: -1.4%; /* cotas — 1.12x, dirección invertida */
+      --par-amp: -3.5%; /* cotas — 1.12x, dirección invertida */
     }
   }
 }

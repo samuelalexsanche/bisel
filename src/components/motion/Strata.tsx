@@ -6,14 +6,16 @@ type Props = {
    * `separador` — líneas visibles entre secciones (§5.3).
    */
   variante?: "fondo" | "separador";
+  /** Sobre Grafito las líneas se invierten a Cemento para seguir viéndose. */
+  oscuro?: boolean;
   /**
    * Opacidad de las líneas.
    *
-   * §5.2 fija el plano 0 en 0.04, pero Cemento al 4% sobre Hueso da una
-   * diferencia que no se percibe: el plano deja de existir para el ojo y la
-   * sección se lee plana. Se sube donde los estratos tienen que leerse como
-   * textura de verdad. Siguen siendo Cemento y siguen siendo decorativos, así
-   * que la regla de contraste del §4.1.1 se respeta igual.
+   * §5.2 fija el plano 0 en 0.04. Con el color corregido a texto-secundario
+   * (7.46:1 sobre Hueso en vez de 1.53:1) hace falta menos alfa para que la
+   * textura exista, pero 0.04 sigue siendo invisible. Se sube donde los
+   * estratos tienen que leerse. Siguen siendo decorativos, así que la regla
+   * del §4.1.1 se respeta igual.
    */
   intensidad?: number;
   /** Separación entre líneas. §5.3 la fija en 12px. */
@@ -23,11 +25,12 @@ type Props = {
 
 export function Strata({
   variante = "fondo",
+  oscuro = false,
   intensidad,
   separacion,
   className,
 }: Props) {
-  const alpha = intensidad ?? (variante === "separador" ? 1 : 0.22);
+  const alpha = intensidad ?? (variante === "separador" ? 0.9 : 0.11);
 
   return (
     <div
@@ -40,6 +43,7 @@ export function Strata({
       }
       className={cn(
         "strata pointer-events-none",
+        oscuro && "strata--oscuro",
         variante === "separador" && "strata--separador",
         className,
       )}

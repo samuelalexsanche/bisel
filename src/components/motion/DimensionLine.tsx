@@ -7,6 +7,8 @@ type Props = {
   /** La medida real, con unidad. Ej. "18.4 cm". */
   medida: string;
   orientacion?: "horizontal" | "vertical";
+  /** Sobre superficie Grafito la cota se invierte a Hueso para seguir viéndose. */
+  invertido?: boolean;
   className?: string;
 };
 
@@ -24,10 +26,12 @@ type Props = {
 export function DimensionLine({
   medida,
   orientacion = "horizontal",
+  invertido = false,
   className,
 }: Props) {
   const ref = useMotion<HTMLDivElement>();
   const esVertical = orientacion === "vertical";
+  const trazo = invertido ? "bg-hueso" : "bg-grafito";
 
   return (
     <div
@@ -44,7 +48,8 @@ export function DimensionLine({
       <span
         aria-hidden="true"
         className={cn(
-          "cota__tope shrink-0 bg-grafito",
+          "cota__tope shrink-0",
+          trazo,
           esVertical ? "h-px w-3" : "h-3 w-px",
         )}
       />
@@ -54,14 +59,15 @@ export function DimensionLine({
         aria-hidden="true"
         className={cn("relative flex-1", esVertical ? "w-px" : "h-px")}
       >
-        <span className="cota__linea absolute inset-0 block bg-grafito" />
+        <span className={cn("cota__linea absolute inset-0 block", trazo)} />
       </span>
 
       {/* Tope final */}
       <span
         aria-hidden="true"
         className={cn(
-          "cota__tope shrink-0 bg-grafito",
+          "cota__tope shrink-0",
+          trazo,
           esVertical ? "h-px w-3" : "h-3 w-px",
         )}
       />
@@ -70,7 +76,10 @@ export function DimensionLine({
           línea no la atraviese. Grafito sobre Hueso = 14.84:1. */}
       <span
         aria-hidden="true"
-        className="cota__cifra cifra absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-hueso px-2 text-detalle text-grafito"
+        className={cn(
+          "cota__cifra cifra absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-2 text-detalle",
+          invertido ? "bg-grafito text-hueso" : "bg-hueso text-grafito",
+        )}
       >
         {medida}
       </span>
