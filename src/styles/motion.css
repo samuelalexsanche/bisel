@@ -365,3 +365,121 @@
     will-change: auto;
   }
 }
+
+/* ============================================================================
+   7 · Pantalla de carga — el logo se imprime
+   CSS puro y sin JavaScript: con JS desactivado también desaparece sola, así
+   que no puede dejar el sitio tapado (criterio 10).
+   ========================================================================= */
+.carga {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-hueso);
+  animation: carga-salir 1150ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@keyframes carga-salir {
+  0%,
+  74% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    /* Estado discreto, no una propiedad animada: al terminar deja de existir
+       para el ratón y para el teclado. */
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+/* El wordmark se imprime en las mismas 40 bandas que el resto del sitio. */
+.carga__marca {
+  clip-path: inset(100% 0 0 0);
+  animation: print-capas 820ms steps(40, end) forwards;
+}
+
+/* La boquilla recorre el wordmark y se apaga al terminar. */
+.carga__boquilla {
+  transform: translate3d(0, 100%, 0);
+  animation:
+    print-boquilla 820ms steps(40, end) forwards,
+    print-boquilla-fin 820ms linear forwards;
+}
+
+/* Barra de avance de la impresión del logo. */
+.carga__barra {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: carga-barra 820ms steps(40, end) forwards;
+}
+
+@keyframes carga-barra {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ============================================================================
+   8 · Progreso de impresión ligado al scroll
+   §4.1 regla 3 — va en GRAFITO, nunca en Arcilla: si fuera Arcilla consumiría
+   el único acento permitido en cada vista.
+   ========================================================================= */
+.progreso__barra {
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.contador__cinta {
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes progreso-llenar {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* La cinta de números sube hasta dejar el último a la vista. Son 41 números
+   (000 a 040) de 1em cada uno, así que el recorrido es de 40em. */
+@keyframes contador-avanzar {
+  to {
+    transform: translate3d(0, calc(-100% + (100% / 41)), 0);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .progreso__barra {
+    animation: progreso-llenar linear both;
+    animation-timeline: scroll(root block);
+  }
+  .contador__cinta {
+    animation: contador-avanzar linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+/* ============================================================================
+   Reduced motion — §5.4.5. Cero movimiento, estado final utilizable.
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  /* La pantalla de carga es puro proceso: sin movimiento no comunica nada y
+     solo retrasaría el contenido. Se elimina entera. */
+  .carga {
+    display: none;
+  }
+
+  .progreso__barra,
+  .contador__cinta {
+    animation: none;
+  }
+  /* El riel se queda lleno y el contador en la última capa: estado final. */
+  .progreso__barra {
+    transform: scaleY(1);
+  }
+  .contador__cinta {
+    transform: translate3d(0, calc(-100% + (100% / 41)), 0);
+  }
+}

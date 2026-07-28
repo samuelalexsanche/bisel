@@ -10,6 +10,7 @@ import { PrintReveal } from "@/components/motion/PrintReveal";
 import { Reveal } from "@/components/motion/Reveal";
 import { Strata } from "@/components/motion/Strata";
 import { Pieza } from "@/components/piezas/Pieza";
+import { Trayectoria } from "@/components/piezas/Trayectoria";
 import { TexturaCapas } from "@/components/piezas/TexturaCapas";
 import { Reviews } from "@/components/sections/Reviews";
 import { Button } from "@/components/ui/button";
@@ -152,6 +153,8 @@ export default function Inicio() {
       {/* ═══════════ 2 · Producto en contexto ═══════════ */}
       <Seccion tono="cemento" titulaPor="en-contexto">
         <div className="contenido bajo-fold py-20">
+          {/* El rastro que deja la boquilla al rellenar una capa. */}
+          <Trayectoria className="mb-12 opacity-70" />
           <Reveal>
             <Numeral n="02" />
             <h2 id="en-contexto" className="mt-3 font-titulo text-h2">
@@ -255,40 +258,43 @@ export default function Inicio() {
         intensidadEstratos={0.4}
         titulaPor="proceso"
       >
-        <div className="contenido bajo-fold grid items-center gap-14 py-24 md:grid-cols-2">
-          <Reveal>
-            <Numeral n="05" oscuro />
-            <h2 id="proceso" className="mt-3 font-titulo text-h2">
-              Esto es una impresora, no un catálogo de stock
-            </h2>
-            {/* Cemento sobre Grafito = 9.72:1. El token texto-secundario daría
+        <div className="contenido bajo-fold py-24">
+          <Trayectoria oscuro className="mb-14 opacity-80" />
+          <div className="grid items-center gap-14 md:grid-cols-2">
+            <Reveal>
+              <Numeral n="05" oscuro />
+              <h2 id="proceso" className="mt-3 font-titulo text-h2">
+                Esto es una impresora, no un catálogo de stock
+              </h2>
+              {/* Cemento sobre Grafito = 9.72:1. El token texto-secundario daría
                 1.99:1 aquí y no pasaría AA. */}
-            <p className="medida mt-4 text-cemento">
-              Cada pieza se fabrica cuando la pides. Por eso puedo cambiarle las
-              medidas.
-            </p>
-            <p className="medida mt-4 text-detalle text-cemento">
-              Ninguna de estas piezas está en un almacén esperando. La tuya
-              empieza a existir el día que la pides.
-            </p>
-          </Reveal>
+              <p className="medida mt-4 text-cemento">
+                Cada pieza se fabrica cuando la pides. Por eso puedo cambiarle
+                las medidas.
+              </p>
+              <p className="medida mt-4 text-detalle text-cemento">
+                Ninguna de estas piezas está en un almacén esperando. La tuya
+                empieza a existir el día que la pides.
+              </p>
+            </Reveal>
 
-          {/* Video vertical 9:16 del timelapse. Ruido de taller real, sin música.
+            {/* Video vertical 9:16 del timelapse. Ruido de taller real, sin música.
               PENDIENTE §14.4 — mientras no exista, el hueco lleva la relación de
               aspecto correcta para que no haya salto de layout al montarlo.
 
               Cuando llegue: autoplay muted loop playsinline, con poster y
               preload="metadata", NUNCA preload="auto" (§7.1 sección 5). */}
-          <div className="relative mx-auto w-full max-w-[19rem]">
-            <ParallaxLayer depth={1} className="absolute -inset-5">
-              <div className="h-full w-full border border-cemento" />
-            </ParallaxLayer>
-            <div className="relative">
-              <Placeholder
-                etiqueta="Timelapse de impresión 9:16 — pendiente §14.4"
-                ratio="9 / 16"
-                forma="maceta"
-              />
+            <div className="relative mx-auto w-full max-w-[19rem]">
+              <ParallaxLayer depth={1} className="absolute -inset-5">
+                <div className="h-full w-full border border-cemento" />
+              </ParallaxLayer>
+              <div className="relative">
+                <Placeholder
+                  etiqueta="Timelapse de impresión 9:16 — pendiente §14.4"
+                  ratio="9 / 16"
+                  forma="maceta"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -2,8 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 
 import { JsonLd } from "@/components/JsonLd";
+import { Cargando } from "@/components/layout/Cargando";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { ProgresoImpresion } from "@/components/layout/ProgresoImpresion";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { BASE_URL, BRAND, ES_PREVIEW } from "@/lib/brand";
 import { schemaNegocio } from "@/lib/schema";
@@ -70,6 +72,7 @@ export default function RootLayout({
         <noscript>
           <style>{`
             .reveal,.strata-sweep>*{opacity:1!important;transform:none!important}
+            .carga{display:none!important}
             .cota__linea{transform:none!important}
             .cota__tope,.cota__cifra{opacity:1!important}
             @supports not (animation-timeline: view()){
@@ -88,10 +91,14 @@ export default function RootLayout({
           Saltar al contenido
         </a>
 
+        {/* Se imprime la marca antes de que exista la página (§5.1). */}
+        <Cargando />
+
         <JsonLd datos={schemaNegocio()} />
         <Header />
         {children}
         <Footer />
+        <ProgresoImpresion />
         <WhatsAppFloat />
       </body>
     </html>
