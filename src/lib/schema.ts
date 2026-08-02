@@ -33,6 +33,35 @@ export function schemaNegocio() {
       addressRegion: BRAND.state,
       addressCountry: BRAND.country,
     },
+    /* Coordenadas a nivel de CIUDAD, no de puerta.
+       El taller declara Guadalajara pero no publica dirección de calle, así que
+       poner un punto exacto sería inventarlo. Google acepta geo de ciudad para
+       negocios de servicio sin local a pie de calle. */
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 20.6597,
+      longitude: -103.3496,
+    },
+
+    /* El cierre a las 19:00 NO está inventado: sale del texto del §7.2 —
+       "si llega después de las 7 pm, al día siguiente por la mañana".
+       PENDIENTE: la hora de apertura sí hay que confirmarla con Samuel. */
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "09:00",
+        closes: "19:00",
+      },
+    ],
+
     // PENDIENTE §14.7 — sin ficha de Google Business verificada, el schema
     // LocalBusiness por sí solo NO habilita el paquete local. Hacen falta las
     // dos cosas (§8.2).
@@ -40,9 +69,42 @@ export function schemaNegocio() {
       { "@type": "City", name: BRAND.city },
       { "@type": "Country", name: "México" },
     ],
-    priceRange: "$$",
+    priceRange: "$180-$9000 MXN",
+    currenciesAccepted: "MXN",
+
+    /* `image` y `logo` los usa Google en resultados locales y en el panel de
+       conocimiento. Apuntan a la imagen Open Graph, que se genera en el build. */
+    image: url("/opengraph-image"),
+    logo: url("/opengraph-image"),
+
+    /* Materia sobre la que el negocio es competente. Ayuda a los motores
+       generativos a decidir cuándo citarlo (§9). Todo sale del contenido real
+       del sitio, nada inventado. */
+    knowsAbout: [
+      "Impresión 3D",
+      "Manufactura aditiva",
+      "Refacciones a medida",
+      "PLA",
+      "PETG",
+      "TPU",
+      "Prototipado",
+    ],
+
     founder: { "@id": ID_FUNDADOR },
     ...(REDES.length > 0 ? { sameAs: REDES } : {}),
+  };
+}
+
+/** WebSite — declara el sitio como entidad propia, distinta del negocio. */
+export function schemaSitio() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": url("/#sitio"),
+    url: BASE_URL,
+    name: BRAND.name,
+    inLanguage: "es-MX",
+    publisher: { "@id": ID_NEGOCIO },
   };
 }
 
@@ -66,16 +128,22 @@ export function schemaServicios() {
       name: "Catálogo de piezas impresas en 3D",
       description:
         "Piezas ya diseñadas, listas para enviar a todo México. Organizadores, soportes y objetos para la casa.",
+      min: 180,
+      max: 450,
     },
     {
       name: "Piezas a medida bajo pedido",
       description:
         "Refacciones y piezas que ya no se fabrican, hechas a partir de una foto y unas medidas. De 3 a 5 días hábiles.",
+      min: 350,
+      max: 1800,
     },
     {
       name: "Personalizados para eventos y negocios",
       description:
         "Lotes de 50 a 200 piezas para bodas, XV años y eventos de empresa. De 7 a 14 días hábiles.",
+      min: 1500,
+      max: 9000,
     },
   ];
 
@@ -87,6 +155,17 @@ export function schemaServicios() {
     provider: { "@id": ID_NEGOCIO },
     areaServed: { "@type": "Country", name: "México" },
     serviceType: "Manufactura aditiva",
+    /* Rangos reales del §1. Un `Offer` con precio concreto sería inventarlo:
+       estos servicios se cotizan, así que va `PriceSpecification` con rango. */
+    offers: {
+      "@type": "Offer",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        minPrice: s.min,
+        maxPrice: s.max,
+        priceCurrency: "MXN",
+      },
+    },
   }));
 }
 

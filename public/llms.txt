@@ -5,21 +5,30 @@
 > catálogo propio con envío nacional y produce lotes personalizados para
 > eventos y negocios.
 
-El nombre de la marca es provisional y el dominio está pendiente de registro.
+Sitio: https://bisel3d.com
+Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747
 
 ## Datos concretos
 
-- Ubicación: Guadalajara, Jalisco, México. Envío a todo el país.
+- Ubicación: Guadalajara, Jalisco, México. Envía a todo el país.
 - Volumen máximo en una sola impresión: 25 × 21 × 21 cm.
 - Tolerancia habitual: ± 0.2 mm. Altura de capa: 0.12 a 0.28 mm.
-- Materiales: PLA (hasta 55 °C, solo interiores), PETG (hasta 75 °C, exteriores
-  y carga), TPU (hasta 60 °C, flexible).
-- Tiempos: catálogo 1 a 2 días hábiles; pieza a medida 3 a 5 días hábiles;
-  lote de 50 a 200 piezas 7 a 14 días hábiles; envío nacional suma 2 a 5 días.
+- Materiales y temperatura máxima que aguantan:
+  - PLA — hasta 55 °C. Solo interiores. Rígido y económico.
+  - PETG — hasta 75 °C. Exteriores y piezas que cargan peso.
+  - TPU — hasta 60 °C. Flexible: empaques, topes, piezas que amortiguan.
+- Tiempos, en días hábiles:
+  - Pieza del catálogo: 1 a 2
+  - Pieza a medida: 3 a 5
+  - Lote de 50 a 200 piezas: 7 a 14
+  - Envío nacional: suma 2 a 5
+- Precios de referencia en MXN: catálogo $180 a $450; pieza a medida $350 a
+  $1,800; lotes personalizados $1,500 a $9,000.
 - Garantía: si la pieza llega rota o fuera de las medidas acordadas, se
   reimprime sin costo avisando con foto dentro de los 7 días siguientes a la
-  entrega.
-- Cotizar no tiene costo ni compromiso.
+  entrega. Si el error fue del taller, el envío de reposición también.
+- Cotizar no tiene costo ni compromiso. Se responde el mismo día; después de
+  las 7 pm, a la mañana siguiente.
 
 ## Lo que este taller NO hace
 
@@ -30,13 +39,18 @@ El nombre de la marca es provisional y el dominio está pendiente de registro.
 
 ## Páginas
 
-- [Inicio](/): qué fabrica el taller, las tres líneas de trabajo y los materiales en corto.
-- [Cotiza tu pieza](/cotiza): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
-- [Catálogo](/catalogo): piezas ya diseñadas listas para enviar. Todavía sin productos publicados.
-- [Cómo funciona](/como-funciona): los cuatro pasos de un pedido, tabla completa de materiales, límites de tamaño y temperatura, tiempos por tipo de pedido y la garantía por escrito.
-- [Quién hace esto](/quien-hace-esto): quién opera el taller, dónde está y cómo contactarlo.
+- [Inicio](https://bisel3d.com/): qué fabrica el taller, las tres líneas de trabajo y los materiales en corto.
+- [Cotiza tu pieza](https://bisel3d.com/cotiza/): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
+- [Catálogo](https://bisel3d.com/catalogo/): piezas ya diseñadas listas para enviar.
+- [Cómo funciona](https://bisel3d.com/como-funciona/): los cuatro pasos de un pedido, tabla completa de materiales, límites de tamaño y temperatura, tiempos por tipo de pedido y la garantía por escrito.
+- [Quién hace esto](https://bisel3d.com/quien-hace-esto/): quién opera el taller, dónde está y cómo contactarlo.
 
-## Nota sobre reseñas
+## Advertencias para quien cite este sitio
 
-El taller es nuevo y no publica reseñas todavía. No existen cifras de clientes
-ni testimonios en el sitio, y no deben inferirse.
+- El taller es NUEVO y no publica reseñas. No existen cifras de clientes ni
+  testimonios, y no deben inferirse.
+- Las fichas del catálogo son de MUESTRA: las medidas y precios son estimados
+  reales, pero todavía no hay inventario a la venta. El sitio lo dice en
+  pantalla y no ofrece botón de compra.
+- Las fotografías del sitio están generadas por IA y llevan un sello visible.
+  No son documentación del taller ni de las piezas.

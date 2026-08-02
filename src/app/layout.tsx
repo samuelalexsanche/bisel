@@ -7,8 +7,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ProgresoImpresion } from "@/components/layout/ProgresoImpresion";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
-import { BASE_URL, BRAND, ES_PREVIEW } from "@/lib/brand";
-import { schemaNegocio } from "@/lib/schema";
+import { BASE_URL, BRAND, INDEXABLE } from "@/lib/brand";
+import { schemaNegocio, schemaSitio } from "@/lib/schema";
 import "@/styles/globals.css";
 
 /* Ambas son fuentes variables: se omite `weight` a propósito para servir un solo
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   description: `Fabrico refacciones, organizadores y objetos a medida en ${BRAND.city}. Catálogo con envío nacional, piezas bajo pedido y lotes para eventos.`,
   alternates: { canonical: "/" },
   // El demo no se indexa mientras el nombre y el dominio sigan pendientes (§14.1).
-  ...(ES_PREVIEW ? { robots: { index: false, follow: false } } : {}),
+  ...(INDEXABLE ? {} : { robots: { index: false, follow: false } }),
   openGraph: {
     type: "website",
     locale: "es_MX",
@@ -94,7 +94,7 @@ export default function RootLayout({
         {/* Se imprime la marca antes de que exista la página (§5.1). */}
         <Cargando />
 
-        <JsonLd datos={schemaNegocio()} />
+        <JsonLd datos={[schemaNegocio(), schemaSitio()]} />
         <Header />
         {children}
         <Footer />

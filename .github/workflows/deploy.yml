@@ -32,13 +32,11 @@ jobs:
       - name: Build estático
         env:
           DEPLOY_TARGET: pages
-          BASE_PATH: /bisel
-          # next/image con `unoptimized` no antepone el basePath a los src,
-          # así que las rutas de /medios lo llevan explícito (lib/rutas.ts).
-          NEXT_PUBLIC_BASE_PATH: /bisel
-          # Los canónicos, el sitemap y el JSON-LD apuntan a donde el sitio
-          # vive de verdad. Además activa el noindex del preview (§14.1).
-          NEXT_PUBLIC_SITE_URL: https://samuelalexsanche.github.io/bisel
+          # Dominio propio: el sitio cuelga de la raíz, no de /<repo>, así que
+          # NO va basePath. El CNAME de public/ es lo que ata Pages al dominio.
+          NEXT_PUBLIC_SITE_URL: https://bisel3d.com
+          # Indexable: sin esto el sitio va con noindex y no hay SEO que valga.
+          NEXT_PUBLIC_INDEXABLE: "true"
         run: npm run build
 
       - uses: actions/configure-pages@v5

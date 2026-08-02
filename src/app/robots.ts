@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { ES_PREVIEW, url } from "@/lib/brand";
+import { INDEXABLE, url } from "@/lib/brand";
 
 /* `output: export` exige declarar estático cada route handler de metadatos. */
 export const dynamic = "force-static";
@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
      verificado en IMPI (§14.1) y con contenido incompleto: si Google lo indexa,
      compite contra el sitio definitivo por las mismas consultas y hay que
      limpiarlo después. Se levanta solo con quitar NEXT_PUBLIC_SITE_URL. */
-  if (ES_PREVIEW) {
+  if (!INDEXABLE) {
     return { rules: [{ userAgent: "*", disallow: "/" }] };
   }
 
