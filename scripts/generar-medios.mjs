@@ -44,25 +44,38 @@ const OUT_VID = join(RAIZ, "public", "medios");
    sola persona y el §13 prohíbe la estética pulida de catálogo. La paleta es
    la del §4.1. */
 const ESTILO =
-  "Documentary photography, honest and unstyled, natural window light, " +
-  "real small one-person workshop in Mexico, muted palette of bone white, " +
-  "graphite grey and concrete grey, one single rust-orange accent at most, " +
-  "matte surfaces, no gloss, no lens flare, no bokeh balls, no text, " +
-  "no watermark, no logos, no brand names, realistic and slightly imperfect.";
+  "Clean modern professional photography, bright soft even studio lighting, " +
+  "a tidy contemporary digital fabrication studio, minimal and precise, " +
+  "matte surfaces, palette of bone white, graphite grey and light concrete, " +
+  "at most one small rust-orange accent, sharp focus, no clutter, " +
+  "no rustic wood, no rusty tools, no workshop grime, " +
+  "no text, no watermark, no logos, no brand names.";
+
+/* Referencia de máquina: el taller trabaja con una CoreXY cerrada moderna
+   (tipo Bambu Lab P2S). Se describe la MÁQUINA, nunca la marca: un logotipo
+   de un tercero en un sitio comercial es un problema propio, y ya pasó una vez
+   con otra marca que salió legible en el chasis. */
+const IMPRESORA =
+  "a modern enclosed CoreXY desktop 3D printer: a compact cube with a dark " +
+  "tinted glass front door, a clean light-grey aluminium body, a flexible " +
+  "textured steel build plate inside, and a four-spool automatic filament " +
+  "feeder box sitting on top. Completely unbranded: blank panels, no logos, " +
+  "no lettering, no badges, no screens showing text.";
 
 const NEGATIVO =
-  "glossy, shiny, plastic-looking render, CGI, 3d render, neon, purple, " +
-  "electric blue, lens flare, glow, text, watermark, logo, robot, gears, " +
+  "rustic, wooden workbench, carpentry, sawdust, rust, dirty, cluttered, " +
+  "vintage, hand tools, glossy, CGI, 3d render, neon, purple, electric blue, " +
+  "lens flare, glow, text, watermark, logo, brand name, robot, gears, cog, " +
   "futuristic, sci-fi";
 
 /* ── Fase 1 · Catálogo (1K, lo más barato) ────────────────────────────── */
 const CATALOGO = [
-  ["organizador-escritorio", "A 3D printed desk organizer with three compartments, matte bone-white filament, visible fine print layer lines, standing on a plain concrete-grey surface, seen slightly from above."],
-  ["soporte-audifonos", "A 3D printed headphone stand with a base, a column and a cradle, matte graphite-grey filament, visible print layer lines, on a plain light surface."],
-  ["perilla-repuesto", "A small 3D printed replacement knob for an appliance, matte dark grey filament, visible layer lines, held between two fingers over a workbench."],
-  ["maceta-interior", "A small 3D printed planter with straight tapered walls, matte bone-white filament, visible horizontal layer lines, a small succulent inside, on a wooden table."],
-  ["tope-puerta", "A 3D printed flexible door wedge, matte dark grey rubbery filament, visible layer lines, resting on a tiled floor next to a door."],
-  ["gancho-pared", "A 3D printed wall hook screwed to a plain white wall, matte bone-white filament, visible print layer lines, a canvas bag hanging from it."],
+  ["organizador-escritorio", "A 3D printed desk organizer with three compartments in matte bone-white filament, fine visible print layer lines, standing alone on a seamless light concrete-grey studio surface, soft even lighting, product photography."],
+  ["soporte-audifonos", "A 3D printed headphone stand with a base, a column and a cradle in matte graphite-grey filament, fine visible print layer lines, alone on a seamless light grey studio surface, soft even lighting, product photography."],
+  ["perilla-repuesto", "A small 3D printed replacement appliance knob in matte graphite-grey filament with fine visible layer lines, standing alone on a seamless light concrete-grey studio surface, macro product photography."],
+  ["maceta-interior", "A 3D printed planter with straight tapered walls in matte bone-white filament, fine horizontal layer lines, a small green succulent inside, on a seamless light concrete-grey studio surface, soft even lighting."],
+  ["tope-puerta", "A 3D printed flexible door wedge in matte graphite-grey filament with visible layer lines, alone on a seamless light concrete-grey studio surface, product photography."],
+  ["gancho-pared", "A 3D printed wall hook in matte bone-white filament with fine visible print layer lines, mounted on a smooth plain light grey wall, nothing hanging from it, soft even lighting."],
 ].map(([slug, prompt]) => ({
   fase: 1,
   archivo: `catalogo/${slug}.jpg`,
@@ -82,11 +95,11 @@ const SITIO = [
     resolucion: "2K",
     w: 1200,
     h: 1200,
+    /* Un intento anterior devolvió una pieza con forma de engrane y §13 los
+       prohíbe expresamente: la forma va descrita en positivo, el negative
+       prompt por sí solo no bastó. */
     prompt:
-      /* El primer intento devolvió una pieza con forma de engrane, y §13 los
-       prohíbe expresamente junto a robots y circuitos. Se describe la pieza de
-       forma explícita en positivo: el negative prompt por sí solo no bastó. */
-      "A freshly 3D printed matte bone-white rectangular L-shaped mounting bracket with two screw holes, still sitting on the textured print bed of a desktop 3D printer, close up, visible print layer lines and a faint brim around the base, warm side light from a window. The part is a simple flat angular bracket, absolutely not a gear, not a cog, not round, no teeth, no spokes.",
+      `A freshly 3D printed matte bone-white L-shaped mounting bracket with two counterbored screw holes, sitting on the textured steel build plate inside ${IMPRESORA} Close macro through the open front, crisp visible print layer lines and a thin brim around the base. The part is a simple flat angular bracket: absolutely not a gear, not a cog, not round, no teeth, no spokes.`,
   },
   {
     fase: 2,
@@ -96,7 +109,7 @@ const SITIO = [
     w: 1500,
     h: 1000,
     prompt:
-      "A person's hand holding a small matte 3D printed bracket up close, showing its real size against the fingers, plain workshop background slightly out of focus, honest documentary framing.",
+      "Close up of clean hands holding a small matte graphite-grey 3D printed bracket, showing its real size against the fingers, seamless light grey studio background softly out of focus, bright even lighting.",
   },
   {
     fase: 2,
@@ -105,11 +118,8 @@ const SITIO = [
     resolucion: "2K",
     w: 1200,
     h: 1500,
-    /* Se insiste en impresoras genéricas y sin rótulos: el primer intento
-       devolvió una máquina con la marca de un fabricante legible en el chasis,
-       y no puede aparecer una marca de terceros en un sitio comercial. */
     prompt:
-      "The corner of a small real one-person 3D printing workshop: two generic unbranded desktop 3D printers with completely blank frames and no lettering, logos or badges anywhere, on a plain wooden bench, spools of filament on a shelf, calipers and hand tools scattered, some finished parts in a tray, slightly untidy and clearly used, daylight from a side window.",
+      `A modern minimal 3D printing studio: three identical units of ${IMPRESORA} lined up on a clean white laminate bench against a smooth light concrete wall, neat rows of filament spools on a simple white shelf, digital calipers laid straight on the bench, a few finished matte parts arranged in a shallow tray. Bright, tidy, professional, nothing rustic.`,
   },
   {
     fase: 2,
@@ -119,7 +129,7 @@ const SITIO = [
     w: 1100,
     h: 1100,
     prompt:
-      "A young man in a plain t-shirt working at a workbench in a small 3D printing workshop, looking down at a printed part he is holding and measuring with calipers, natural window light, candid and unposed, not looking at the camera.",
+      `A young man in a plain dark t-shirt standing at a clean white bench in a modern minimal 3D printing studio, looking down while measuring a matte printed part with digital calipers. ${IMPRESORA} is visible behind him, slightly out of focus. Bright even light, candid and unposed, not looking at the camera, tidy professional workspace.`,
   },
   {
     fase: 2,
@@ -129,7 +139,7 @@ const SITIO = [
     w: 900,
     h: 1200,
     prompt:
-      "A small 3D printed part wrapped in plain kraft paper inside a simple cardboard box ready to ship, a blank shipping label on top, plain workbench, no text visible on the label.",
+      "A matte 3D printed part nested in clean white tissue paper inside a plain white cardboard box ready to ship, a completely blank white shipping label on the lid, seamless light grey studio surface, bright even lighting, no text anywhere.",
   },
   {
     fase: 2,
@@ -139,7 +149,64 @@ const SITIO = [
     w: 1400,
     h: 800,
     prompt:
-      "Extreme macro of the side wall of a 3D printed object, filling the frame with fine parallel horizontal print layer lines in matte bone-white plastic, raking side light revealing the texture of each layer.",
+      "Extreme macro of the side wall of a 3D printed object filling the frame with fine parallel horizontal print layer lines in matte bone-white plastic, raking side light revealing the texture of every layer.",
+  },
+];
+
+/* ── Fase 4 · Fondos de sección ───────────────────────────────────────────
+   Van MUY desaturados y a baja opacidad detrás del contenido: dan profundidad
+   sin pelearse con el texto. Por eso se piden planos, sin sujeto protagonista
+   y sin zonas de alto contraste que arruinen la legibilidad. */
+const FONDOS = [
+  {
+    fase: 4,
+    archivo: "fondos/inicio.jpg",
+    aspecto: "16:9",
+    resolucion: "2K",
+    w: 1800,
+    h: 1012,
+    prompt:
+      `Wide soft-focus background of a modern minimal 3D printing studio with ${IMPRESORA} far away and out of focus. Very low contrast, flat even light, pale grey and bone white, mostly empty negative space, nothing sharp, no strong highlights or dark patches. Abstract calm backdrop.`,
+  },
+  {
+    fase: 4,
+    archivo: "fondos/catalogo.jpg",
+    aspecto: "16:9",
+    resolucion: "2K",
+    w: 1800,
+    h: 1012,
+    prompt:
+      "Wide flat-lay background: many matte 3D printed parts in bone white and grey arranged in a loose even grid on a seamless pale concrete surface, shot from directly above, very low contrast, soft flat light, no shadows, calm and uniform.",
+  },
+  {
+    fase: 4,
+    archivo: "fondos/cotiza.jpg",
+    aspecto: "16:9",
+    resolucion: "2K",
+    w: 1800,
+    h: 1012,
+    prompt:
+      "Wide background of a clean pale desk surface seen from above with a blank sheet of grid paper, a pencil and digital calipers laid flat and spaced apart, very low contrast, soft flat light, lots of empty space, no text or numbers anywhere.",
+  },
+  {
+    fase: 4,
+    archivo: "fondos/como-funciona.jpg",
+    aspecto: "16:9",
+    resolucion: "2K",
+    w: 1800,
+    h: 1012,
+    prompt:
+      "Wide abstract background: neat rows of filament spools in muted bone white and grey tones on simple shelving, strongly out of focus, very low contrast, flat even light, calm and uniform, no sharp detail.",
+  },
+  {
+    fase: 4,
+    archivo: "fondos/quien-hace-esto.jpg",
+    aspecto: "16:9",
+    resolucion: "2K",
+    w: 1800,
+    h: 1012,
+    prompt:
+      "Wide background of a smooth pale concrete studio wall with a clean empty white bench along the bottom edge, soft flat daylight, extremely minimal, very low contrast, almost empty frame.",
   },
 ];
 
@@ -325,6 +392,7 @@ async function main() {
     [1, CATALOGO, generarImagen, "catálogo, 1K — lo más barato"],
     [2, SITIO, generarImagen, "sitio, 2K"],
     [3, VIDEOS, generarVideo, "timelapse — lo más caro"],
+    [4, FONDOS, generarImagen, "fondos de sección, 2K"],
   ];
 
   console.log(`Modelo de imagen: ${MODELO_IMG}`);
