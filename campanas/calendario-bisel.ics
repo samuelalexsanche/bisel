@@ -1,0 +1,248 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Bisel//Calendario de campanas//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Bisel · Campañas
+X-WR-TIMEZONE:America/Mexico_City
+BEGIN:VEVENT
+UID:regreso-a-clases-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20260730
+DTEND;VALUE=DATE:20260731
+SUMMARY:▶ Empieza a publicar: Regreso a clases
+DESCRIPTION:Persona: Ana\nQué vender: Organizadores de escritorio\, soportes para tablet\, portalápices\nÁngulo: El escritorio de la casa vuelve a usarse. Piezas que ordenan cables y útiles.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:regreso-a-clases-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20260813
+DTEND;VALUE=DATE:20260814
+SUMMARY:⛔ Último día para pedidos: Regreso a clases
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 7 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:regreso-a-clases-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20260824
+DTEND;VALUE=DATE:20260825
+SUMMARY:● Regreso a clases
+DESCRIPTION:El escritorio de la casa vuelve a usarse. Piezas que ordenan cables y útiles.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-muertos-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+SUMMARY:▶ Empieza a publicar: Día de Muertos
+DESCRIPTION:Persona: Fernanda\nQué vender: Adornos de ofrenda\, portavelas\, letras y figuras a medida\nÁngulo: Decoración de altar personalizada con el nombre de quien se recuerda.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-muertos-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261006
+DTEND;VALUE=DATE:20261007
+SUMMARY:⛔ Último día para pedidos: Día de Muertos
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 19 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-muertos-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:● Día de Muertos
+DESCRIPTION:Decoración de altar personalizada con el nombre de quien se recuerda.
+END:VEVENT
+BEGIN:VEVENT
+UID:buen-fin-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:▶ Empieza a publicar: Buen Fin
+DESCRIPTION:Persona: Ana\nQué vender: Todo el catálogo con descuento por volumen\nÁngulo: El evento comercial más grande de México. CONFIRMAR la fecha oficial: la anuncia la Concanaco cada año.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:buen-fin-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:⛔ Último día para pedidos: Buen Fin
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 7 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:buen-fin-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:● Buen Fin
+DESCRIPTION:El evento comercial más grande de México. CONFIRMAR la fecha oficial: la anuncia la Concanaco cada año.\n\nATENCIÓN: fecha estimada\, hay que confirmarla.
+END:VEVENT
+BEGIN:VEVENT
+UID:navidad-y-posadas-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:▶ Empieza a publicar: Navidad y posadas
+DESCRIPTION:Persona: Fernanda\nQué vender: Adornos personalizados\, recuerdos de posada\, regalos de empresa\nÁngulo: Regalo de empresa con el logo del cliente. Don Julio también compra aquí.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:navidad-y-posadas-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:⛔ Último día para pedidos: Navidad y posadas
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 19 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:navidad-y-posadas-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:● Navidad y posadas
+DESCRIPTION:Regalo de empresa con el logo del cliente. Don Julio también compra aquí.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-reyes-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:▶ Empieza a publicar: Día de Reyes
+DESCRIPTION:Persona: Ana\nQué vender: Juguetes y figuras impresas\, repuestos de juguetes rotos\nÁngulo: Enero es mes de cuesta: el ángulo es reparar el juguete\, no comprar otro.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-reyes-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:⛔ Último día para pedidos: Día de Reyes
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 7 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-reyes-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:● Día de Reyes
+DESCRIPTION:Enero es mes de cuesta: el ángulo es reparar el juguete\, no comprar otro.
+END:VEVENT
+BEGIN:VEVENT
+UID:san-valent-n-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270119
+SUMMARY:▶ Empieza a publicar: San Valentín
+DESCRIPTION:Persona: Ana\nQué vender: Objetos personalizados con nombre o fecha\nÁngulo: Pieza única a medida\, no el peluche que vende todo el mundo.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:san-valent-n-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:⛔ Último día para pedidos: San Valentín
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 10 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:san-valent-n-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:● San Valentín
+DESCRIPTION:Pieza única a medida\, no el peluche que vende todo el mundo.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-ni-o-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270323
+SUMMARY:▶ Empieza a publicar: Día del Niño
+DESCRIPTION:Persona: Fernanda\nQué vender: Recuerdos por lote para escuelas y fiestas infantiles\nÁngulo: Las escuelas compran por salón: 30 a 200 piezas iguales.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-ni-o-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270405
+DTEND;VALUE=DATE:20270406
+SUMMARY:⛔ Último día para pedidos: Día del Niño
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 19 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-ni-o-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:● Día del Niño
+DESCRIPTION:Las escuelas compran por salón: 30 a 200 piezas iguales.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-las-madres-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270413
+SUMMARY:▶ Empieza a publicar: Día de las Madres
+DESCRIPTION:Persona: Ana\nQué vender: Macetas\, portarretratos y objetos con nombre\nÁngulo: La fecha más fuerte del año en México después de Navidad. Empieza pronto.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-las-madres-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270426
+DTEND;VALUE=DATE:20270427
+SUMMARY:⛔ Último día para pedidos: Día de las Madres
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 10 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-de-las-madres-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270511
+SUMMARY:● Día de las Madres
+DESCRIPTION:La fecha más fuerte del año en México después de Navidad. Empieza pronto.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-maestro-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:▶ Empieza a publicar: Día del Maestro
+DESCRIPTION:Persona: Fernanda\nQué vender: Reconocimientos y detalles por lote para escuelas\nÁngulo: Cae 5 días después del 10 de mayo: se venden juntos\, no separados.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-maestro-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270420
+DTEND;VALUE=DATE:20270421
+SUMMARY:⛔ Último día para pedidos: Día del Maestro
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 19 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-maestro-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:● Día del Maestro
+DESCRIPTION:Cae 5 días después del 10 de mayo: se venden juntos\, no separados.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-padre-arranque@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:▶ Empieza a publicar: Día del Padre
+DESCRIPTION:Persona: Ricardo\nQué vender: Organizadores de taller\, soportes de herramienta\, ganchos\nÁngulo: La única fecha donde Ricardo es el regalado y no el que arregla algo.\n\nDos semanas de contenido antes de cerrar pedidos.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-padre-cierre@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:⛔ Último día para pedidos: Día del Padre
+DESCRIPTION:Después de hoy la pieza YA NO LLEGA a tiempo.\nColchón: 7 días hábiles (producción + envío).\nA partir de mañana\, decirlo claro en vez de aceptar el pedido.
+END:VEVENT
+BEGIN:VEVENT
+UID:d-a-del-padre-fecha@bisel3d.com
+DTSTAMP:20260803T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:● Día del Padre
+DESCRIPTION:La única fecha donde Ricardo es el regalado y no el que arregla algo.
+END:VEVENT
+END:VCALENDAR
