@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/JsonLd";
+import { FondoFoto } from "@/components/layout/FondoFoto";
 import { BRAND, url } from "@/lib/brand";
 import { schemaMigas, schemaPreguntas, schemaServicios } from "@/lib/schema";
 import { LIMITES, MATERIALES, PREGUNTAS, TIEMPOS } from "@/lib/datos";
@@ -48,7 +49,8 @@ const PASOS = [
 
 export default function ComoFunciona() {
   return (
-    <main id="contenido">
+    <main id="contenido" className="relative">
+      <FondoFoto nombre="como-funciona" />
       <JsonLd
         datos={[
           schemaPreguntas(),

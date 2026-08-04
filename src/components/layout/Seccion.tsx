@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { FondoFoto } from "@/components/layout/FondoFoto";
 import { ParallaxLayer } from "@/components/motion/ParallaxLayer";
 import { Strata } from "@/components/motion/Strata";
 import { cn } from "@/lib/cn";
@@ -34,6 +35,9 @@ type Props = {
   className?: string;
   /** Contenido que se sale de la caja: se permite desbordar. */
   desbordable?: boolean;
+  /** Fondo fotográfico de /medios/fondos, sin extensión. */
+  fondo?: string;
+  opacidadFondo?: number;
 };
 
 /**
@@ -52,6 +56,8 @@ export function Seccion({
   titulaPor,
   className,
   desbordable = false,
+  fondo,
+  opacidadFondo,
 }: Props) {
   const oscuro = tono === "grafito";
 
@@ -65,6 +71,9 @@ export function Seccion({
         className,
       )}
     >
+      {/* El fondo va lo primero: por debajo de estratos y de contenido. */}
+      {fondo && <FondoFoto nombre={fondo} opacidad={opacidadFondo} />}
+
       {estratos && (
         /* Plano 0 · se extiende más allá de la sección para que el
            desplazamiento no descubra los bordes al hacer scroll. */

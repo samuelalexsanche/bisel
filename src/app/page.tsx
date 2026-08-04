@@ -87,7 +87,13 @@ export default function Inicio() {
       <JsonLd datos={schemaServicios()} />
 
       {/* ═══════════ 1 · Hero — promesa. Habla a todas. ═══════════ */}
-      <Seccion estratos intensidadEstratos={0.13} desbordable>
+      <Seccion
+        estratos
+        intensidadEstratos={0.13}
+        desbordable
+        fondo="inicio"
+        opacidadFondo={0.16}
+      >
         <div className="contenido grid items-center gap-12 py-16 md:grid-cols-[1fr_1.1fr] md:gap-8 md:py-24">
           {/* Sin <Reveal> sobre el fold: su estado inicial es opacity:0 y
               retrasaría el LCP hasta que hidratara el JS (§6). */}
