@@ -66,9 +66,11 @@ export default function Catalogo() {
             <li key={p.id}>
               <Reveal delay={((i % 3) + 1) as 1 | 2 | 3}>
                 <article className="group flex h-full flex-col border border-cemento">
-                  {/* En hover el dibujo cambia a la macro de la textura de capa:
-                    enseñar las capas genera confianza, esconderlas la
-                    destruye (§5.5). */}
+                  {/* §5.5 pide que el hover enseñe la macro de textura de capa,
+                      porque enseñar las capas genera confianza. Pero sustituir
+                      la foto entera dejaba al comprador sin ver lo que compra
+                      justo cuando está mirándolo. La banda resuelve las dos
+                      cosas: enseña las capas SIN tapar la pieza. */}
                   <div className="relative aspect-square overflow-hidden border-b border-cemento">
                     <Strata
                       className="absolute inset-0"
@@ -76,7 +78,8 @@ export default function Catalogo() {
                       separacion={10}
                     />
 
-                    <div className="absolute inset-0 transition-opacity duration-[120ms] group-hover:opacity-0">
+                    {/* La pieza se queda SIEMPRE a la vista. */}
+                    <div className="absolute inset-0">
                       {p.foto ? (
                         <Foto
                           nombre={`catalogo/${p.foto}`}
@@ -93,11 +96,18 @@ export default function Catalogo() {
                       )}
                     </div>
 
+                    {/* Banda que sube desde abajo. Solo se anima `transform`
+                        (§5.4.4) y con reduced-motion aparece sin desplazarse. */}
                     <div
                       aria-hidden="true"
-                      className="absolute inset-0 opacity-0 transition-opacity duration-[120ms] group-hover:opacity-100"
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] translate-y-full transition-transform duration-200 ease-[cubic-bezier(0.2,0,0,1)] group-hover:translate-y-0 motion-reduce:transition-none"
                     >
-                      <TexturaCapas />
+                      <div className="relative h-full border-t-2 border-grafito">
+                        <TexturaCapas />
+                        <span className="cifra absolute bottom-2 left-3 text-[0.625rem] tracking-wide text-grafito uppercase">
+                          Textura de capa
+                        </span>
+                      </div>
                     </div>
 
                     {p.muestra && (
