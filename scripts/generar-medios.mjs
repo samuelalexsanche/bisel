@@ -216,8 +216,11 @@ const VIDEOS = [
     fase: 3,
     archivo: "timelapse.mp4",
     aspecto: "9:16",
+    /* La máquina es la misma que en las fotos: CoreXY cerrada con puerta de
+       cristal oscuro y alimentador de cuatro bobinas. Se rueda con la puerta
+       abierta, porque a través del cristal tintado no se vería la pieza. */
     prompt:
-      "Vertical timelapse of a desktop 3D printer building a small matte bone-white part layer by layer on its print bed. Fixed camera, the nozzle moves back and forth and the part slowly grows upward. Real workshop lighting, no music, no text, no people.",
+      `Vertical timelapse shot straight into the open front of ${IMPRESORA} The camera is locked off and never moves. Inside, on the textured steel build plate, a small matte bone-white L-shaped bracket grows upward layer by layer while the toolhead sweeps left and right above it. Clean bright studio workshop, no people, no music, no text, no on-screen numbers. The part is a simple flat angular bracket: not a gear, not round, no teeth.`,
   },
 ];
 
