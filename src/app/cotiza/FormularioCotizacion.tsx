@@ -1,85 +1,194 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, Paperclip } from "lucide-react";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch, type UseFormReturn } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BRAND, waLink } from "@/lib/brand";
 import {
-  MAX_ARCHIVOS,
-  MAX_BYTES,
+  alcanzaLaFecha,
+  CAMPOS_POR_TIPO,
+  MATERIALES,
   PLAZOS,
   REGLAS,
+  RELLENOS,
+  TIPOS_PEDIDO,
   USOS,
   type Cotizacion,
+  type TipoPedido,
 } from "@/lib/cotizacion";
 import { TRAZO } from "@/lib/iconos";
 import { enviarCotizacion, type ResultadoEnvio } from "@/lib/envio";
 
+type Campo = keyof Cotizacion;
+type Formulario = UseFormReturn<Cotizacion>;
+
+/* ── Piezas de formulario ───────────────────────────────────────────────── */
+
+function Etiqueta({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <label
+      htmlFor={id}
+      className="font-titulo text-detalle font-semibold text-grafito"
+    >
+      {children}
+    </label>
+  );
+}
+
+/* El error nunca se señala solo con color: lleva icono y texto (§6). */
+function Error({ id, mensaje }: { id: string; mensaje?: string }) {
+  if (!mensaje) return null;
+  return (
+    <p
+      id={id}
+      role="alert"
+      className="mt-2 flex items-center gap-2 text-detalle text-arcilla-oscura"
+    >
+      <AlertCircle size={15} strokeWidth={TRAZO} aria-hidden="true" />
+      {mensaje}
+    </p>
+  );
+}
+
+function CampoTexto({
+  form,
+  campo,
+  etiqueta,
+  ayuda,
+  placeholder,
+  tipo = "text",
+  area = false,
+}: {
+  form: Formulario;
+  campo: Campo;
+  etiqueta: string;
+  ayuda?: string;
+  placeholder?: string;
+  tipo?: string;
+  area?: boolean;
+}) {
+  const id = `c-${campo}`;
+  const error = form.formState.errors[campo]?.message as string | undefined;
+  const reglas = REGLAS[campo as keyof typeof REGLAS] ?? {};
+  const Control = area ? Textarea : Input;
+
+  return (
+    <div>
+      <Etiqueta id={id}>{etiqueta}</Etiqueta>
+      <div className="mt-2">
+        <Control
+          id={id}
+          type={area ? undefined : tipo}
+          placeholder={placeholder}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={
+            [ayuda ? `${id}-ayuda` : null, error ? `${id}-error` : null]
+              .filter(Boolean)
+              .join(" ") || undefined
+          }
+          {...form.register(campo, reglas)}
+        />
+      </div>
+      {ayuda && (
+        <p
+          id={`${id}-ayuda`}
+          className="mt-2 text-detalle text-texto-secundario"
+        >
+          {ayuda}
+        </p>
+      )}
+      <Error id={`${id}-error`} mensaje={error} />
+    </div>
+  );
+}
+
+/* Radios en vez de <select>: se leen de un vistazo y cada uno es un objetivo
+   de toque de 44px (§6). */
+function CampoOpciones({
+  form,
+  campo,
+  etiqueta,
+  opciones,
+  columnas = 2,
+}: {
+  form: Formulario;
+  campo: Campo;
+  etiqueta: string;
+  opciones: ReadonlyArray<{ valor: string; etiqueta: string }>;
+  columnas?: number;
+}) {
+  const error = form.formState.errors[campo]?.message as string | undefined;
+  const reglas = REGLAS[campo as keyof typeof REGLAS] ?? {};
+
+  return (
+    <fieldset>
+      <legend className="font-titulo text-detalle font-semibold text-grafito">
+        {etiqueta}
+      </legend>
+      <div
+        className={`mt-3 grid gap-px border border-texto-secundario bg-texto-secundario sm:grid-cols-${columnas}`}
+      >
+        {opciones.map((o) => (
+          <label
+            key={o.valor}
+            className="flex min-h-[44px] cursor-pointer items-center gap-3 bg-hueso px-4 py-3 text-detalle"
+          >
+            <input
+              type="radio"
+              value={o.valor}
+              className="size-4 accent-grafito"
+              {...form.register(campo, reglas)}
+            />
+            {o.etiqueta}
+          </label>
+        ))}
+      </div>
+      <Error id={`c-${campo}-error`} mensaje={error} />
+    </fieldset>
+  );
+}
+
+/* ── El formulario ──────────────────────────────────────────────────────── */
+
 export function FormularioCotizacion() {
+  const [tipo, setTipo] = useState<TipoPedido | null>(null);
   const [resultado, setResultado] = useState<ResultadoEnvio | null>(null);
-  const [archivos, setArchivos] = useState<File[]>([]);
-  const [errorArchivos, setErrorArchivos] = useState<string | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
   const form = useForm<Cotizacion>({
     // Validar al salir del campo, no en cada tecla: el error aparece cuando la
     // persona terminó de escribir, no mientras escribe.
     mode: "onBlur",
-    defaultValues: {
-      descripcion: "",
-      medidas: "",
-      uso: "",
-      plazo: "",
-      nombre: "",
-      contacto: "",
-    },
+    defaultValues: { nombre: "", contacto: "" },
   });
 
-  function onArchivos(e: React.ChangeEvent<HTMLInputElement>) {
-    const lista = Array.from(e.target.files ?? []);
-    setErrorArchivos(null);
+  /* `useWatch` en vez de `form.watch()`: es la API pensada para suscribirse a
+     un campo y no rompe la memoización del compilador de React. */
+  const fechaEvento = useWatch({ control: form.control, name: "fechaEvento" });
+  const aviso = tipo ? alcanzaLaFecha(tipo, fechaEvento ?? "") : null;
 
-    if (lista.length > MAX_ARCHIVOS) {
-      setErrorArchivos(`Máximo ${MAX_ARCHIVOS} archivos.`);
-      e.target.value = "";
-      setArchivos([]);
-      return;
-    }
-    const total = lista.reduce((s, f) => s + f.size, 0);
-    if (total > MAX_BYTES) {
-      setErrorArchivos("Entre todas las fotos no deben pasar de 10 MB.");
-      e.target.value = "";
-      setArchivos([]);
-      return;
-    }
-    setArchivos(lista);
+  useEffect(() => {
+    if (resultado) panelRef.current?.focus();
+  }, [resultado]);
+
+  function elegirTipo(t: TipoPedido) {
+    setTipo(t);
+    form.setValue("tipo", t);
+    form.clearErrors();
   }
 
   async function onSubmit(valores: Cotizacion) {
     setResultado(await enviarCotizacion(valores));
   }
 
-  // Llevar el foco al aviso para que un lector de pantalla lo anuncie.
-  // Va en un efecto y no dentro de onSubmit: el panel todavía no existe en el
-  // DOM cuando la acción responde, y leer el ref durante el render es un error.
-  useEffect(() => {
-    if (resultado) panelRef.current?.focus();
-  }, [resultado]);
+  const campos = tipo ? CAMPOS_POR_TIPO[tipo] : [];
+  const muestra = (c: Campo) => campos.includes(c);
 
-  /* ── Estado de éxito, en la misma página y sin redirección (§7.2) ── */
+  /* ── Éxito, en la misma página y sin redirección (§7.2) ── */
   if (resultado?.estado === "ok") {
     return (
       <div
@@ -115,256 +224,317 @@ export function FormularioCotizacion() {
   }
 
   return (
-    <Form {...form}>
+    <>
+      {/* Criterio 10 — sin JavaScript las ramas no funcionan, así que se
+          ofrece el canal real del taller en vez de un formulario muerto. */}
+      <noscript>
+        <div className="mb-8 border-2 border-grafito bg-arcilla-suave p-6">
+          <p className="font-titulo font-semibold text-grafito">
+            El formulario necesita JavaScript
+          </p>
+          <p className="medida mt-2 text-detalle text-grafito">
+            Escríbeme por WhatsApp con lo que necesitas y te contesto igual de
+            rápido. Ahí también me puedes mandar la foto.
+          </p>
+          <p className="mt-4">
+            <a
+              href={waLink(`Hola, quiero cotizar una pieza con ${BRAND.name}.`)}
+              className="inline-flex min-h-[44px] items-center bg-grafito px-6 py-3 font-titulo text-detalle font-semibold text-hueso"
+            >
+              Escribir por WhatsApp
+            </a>
+          </p>
+        </div>
+      </noscript>
+
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         noValidate
-        className="space-y-8"
+        className="space-y-10"
       >
-        <FormField
-          control={form.control}
-          name="descripcion"
-          rules={REGLAS.descripcion}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>¿Qué pieza necesitas?</FormLabel>
-              <FormControl>
-                <Textarea
-                  {...field}
-                  placeholder="Se rompió la perilla del horno. Es redonda, con un eje cuadrado por dentro."
-                />
-              </FormControl>
-              <FormDescription>
-                Dime qué es, de qué aparato salió y para qué la usas.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        {/* ── Paso 1 · qué tipo de pedido ── */}
+        <fieldset>
+          <legend className="font-titulo text-h3">¿Qué necesitas?</legend>
+          <p className="medida mt-2 text-detalle text-texto-secundario">
+            Según lo que elijas te pido solo los datos que hacen falta.
+          </p>
 
-        {/* Adjuntos — §7.2: máximo 3 archivos, 10 MB. */}
-        <div>
-          <label
-            htmlFor="archivos"
-            className="font-titulo text-detalle font-semibold text-grafito"
-          >
-            Foto o boceto
-          </label>
-          <div className="mt-2">
-            <input
-              id="archivos"
-              type="file"
-              multiple
-              accept="image/*,.pdf"
-              onChange={onArchivos}
-              aria-describedby="archivos-ayuda archivos-error"
-              className="block w-full border border-texto-secundario bg-transparent px-3 py-3 text-detalle file:mr-4 file:border-0 file:bg-cemento file:px-4 file:py-2 file:font-titulo file:text-detalle file:font-semibold file:text-grafito"
-            />
+          <div className="mt-5 grid gap-px border border-texto-secundario bg-texto-secundario">
+            {TIPOS_PEDIDO.map((t) => (
+              <label
+                key={t.valor}
+                className="flex cursor-pointer items-start gap-3 bg-hueso px-5 py-4"
+              >
+                <input
+                  type="radio"
+                  name="tipo-pedido"
+                  value={t.valor}
+                  checked={tipo === t.valor}
+                  onChange={() => elegirTipo(t.valor)}
+                  className="mt-1 size-4 shrink-0 accent-grafito"
+                />
+                <span>
+                  <span className="block font-titulo text-detalle font-semibold text-grafito">
+                    {t.etiqueta}
+                  </span>
+                  <span className="block text-detalle text-texto-secundario">
+                    {t.ayuda}
+                  </span>
+                </span>
+              </label>
+            ))}
           </div>
-          <p
-            id="archivos-ayuda"
-            className="mt-2 text-detalle text-texto-secundario"
-          >
-            Hasta {MAX_ARCHIVOS} archivos, 10 MB entre todos. Una foto de la
-            pieza rota ayuda más que cualquier descripción.
-          </p>
-          {archivos.length > 0 && (
-            <ul className="mt-2 space-y-1">
-              {archivos.map((a) => (
-                <li
-                  key={a.name}
-                  className="flex items-center gap-2 text-detalle text-grafito"
-                >
-                  <Paperclip size={15} strokeWidth={TRAZO} aria-hidden="true" />
-                  {a.name}
-                </li>
-              ))}
-            </ul>
-          )}
-          {/* El error no se señala solo con color: lleva icono y texto (§6). */}
-          <p
-            id="archivos-error"
-            role={errorArchivos ? "alert" : undefined}
-            className="mt-2 flex items-center gap-2 text-detalle text-arcilla-oscura"
-          >
-            {errorArchivos && (
-              <>
-                <AlertCircle size={15} strokeWidth={TRAZO} aria-hidden="true" />
-                {errorArchivos}
-              </>
-            )}
-          </p>
-        </div>
+        </fieldset>
 
-        <FormField
-          control={form.control}
-          name="medidas"
-          rules={REGLAS.medidas}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Medidas aproximadas</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  placeholder="4 cm de diámetro, 2 cm de alto"
+        {/* ── Paso 2 · los campos de la rama elegida ── */}
+        {tipo && (
+          <div className="space-y-8 border-t-2 border-grafito pt-10">
+            {muestra("producto") && (
+              <CampoTexto
+                form={form}
+                campo="producto"
+                etiqueta="¿Cuál pieza?"
+                placeholder="Organizador de escritorio"
+                ayuda="El nombre como aparece en el catálogo."
+              />
+            )}
+
+            {muestra("modelo") && (
+              <CampoTexto
+                form={form}
+                campo="modelo"
+                etiqueta="¿Cuál modelo?"
+                placeholder="Nombre del modelo o su enlace"
+                ayuda="El diseño es gratis: lo que cobro es la impresión."
+              />
+            )}
+
+            {muestra("material") && (
+              <CampoOpciones
+                form={form}
+                campo="material"
+                etiqueta="Material"
+                opciones={MATERIALES}
+              />
+            )}
+
+            {muestra("relleno") && (
+              <CampoOpciones
+                form={form}
+                campo="relleno"
+                etiqueta="¿Qué tan resistente?"
+                opciones={RELLENOS}
+                columnas={3}
+              />
+            )}
+
+            {muestra("color") && (
+              <CampoTexto
+                form={form}
+                campo="color"
+                etiqueta="Color (opcional)"
+                placeholder="Hueso, gris, negro…"
+                ayuda="Si no lo pones, te digo qué tengo disponible."
+              />
+            )}
+
+            {muestra("escala") && (
+              <CampoTexto
+                form={form}
+                campo="escala"
+                etiqueta="Escala (opcional)"
+                placeholder="100%"
+                ayuda="Déjalo vacío para el tamaño original del modelo."
+              />
+            )}
+
+            {muestra("acabado") && (
+              <CampoTexto
+                form={form}
+                campo="acabado"
+                etiqueta="Acabado (opcional)"
+                placeholder="Tal cual sale, lijado…"
+              />
+            )}
+
+            {muestra("cantidad") && (
+              <CampoTexto
+                form={form}
+                campo="cantidad"
+                etiqueta="¿Cuántas?"
+                tipo="number"
+                placeholder="1"
+              />
+            )}
+
+            {muestra("descripcion") && (
+              <CampoTexto
+                form={form}
+                campo="descripcion"
+                etiqueta="¿Qué pieza necesitas?"
+                area
+                placeholder="Se rompió la perilla del horno. Es redonda, con un eje cuadrado por dentro."
+                ayuda="Dime qué es, de qué aparato salió y para qué la usas."
+              />
+            )}
+
+            {muestra("medidas") && (
+              <CampoTexto
+                form={form}
+                campo="medidas"
+                etiqueta="Medidas aproximadas"
+                placeholder="4 cm de diámetro, 2 cm de alto"
+                ayuda="Con una regla basta. Si te equivocas por poco, lo ajustamos."
+              />
+            )}
+
+            {muestra("uso") && (
+              <CampoOpciones
+                form={form}
+                campo="uso"
+                etiqueta="¿Dónde va a estar?"
+                opciones={USOS}
+              />
+            )}
+
+            {muestra("fechaEvento") && (
+              <div>
+                <CampoTexto
+                  form={form}
+                  campo="fechaEvento"
+                  etiqueta="¿Qué día es el evento?"
+                  tipo="date"
+                  ayuda="Con esto te digo de inmediato si da tiempo."
                 />
-              </FormControl>
-              <FormDescription>
-                Con una regla basta. Si te equivocas por poco, lo ajustamos.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
 
-        {/* Radios en lugar de <select>: cuatro opciones se leen de un vistazo
-            y cada una es un objetivo de toque de 44px. */}
-        <FormField
-          control={form.control}
-          name="uso"
-          rules={REGLAS.uso}
-          render={({ field }) => (
-            <FormItem>
-              <fieldset>
-                <legend className="font-titulo text-detalle font-semibold text-grafito">
-                  ¿Dónde va a estar?
-                </legend>
-                <div className="mt-3 grid gap-px border border-texto-secundario bg-texto-secundario sm:grid-cols-2">
-                  {USOS.map((u) => (
-                    <label
-                      key={u.valor}
-                      className="flex min-h-[44px] cursor-pointer items-center gap-3 bg-hueso px-4 py-3 text-detalle"
-                    >
-                      <input
-                        type="radio"
-                        name={field.name}
-                        value={u.valor}
-                        checked={field.value === u.valor}
-                        onChange={() => field.onChange(u.valor)}
-                        onBlur={field.onBlur}
-                        className="size-4 accent-grafito"
-                      />
-                      {u.etiqueta}
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="plazo"
-          rules={REGLAS.plazo}
-          render={({ field }) => (
-            <FormItem>
-              <fieldset>
-                <legend className="font-titulo text-detalle font-semibold text-grafito">
-                  ¿Para cuándo?
-                </legend>
-                <div className="mt-3 grid gap-px border border-texto-secundario bg-texto-secundario sm:grid-cols-3">
-                  {PLAZOS.map((p) => (
-                    <label
-                      key={p.valor}
-                      className="flex min-h-[44px] cursor-pointer items-center gap-3 bg-hueso px-4 py-3 text-detalle"
-                    >
-                      <input
-                        type="radio"
-                        name={field.name}
-                        value={p.valor}
-                        checked={field.value === p.valor}
-                        onChange={() => field.onChange(p.valor)}
-                        onBlur={field.onBlur}
-                        className="size-4 accent-grafito"
-                      />
-                      {p.etiqueta}
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <div className="grid gap-8 sm:grid-cols-2">
-          <FormField
-            control={form.control}
-            name="nombre"
-            rules={REGLAS.nombre}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tu nombre</FormLabel>
-                <FormControl>
-                  <Input {...field} autoComplete="name" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="contacto"
-            rules={REGLAS.contacto}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>WhatsApp o correo</FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    inputMode="email"
-                    autoComplete="email tel"
-                    placeholder="33 1234 5678"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        {/* Aviso de envío no configurado o error de red. */}
-        {resultado &&
-          (resultado.estado === "sin-destino" ||
-            resultado.estado === "error") && (
-            <div
-              ref={panelRef}
-              tabIndex={-1}
-              role="alert"
-              className="border-2 border-arcilla-oscura bg-arcilla-suave p-6"
-            >
-              <p className="flex items-center gap-2 font-titulo font-semibold text-grafito">
-                <AlertCircle size={20} strokeWidth={TRAZO} aria-hidden="true" />
-                Todavía no puedo recibir el formulario
-              </p>
-              <p className="medida mt-2 text-detalle text-grafito">
-                {resultado.estado === "error"
-                  ? resultado.mensaje
-                  : "El envío del formulario aún no está conectado. Mándame lo mismo por WhatsApp y te contesto igual de rápido — ahí también me puedes pasar la foto."}
-              </p>
-              <div className="mt-4">
-                <Button asChild variant="default">
-                  <a
-                    href={waLink(
-                      `Hola, quiero cotizar una pieza con ${BRAND.name}. ${form.getValues("descripcion")}`.trim(),
-                    )}
-                    target="_blank"
-                    rel="noopener"
+                {/* La promesa del §7.4 aplicada ANTES de aceptar el pedido:
+                    "si no lo puedo hacer, te lo digo". */}
+                {aviso && fechaEvento && (
+                  <div
+                    role="status"
+                    className={`mt-3 border-2 p-4 ${
+                      aviso.alcanza
+                        ? "border-grafito"
+                        : "border-arcilla-oscura bg-arcilla-suave"
+                    }`}
                   >
-                    Mandarlo por WhatsApp
-                  </a>
-                </Button>
+                    <p className="flex items-start gap-2 text-detalle text-grafito">
+                      {!aviso.alcanza && (
+                        <AlertCircle
+                          size={16}
+                          strokeWidth={TRAZO}
+                          aria-hidden="true"
+                          className="mt-0.5 shrink-0"
+                        />
+                      )}
+                      <span>
+                        {aviso.alcanza ? (
+                          <>
+                            Sí da tiempo: quedan{" "}
+                            <span className="cifra">{aviso.disponibles}</span>{" "}
+                            días hábiles y un lote necesita{" "}
+                            <span className="cifra">{aviso.necesarios}</span>{" "}
+                            contando el envío.
+                          </>
+                        ) : (
+                          <>
+                            <strong>Así no llega.</strong> Quedan{" "}
+                            <span className="cifra">{aviso.disponibles}</span>{" "}
+                            días hábiles y un lote necesita{" "}
+                            <span className="cifra">{aviso.necesarios}</span>{" "}
+                            contando el envío. Mándalo igual y buscamos una
+                            salida: menos piezas, otro material o entrega
+                            parcial.
+                          </>
+                        )}
+                      </span>
+                    </p>
+                  </div>
+                )}
               </div>
-            </div>
-          )}
+            )}
 
-        <Button type="submit" size="lg" disabled={form.formState.isSubmitting}>
-          {form.formState.isSubmitting ? "Mandando…" : "Mandar cotización"}
-        </Button>
+            {muestra("personalizacion") && (
+              <CampoTexto
+                form={form}
+                campo="personalizacion"
+                etiqueta="Personalización (opcional)"
+                area
+                placeholder="Nombres de los novios, logo de la empresa, fecha…"
+                ayuda="Si tienes el arte, me lo pasas después por WhatsApp."
+              />
+            )}
+
+            {muestra("plazo") && (
+              <CampoOpciones
+                form={form}
+                campo="plazo"
+                etiqueta="¿Para cuándo?"
+                opciones={PLAZOS}
+                columnas={3}
+              />
+            )}
+
+            {/* ── Comunes ── */}
+            <div className="grid gap-8 border-t border-cemento pt-8 sm:grid-cols-2">
+              <CampoTexto form={form} campo="nombre" etiqueta="Tu nombre" />
+              <CampoTexto
+                form={form}
+                campo="contacto"
+                etiqueta="WhatsApp o correo"
+                placeholder="33 1234 5678"
+              />
+            </div>
+
+            {/* Aviso de envío no configurado o error de red */}
+            {resultado &&
+              (resultado.estado === "sin-destino" ||
+                resultado.estado === "error") && (
+                <div
+                  ref={panelRef}
+                  tabIndex={-1}
+                  role="alert"
+                  className="border-2 border-arcilla-oscura bg-arcilla-suave p-6"
+                >
+                  <p className="flex items-center gap-2 font-titulo font-semibold text-grafito">
+                    <AlertCircle
+                      size={20}
+                      strokeWidth={TRAZO}
+                      aria-hidden="true"
+                    />
+                    No pude enviar el formulario
+                  </p>
+                  <p className="medida mt-2 text-detalle text-grafito">
+                    {resultado.estado === "error"
+                      ? resultado.mensaje
+                      : "El envío todavía no está conectado. Mándame lo mismo por WhatsApp y te contesto igual de rápido."}
+                  </p>
+                  <div className="mt-4">
+                    <Button asChild>
+                      <a
+                        href={waLink(
+                          `Hola, quiero cotizar con ${BRAND.name}. ${form.getValues("descripcion") ?? form.getValues("producto") ?? form.getValues("modelo") ?? ""}`.trim(),
+                        )}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        Mandarlo por WhatsApp
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+            <Button
+              type="submit"
+              size="lg"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Mandando…" : "Mandar cotización"}
+            </Button>
+          </div>
+        )}
       </form>
-    </Form>
+    </>
   );
 }
