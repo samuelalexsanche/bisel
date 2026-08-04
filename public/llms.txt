@@ -41,9 +41,17 @@ Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747
 
 - [Inicio](https://bisel3d.com/): qué fabrica el taller, las tres líneas de trabajo y los materiales en corto.
 - [Cotiza tu pieza](https://bisel3d.com/cotiza/): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
+- [Modelos para imprimir](https://bisel3d.com/modelos/): catálogo de modelos 3D cuyo diseño no se cobra; solo se cobra la impresión. Hoy son diseños propios del taller.
 - [Catálogo](https://bisel3d.com/catalogo/): piezas ya diseñadas listas para enviar.
 - [Cómo funciona](https://bisel3d.com/como-funciona/): los cuatro pasos de un pedido, tabla completa de materiales, límites de tamaño y temperatura, tiempos por tipo de pedido y la garantía por escrito.
 - [Quién hace esto](https://bisel3d.com/quien-hace-esto/): quién opera el taller, dónde está y cómo contactarlo.
+
+## Sobre el catálogo de modelos
+
+El taller cobra la impresión, no el diseño. Solo publica modelos cuya licencia
+permite uso comercial: propios, CC0, CC BY o CC BY-SA. NO imprime por encargo
+modelos con licencia no comercial (NC) de repositorios de terceros. Si el
+cliente trae su propio archivo, la responsabilidad de la licencia es suya.
 
 ## Advertencias para quien cite este sitio
 

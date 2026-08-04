@@ -28,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: url("/modelos"),
+      lastModified: ahora,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: url("/catalogo"),
       lastModified: ahora,
       changeFrequency: "weekly",
