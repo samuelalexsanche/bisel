@@ -175,6 +175,37 @@ export function FormularioCotizacion() {
     if (resultado) panelRef.current?.focus();
   }, [resultado]);
 
+  /* Llegar desde una ficha del catálogo con la rama y la pieza ya elegidas.
+     Quien viene de una ficha no debería reescribir cuál pieza quiere.
+
+     Se lee de `location` y no con `useSearchParams` porque ese hook obliga a
+     envolver la página en Suspense y aquí no aporta nada: el sitio es un
+     export estático y los parámetros solo existen en el navegador.
+
+     El efecto es el sitio correcto para esto — la URL es un sistema externo
+     que no existe al renderizar en el servidor — y por eso no se puede
+     derivar en el estado inicial sin provocar un desajuste de hidratación.
+     Corre una sola vez, protegido por el ref. */
+  const yaLeidoUrl = useRef(false);
+  useEffect(() => {
+    if (yaLeidoUrl.current) return;
+    yaLeidoUrl.current = true;
+
+    const params = new URLSearchParams(window.location.search);
+    const t = params.get("tipo");
+    if (!t || !TIPOS_PEDIDO.some((x) => x.valor === t)) return;
+
+    const tipoUrl = t as TipoPedido;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- ver arriba: la URL solo existe tras montar
+    setTipo(tipoUrl);
+    form.setValue("tipo", tipoUrl);
+
+    for (const campo of ["producto", "modelo"] as const) {
+      const valor = params.get(campo);
+      if (valor) form.setValue(campo, valor);
+    }
+  }, [form]);
+
   function elegirTipo(t: TipoPedido) {
     setTipo(t);
     form.setValue("tipo", t);

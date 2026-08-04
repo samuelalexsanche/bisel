@@ -11,7 +11,7 @@ import { TexturaCapas } from "@/components/piezas/TexturaCapas";
 import { Button } from "@/components/ui/button";
 import { BRAND, url } from "@/lib/brand";
 import { HAY_PRODUCTOS_REALES, PRODUCTOS, precioMXN } from "@/lib/productos";
-import { schemaMigas } from "@/lib/schema";
+import { schemaMigas, schemaProductos } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Catálogo de piezas impresas en 3D",
@@ -25,7 +25,10 @@ export default function Catalogo() {
       <FondoFoto nombre="catalogo" />
       <div className="contenido relative py-16">
         <JsonLd
-          datos={schemaMigas([{ nombre: "Catálogo", href: "/catalogo" }])}
+          datos={[
+            schemaMigas([{ nombre: "Catálogo", href: "/catalogo" }]),
+            ...schemaProductos(),
+          ]}
         />
 
         <header className="max-w-3xl">
@@ -145,13 +148,20 @@ export default function Catalogo() {
                     {/* Sin botón de compra mientras la ficha sea de muestra: no
                       puede existir un camino para pedir algo que no existe. */}
                     <div className="mt-6">
-                      {p.muestra || !p.enlace ? (
+                      {p.muestra || !p.linkPago ? (
+                        /* Llega a /cotiza con la rama y la pieza ya elegidas:
+                           quien viene de una ficha no debería tener que
+                           volver a escribir cuál pieza quiere. */
                         <Button asChild variant="outline" className="w-full">
-                          <Link href="/cotiza">Pedirla a medida</Link>
+                          <Link
+                            href={`/cotiza?tipo=catalogo&producto=${encodeURIComponent(p.nombre)}`}
+                          >
+                            Pedirla a medida
+                          </Link>
                         </Button>
                       ) : (
                         <Button asChild className="w-full">
-                          <a href={p.enlace} target="_blank" rel="noopener">
+                          <a href={p.linkPago} target="_blank" rel="noopener">
                             Comprar
                           </a>
                         </Button>

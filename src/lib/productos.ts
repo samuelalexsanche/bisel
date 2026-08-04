@@ -14,8 +14,15 @@ export type Producto = {
   forma: NombreForma;
   /** Nombre del archivo en /medios/catalogo, sin extensión. */
   foto?: string;
-  /** Enlace saliente a MercadoLibre o a la tienda. Este sitio no cobra. */
-  enlace?: string;
+  /**
+   * Link de pago de Mercado Pago para esta pieza.
+   *
+   * Se crea a mano en el panel de MP y se pega aquí. El cobro ocurre en el
+   * sitio de Mercado Pago, no aquí: §7.3 — "este sitio no procesa pagos".
+   * Los datos de tarjeta nunca pasan por nosotros, así que no entramos en
+   * obligaciones de PCI.
+   */
+  linkPago?: string;
   /**
    * `true` = ficha de muestra para ver la rejilla funcionando, NO inventario.
    * La tarjeta lo dice en pantalla. Ver la nota de abajo.

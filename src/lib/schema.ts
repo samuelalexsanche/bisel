@@ -1,5 +1,6 @@
 import { BASE_URL, BRAND, REDES, url } from "@/lib/brand";
 import { PREGUNTAS } from "@/lib/datos";
+import { PRODUCTOS } from "@/lib/productos";
 
 /**
  * Datos estructurados — §8.3. Se inyectan como JSON-LD.
@@ -180,6 +181,38 @@ export function schemaPreguntas() {
       acceptedAnswer: { "@type": "Answer", text: p.respuesta },
     })),
   };
+}
+
+/**
+ * Product — §8.3, "cada ficha de catálogo, CUANDO EXISTAN PRODUCTOS".
+ *
+ * Solo emite schema para piezas reales con link de pago. Publicar `Product`
+ * con `offers` de una ficha de muestra sería declarar a Google que hay algo a
+ * la venta que no existe: contenido inventado (criterio 12) y, además, motivo
+ * de penalización por datos estructurados que no coinciden con la página.
+ *
+ * Mientras el catálogo sea de muestra esta función devuelve lista vacía y no
+ * se inyecta nada. Es correcto y es deliberado.
+ */
+export function schemaProductos() {
+  return PRODUCTOS.filter((p) => !p.muestra && p.linkPago).map((p) => ({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: p.nombre,
+    description: p.descripcion,
+    sku: p.id,
+    material: p.material,
+    brand: { "@id": ID_NEGOCIO },
+    ...(p.foto ? { image: url(`/medios/catalogo/${p.foto}.webp`) } : {}),
+    offers: {
+      "@type": "Offer",
+      price: p.precio,
+      priceCurrency: "MXN",
+      availability: "https://schema.org/InStock",
+      url: p.linkPago,
+      seller: { "@id": ID_NEGOCIO },
+    },
+  }));
 }
 
 /** BreadcrumbList — todas las páginas menos Inicio. */
