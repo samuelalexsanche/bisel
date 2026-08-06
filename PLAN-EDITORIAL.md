@@ -6,8 +6,9 @@
 ## Estado de avance — 2026-08-05
 
 - ✅ **Cluster A completo (6/6):** A1-A6 redactados en `content/blog/` (Markdown + frontmatter).
-- ✅ **Ruta `/blog` implementada:** listado + `/blog/[slug]` con JSON-LD (BlogPosting + FAQPage + BreadcrumbList), sitemap actualizado y `llms.txt` con índice del blog. Build estático verificado (`DEPLOY_TARGET=pages`, 18 páginas).
-- ⏳ **Siguiente:** Cluster B (B1-B5, materiales) y Cluster C (C1-C4, negocios) según calendario. Después, Fase 2 (C5, D1-D3).
+- ✅ **Ruta `/blog` implementada:** listado + `/blog/[slug]` con JSON-LD (BlogPosting + FAQPage + BreadcrumbList), sitemap actualizado y `llms.txt` con índice del blog. Build estático verificado (`DEPLOY_TARGET=pages`).
+- ✅ **Cluster B: B1-B2 listos** (materiales-impresion-3d pilar 2,049 palabras; pla-vs-abs-vs-petg 1,407). Siguen B3 (resina vs filamento), B4 (filamentos especiales), B5 (seguridad).
+- ⏳ **Siguiente:** B3-B5 y Cluster C (C1-C4) — con ritmo automático: cron jobs martes/jueves 9:00 generan el siguiente artículo del calendario.
 
 ---
 
