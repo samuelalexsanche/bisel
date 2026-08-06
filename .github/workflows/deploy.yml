@@ -45,6 +45,48 @@ jobs:
         with:
           path: ./out
 
+      # IndexNow — ping instantáneo a Bing, Yandex y Seznam tras cada deploy.
+      # Bing es el buscador que alimenta las respuestas de ChatGPT, así que
+      # este ping es la puerta de entrada a que los motores generativos citen
+      # el sitio (§9 GEO). La llave vive en public/<llave>.txt (pública por
+      # diseño: es la prueba de propiedad del archivo, no una credencial).
+      - name: Ping IndexNow
+        run: |
+          KEY_FILE=$(ls public | grep -E '^[0-9a-f]{32}\.txt$' | head -1 || true)
+          if [ -z "$KEY_FILE" ]; then
+            echo "No se encontró la llave IndexNow; se omite el ping."
+            exit 0
+          fi
+          KEY="${KEY_FILE%.txt}"
+          echo "Llave IndexNow: $KEY"
+          python3 - <<'PYEOF'
+          import json, re, sys, urllib.request, urllib.error
+          key = "$KEY"
+          try:
+              sitemap = open("out/sitemap.xml", encoding="utf-8").read()
+          except FileNotFoundError:
+              print("No hay sitemap; se omite el ping.")
+              sys.exit(0)
+          urls = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+          payload = {
+              "host": "bisel3d.com",
+              "key": key,
+              "keyLocation": f"https://bisel3d.com/{key}.txt",
+              "urlList": urls,
+          }
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode(),
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=20) as r:
+                  print(f"IndexNow OK: {r.status} · {len(urls)} URLs")
+          except urllib.error.HTTPError as e:
+              print(f"IndexNow HTTP {e.code}: {e.read().decode()[:200]}")
+          PYEOF
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
