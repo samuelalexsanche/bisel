@@ -59,9 +59,11 @@ jobs:
           fi
           KEY="${KEY_FILE%.txt}"
           echo "Llave IndexNow: $KEY"
-          python3 - <<'PYEOF'
-          import json, re, sys, urllib.request, urllib.error
-          key = "$KEY"
+          # La llave viaja por variable de entorno: el heredoc va con comillas
+          # (<<'PYEOF'), así que $KEY NO se expande dentro del script.
+          INDEXNOW_KEY="$KEY" python3 - <<'PYEOF'
+          import json, os, re, sys, urllib.request, urllib.error
+          key = os.environ["INDEXNOW_KEY"]
           try:
               sitemap = open("out/sitemap.xml", encoding="utf-8").read()
           except FileNotFoundError:
