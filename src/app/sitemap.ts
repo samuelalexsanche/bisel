@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { articulos } from "@/lib/blog";
 import { url } from "@/lib/brand";
 
 /* `output: export` exige declarar estático cada route handler de metadatos. */
@@ -51,5 +52,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
+    {
+      url: url("/blog"),
+      lastModified: ahora,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    /* Los artículos salen del frontmatter: la fecha de modificación es la
+       declarada, no "ahora", para que el sitemap no cambie en cada build. */
+    ...articulos().map((a) => ({
+      url: url(`/blog/${a.slug}`),
+      lastModified: new Date(`${a.actualizado}T00:00:00Z`),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }

@@ -196,3 +196,119 @@
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }
+
+/* ============================================================================
+   Blog — cuerpo de artículo (§nuevo).
+
+   Estilos para el HTML que sale del Markdown (marked + GFM). Respeta los
+   tokens del §4: sin colores nuevos, esquinas rectas, sin sombras. El acento
+   solo aparece en los enlaces (arcilla-oscura, la variante sancionada para
+   texto pequeño — §4.1.1).
+   ========================================================================= */
+.blog-articulo {
+  font-size: var(--text-cuerpo);
+  line-height: 1.7;
+  color: var(--color-grafito);
+}
+
+.blog-articulo > :first-child {
+  margin-top: 0;
+}
+
+.blog-articulo h2 {
+  font-family: var(--font-titulo);
+  font-size: var(--text-h2);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.blog-articulo h3 {
+  font-family: var(--font-titulo);
+  font-size: var(--text-h3);
+  line-height: 1.3;
+  font-weight: 600;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-articulo p {
+  margin: 0 0 1.25rem;
+}
+
+.blog-articulo ul,
+.blog-articulo ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.blog-articulo ul {
+  list-style: disc;
+}
+
+.blog-articulo ol {
+  list-style: decimal;
+}
+
+.blog-articulo li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-articulo li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.blog-articulo a {
+  color: var(--color-arcilla-oscura);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.blog-articulo a:hover {
+  color: var(--color-grafito);
+}
+
+/* Tablas: la celda envuelve, y si el ancho no alcanza se desplaza en bloque
+   (mismo criterio que la tabla de materiales de Cómo funciona). */
+.blog-articulo table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.blog-articulo th {
+  font-family: var(--font-titulo);
+  font-size: var(--text-detalle);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 2px solid var(--color-grafito);
+}
+
+.blog-articulo td {
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 1px solid var(--color-cemento);
+  vertical-align: top;
+}
+
+/* Cita de CTA dentro del artículo: borde Grafito, nunca el acento
+   (§4.1 regla 1 — el acento es UN elemento por vista). */
+.blog-articulo blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 0 1rem 1.25rem;
+  border-left: 2px solid var(--color-grafito);
+}
+
+.blog-articulo blockquote p {
+  margin: 0;
+}
+
+.blog-articulo hr {
+  border: none;
+  border-top: 1px solid var(--color-cemento);
+  margin: 2.5rem 0;
+}

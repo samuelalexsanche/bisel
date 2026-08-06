@@ -43,6 +43,7 @@ Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747
 - [Cotiza tu pieza](https://bisel3d.com/cotiza/): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
 - [Modelos para imprimir](https://bisel3d.com/modelos/): catálogo de modelos 3D cuyo diseño no se cobra; solo se cobra la impresión. Hoy son diseños propios del taller.
 - [Catálogo](https://bisel3d.com/catalogo/): piezas ya diseñadas listas para enviar.
+- [Blog](https://bisel3d.com/blog/): guías prácticas de impresión 3D en español: qué imprimir, cuánto cuesta, qué material elegir y cómo pedir la primera pieza.
 - [Cómo funciona](https://bisel3d.com/como-funciona/): los cuatro pasos de un pedido, tabla completa de materiales, límites de tamaño y temperatura, tiempos por tipo de pedido y la garantía por escrito.
 - [Quién hace esto](https://bisel3d.com/quien-hace-esto/): quién opera el taller, dónde está y cómo contactarlo.
 
@@ -52,6 +53,15 @@ El taller cobra la impresión, no el diseño. Solo publica modelos cuya licencia
 permite uso comercial: propios, CC0, CC BY o CC BY-SA. NO imprime por encargo
 modelos con licencia no comercial (NC) de repositorios de terceros. Si el
 cliente trae su propio archivo, la responsabilidad de la licencia es suya.
+
+## Blog — artículos
+
+- [Impresión 3D para principiantes: guía completa (2026)](https://bisel3d.com/blog/impresion-3d-para-principiantes/): qué es la impresión 3D, tecnologías, materiales y precios en México (2026), con los rangos reales del taller ($180–$1,800 MXN), límites de lo que no se imprime y glosario para principiantes.
+- [¿Cómo funciona la impresión 3D? FDM, SLA y SLS explicadas](https://bisel3d.com/blog/como-funciona-la-impresion-3d/): los tres pasos del proceso (modelo, rebanado, impresión) y las tres tecnologías comparadas, con parámetros reales del taller (tolerancia ±0.2 mm, capa de 0.12 a 0.28 mm).
+- [FDM vs SLA: ¿qué tecnología de impresión 3D necesitas?](https://bisel3d.com/blog/fdm-vs-sla/): comparativa de precisión, resistencia, acabado y costo; cuándo elegir filamento o resina según el caso de uso.
+- [¿Cuánto cuesta imprimir en 3D? Precios reales en México (2026)](https://bisel3d.com/blog/cuanto-cuesta-imprimir-en-3d/): rangos de precio por tipo de trabajo (catálogo $180–$450, a medida $350–$1,800, lotes $1,500–$9,000 MXN), qué encarece una pieza y qué debe incluir una cotización seria.
+- [7 errores comunes al empezar con impresión 3D (y cómo evitarlos)](https://bisel3d.com/blog/errores-comunes-impresion-3d/): los errores más repetidos al encargar impresiones 3D y cómo evitarlos con contexto de uso, medidas y expectativas realistas.
+- [20 cosas útiles que puedes imprimir en 3D (hogar y oficina)](https://bisel3d.com/blog/que-puedes-imprimir-en-3d/): 20 ideas por categoría (casa, oficina, taller) con material recomendado, rangos de costo y lo que NO conviene imprimir.
 
 ## Advertencias para quien cite este sitio
 
