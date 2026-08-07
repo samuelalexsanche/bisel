@@ -25,7 +25,7 @@ const NO_IMPRIMO = [
 
 const PASOS = [
   "Lo leo el mismo día. Si llega después de las 7 pm, al día siguiente por la mañana.",
-  "Te contesto por WhatsApp con precio, material recomendado y fecha de entrega.",
+  "Si traes tu archivo, te mando el render real de tu pieza con el precio y la fecha, para que la apruebes antes de imprimir.",
   "Si no lo puedo hacer, te lo digo y te sugiero a dónde ir.",
 ];
 
@@ -92,6 +92,31 @@ export default function Cotiza() {
               </ol>
               <p className="mt-6 border-l-2 border-grafito pl-4 font-titulo font-semibold text-grafito">
                 No cobro por cotizar y no hay compromiso.
+              </p>
+            </section>
+
+            <section aria-labelledby="preview-gratis">
+              <h2 id="preview-gratis" className="font-titulo text-h3">
+                Preview gratis
+              </h2>
+              <ul className="mt-5 space-y-3">
+                <li className="border-b border-cemento pb-3 text-texto-secundario last:border-0">
+                  Si ya tienes tu archivo (STL, 3MF u OBJ): te mando el render
+                  real de tu pieza, sin costo, para que la apruebes antes de
+                  imprimir.
+                </li>
+                <li className="border-b border-cemento pb-3 text-texto-secundario last:border-0">
+                  El render es del modelo exacto, no una imagen de catálogo:
+                  lo que ves es lo que se imprime.
+                </li>
+                <li className="border-b border-cemento pb-3 text-texto-secundario last:border-0">
+                  Si solo tienes una idea, el avance visual va incluido en el
+                  diseño.
+                </li>
+              </ul>
+              <p className="mt-5 text-detalle text-texto-secundario">
+                Ajustamos el diseño con el render antes de imprimir, sin costo
+                adicional.
               </p>
             </section>
 

@@ -29,6 +29,9 @@ Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747
   entrega. Si el error fue del taller, el envío de reposición también.
 - Cotizar no tiene costo ni compromiso. Se responde el mismo día; después de
   las 7 pm, a la mañana siguiente.
+- Preview gratis: si el cliente trae su archivo, se envía el render real de la
+  pieza antes de imprimir, sin costo, para que la apruebe. El render es del
+  modelo exacto, no una imagen de catálogo.
 
 ## Lo que este taller NO hace
 
