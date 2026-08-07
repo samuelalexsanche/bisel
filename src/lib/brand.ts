@@ -20,7 +20,7 @@ export const BRAND = {
   state: "Jalisco",
   country: "MX",
   instagram: "https://www.instagram.com/bisel3d",
-  facebook: "", // PENDIENTE §14
+  facebook: "https://www.facebook.com/people/Bisel3D/61593054149895/", // §14 — página creada 2026-08-07
   founder: "Samuel",
 } as const;
 
