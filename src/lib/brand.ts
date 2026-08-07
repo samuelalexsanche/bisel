@@ -19,7 +19,7 @@ export const BRAND = {
   city: "Guadalajara",
   state: "Jalisco",
   country: "MX",
-  instagram: "", // PENDIENTE §14
+  instagram: "https://www.instagram.com/bisel3d",
   facebook: "", // PENDIENTE §14
   founder: "Samuel",
 } as const;
