@@ -41,6 +41,7 @@ Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747
 
 - [Inicio](https://bisel3d.com/): qué fabrica el taller, las tres líneas de trabajo y los materiales en corto.
 - [Cotiza tu pieza](https://bisel3d.com/cotiza/): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
+- [Calculadora de presupuesto](https://bisel3d.com/calculadora/): estima en segundos el rango de precio de una pieza del catálogo, una pieza a medida o un lote, siempre dentro de los rangos publicados del taller.
 - [Modelos para imprimir](https://bisel3d.com/modelos/): catálogo de modelos 3D cuyo diseño no se cobra; solo se cobra la impresión. Hoy son diseños propios del taller.
 - [Catálogo](https://bisel3d.com/catalogo/): piezas ya diseñadas listas para enviar.
 - [Blog](https://bisel3d.com/blog/): guías prácticas de impresión 3D en español: qué imprimir, cuánto cuesta, qué material elegir y cómo pedir la primera pieza.

@@ -105,7 +105,7 @@ Por eso en Bisel preferimos cotizar por proyecto: te decimos el precio total, el
 
 Si la pieza no es viable (por tamaño, temperatura o seguridad), te lo decimos con honestidad antes de cobrar nada. Eso también es parte del precio: saber que nadie te va a vender humo.
 
-> **¿Quieres tu precio hoy mismo?** Cotiza gratis y recibe respuesta el mismo día. [Cotiza tu pieza →](/cotiza)
+> **¿Quieres tu precio hoy mismo?** Usa la [calculadora de presupuesto →](/calculadora) para un estimado en segundos, o cotiza gratis y recibe respuesta el mismo día. [Cotiza tu pieza →](/cotiza)
 
 ---
 

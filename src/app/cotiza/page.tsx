@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import Link from "next/link";
+
 import { JsonLd } from "@/components/JsonLd";
 import { FondoFoto } from "@/components/layout/FondoFoto";
 import { BRAND, url } from "@/lib/brand";
@@ -44,6 +46,16 @@ export default function Cotiza() {
           <p className="medida mt-5 text-texto-secundario">
             Mándame una foto y las medidas de lo que necesitas. Te contesto el
             mismo día con precio, material recomendado y fecha de entrega.
+          </p>
+          <p className="mt-4 text-detalle text-texto-secundario">
+            ¿Solo quieres un estimado rápido? Usa la{" "}
+            <Link
+              href="/calculadora"
+              className="font-semibold text-grafito underline"
+            >
+              calculadora de presupuesto
+            </Link>
+            .
           </p>
         </header>
 
