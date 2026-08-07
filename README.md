@@ -29,24 +29,6 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Herramientas del taller
-
-### Preview gratis — render de piezas (`scripts/render-stl.sh`)
-
-Convierte un archivo `.stl` u `.obj` en una imagen de producto para mandar al
-cliente antes de imprimir (lo que ves es la geometría real que se va a imprimir).
-
-```bash
-./scripts/render-stl.sh pieza.stl preview.png
-```
-
-Opciones: `--fondo grafito|hueso|transparente|blanco` (por defecto grafito),
-`--color "r,g,b"` (color del material, 0-1), `--size 1024`, `--angle 45`,
-`--motor eevee|cycles` (EEVEE es rápido, Cycles fotorrealista). Requiere
-Blender (ajustable con la variable `BLENDER`).
-
-Si el cliente manda `.3mf`, conviértelo a STL en Bambu Studio primero.
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

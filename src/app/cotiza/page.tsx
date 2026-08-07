@@ -110,13 +110,12 @@ export default function Cotiza() {
                   lo que ves es lo que se imprime.
                 </li>
                 <li className="border-b border-cemento pb-3 text-texto-secundario last:border-0">
-                  Si solo tienes una idea, el avance visual va incluido en el
-                  diseño.
+                  Si solo tienes una idea o una foto, te mando una vista previa
+                  del concepto para ajustarla antes de producir.
                 </li>
               </ul>
               <p className="mt-5 text-detalle text-texto-secundario">
-                Ajustamos el diseño con el render antes de imprimir, sin costo
-                adicional.
+                Ajustamos el diseño antes de imprimir, sin costo adicional.
               </p>
             </section>
 

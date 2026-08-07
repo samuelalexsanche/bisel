@@ -31,7 +31,8 @@ Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747
   las 7 pm, a la mañana siguiente.
 - Preview gratis: si el cliente trae su archivo, se envía el render real de la
   pieza antes de imprimir, sin costo, para que la apruebe. El render es del
-  modelo exacto, no una imagen de catálogo.
+  modelo exacto, no una imagen de catálogo. Si solo hay una idea o una foto,
+  se envía una vista previa del concepto para ajustarla antes de producir.
 
 ## Lo que este taller NO hace
 
