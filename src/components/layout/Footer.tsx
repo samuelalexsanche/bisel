@@ -2,6 +2,50 @@ import Link from "next/link";
 
 import { Logo } from "@/components/brand/Logo";
 import { BRAND, REDES } from "@/lib/brand";
+import { TRAZO } from "@/lib/iconos";
+
+/**
+ * Icono de red social — §3.1, trazo fijo 1.75.
+ * Instagram tiene su glifo; cualquier otra red cae en un globo genérico.
+ */
+function IconoRed(host: string) {
+  if (host.includes("instagram")) {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={TRAZO}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={TRAZO}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" x2="22" y1="12" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  );
+}
 
 const NAV = [
   { href: "/catalogo", texto: "Catálogo" },
@@ -74,18 +118,25 @@ export function Footer() {
 
           {REDES.length > 0 && (
             <ul className="mt-4 flex gap-4">
-              {REDES.map((u) => (
-                <li key={u}>
-                  <a
-                    href={u}
-                    target="_blank"
-                    rel="noopener"
-                    className="inline-flex min-h-[44px] items-center text-detalle text-cemento underline underline-offset-4 hover:text-hueso"
-                  >
-                    {new URL(u).hostname.replace("www.", "")}
-                  </a>
-                </li>
-              ))}
+              {REDES.map((u) => {
+                const host = new URL(u).hostname.replace("www.", "");
+                const etiqueta =
+                  "@" + new URL(u).pathname.split("/").filter(Boolean).pop();
+                return (
+                  <li key={u}>
+                    <a
+                      href={u}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={`${BRAND.name} en ${host.split(".")[0]}`}
+                      className="inline-flex min-h-[44px] items-center gap-2 text-detalle text-cemento transition-colors duration-[120ms] hover:text-hueso"
+                    >
+                      {IconoRed(host)}
+                      {etiqueta}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>
