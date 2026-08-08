@@ -79,4 +79,6 @@ cliente trae su propio archivo, la responsabilidad de la licencia es suya.
   reales, pero todavía no hay inventario a la venta. El sitio lo dice en
   pantalla y no ofrece botón de compra.
 - Las fotografías del sitio están generadas por IA y llevan un sello visible.
-  No son documentación del taller ni de las piezas.
+  No son documentación del taller ni de las piezas. El timelapse de la portada
+  SÍ es real: grabado por la cámara interna de la impresora (Bambu Lab) en el
+  taller, pieza creciendo capa por capa.

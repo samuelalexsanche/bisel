@@ -295,13 +295,13 @@ export default function Inicio() {
               </p>
             </Reveal>
 
-            {/* Video vertical 9:16 del timelapse. Ruido de taller real, sin música.
-              PENDIENTE §14.4 — mientras no exista, el hueco lleva la relación de
-              aspecto correcta para que no haya salto de layout al montarlo.
+            {/* Timelapse REAL del taller — grabado por la cámara interna de la
+                impresora (Bambu Lab), pieza creciendo capa por capa. Ruido de
+                taller real, sin música (§14.4 — ya no es generado).
 
-              Cuando llegue: autoplay muted loop playsinline, con poster y
-              preload="metadata", NUNCA preload="auto" (§7.1 sección 5). */}
-            <div className="relative mx-auto w-full max-w-[19rem]">
+                autoplay muted loop playsinline, con poster y preload="metadata",
+                NUNCA preload="auto" (§7.1 sección 5). */}
+            <div className="relative mx-auto w-full max-w-[30rem]">
               <ParallaxLayer depth={1} className="absolute -inset-5">
                 <div className="h-full w-full border border-cemento" />
               </ParallaxLayer>
@@ -311,21 +311,18 @@ export default function Inicio() {
                     width/height reservan el hueco: CLS cero. */}
                 <video
                   className="block h-auto w-full"
-                  width={720}
-                  height={1280}
+                  width={1920}
+                  height={1080}
                   autoPlay
                   muted
                   loop
                   playsInline
                   preload="metadata"
                   poster={medio("timelapse-poster.webp")}
-                  aria-label="Timelapse de una impresora 3D construyendo una pieza capa por capa."
+                  aria-label="Timelapse real de una impresora 3D construyendo una pieza capa por capa en el taller."
                 >
                   <source src={medio("timelapse.mp4")} type="video/mp4" />
                 </video>
-                <span className="cifra absolute right-2 bottom-2 border border-grafito bg-hueso/95 px-2 py-1 text-[0.625rem] tracking-wide text-grafito uppercase">
-                  Video generado
-                </span>
               </div>
             </div>
           </div>
