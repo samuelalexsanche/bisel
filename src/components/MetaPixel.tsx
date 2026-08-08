@@ -37,5 +37,22 @@ export function MetaPixel() {
     document.head.appendChild(script);
   }, []);
 
-  return null;
+  // Fallback del snippet oficial: un pixel <img> para quien navega sin JS
+  // (criterio 10 del sitio: el contenido funciona sin JavaScript). Se renderiza
+  // en el SSR estático, así que aparece en el HTML de cada página.
+  if (!PIXEL_ACTIVO) return null;
+  return (
+    <noscript>
+      {/* eslint-disable-next-line @next/next/no-img-element — es el snippet
+          oficial de Meta: un <img> de 1px para quien navega sin JS. next/image
+          no aplica aquí (ni dentro de <noscript> ni para este caso). */}
+      <img
+        height="1"
+        width="1"
+        style={{ display: "none" }}
+        alt=""
+        src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
+      />
+    </noscript>
+  );
 }
