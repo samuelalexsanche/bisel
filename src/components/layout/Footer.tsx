@@ -136,7 +136,7 @@ export function Footer() {
           </address>
 
           {REDES.length > 0 && (
-            <ul className="mt-4 flex gap-4">
+            <ul className="mt-4 flex flex-col gap-2">
               {REDES.map((u) => {
                 const host = new URL(u).hostname.replace("www.", "");
                 // La etiqueta es el handle legible. Facebook no lo expone en

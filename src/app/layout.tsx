@@ -70,6 +70,13 @@ export default function RootLayout({
           <PrintReveal> solo se neutraliza donde NO hay view-timeline: con
           soporte nativo se anima por CSS puro y no necesita JS.
         */}
+        {/* Verificación de dominio con Meta (pixel + anuncios, §14.7).
+            La entrega Meta Business al añadir el dominio; NO quitar sin
+            reemplazarla por la nueva. */}
+        <meta
+          name="facebook-domain-verification"
+          content="winonursj41t3nyre0r58s5bwg72h1"
+        />
         <noscript>
           <style>{`
             .reveal,.strata-sweep>*{opacity:1!important;transform:none!important}
