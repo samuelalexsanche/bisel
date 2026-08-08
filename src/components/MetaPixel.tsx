@@ -43,9 +43,8 @@ export function MetaPixel() {
   if (!PIXEL_ACTIVO) return null;
   return (
     <noscript>
-      {/* eslint-disable-next-line @next/next/no-img-element — es el snippet
-          oficial de Meta: un <img> de 1px para quien navega sin JS. next/image
-          no aplica aquí (ni dentro de <noscript> ni para este caso). */}
+      {/* eslint-disable-next-line @next/next/no-img-element -- snippet oficial
+          de Meta: <img> de 1px para quien navega sin JS. next/image no aplica. */}
       <img
         height="1"
         width="1"
