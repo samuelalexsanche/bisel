@@ -21,7 +21,7 @@ import {
   type TipoPedido,
 } from "@/lib/cotizacion";
 import { TRAZO } from "@/lib/iconos";
-import { enviarCotizacion, type ResultadoEnvio } from "@/lib/envio";
+import { enviarCotizacion, resumen, type ResultadoEnvio } from "@/lib/envio";
 import { trackLead } from "@/lib/pixel";
 
 type Campo = keyof Cotizacion;
@@ -550,7 +550,9 @@ export function FormularioCotizacion() {
                     <Button asChild>
                       <a
                         href={waLink(
-                          `Hola, quiero cotizar con ${BRAND.name}. ${form.getValues("descripcion") ?? form.getValues("producto") ?? form.getValues("modelo") ?? ""}`.trim(),
+                          `Hola, quiero cotizar con ${BRAND.name}. Los datos que llené en el formulario:\n\n${resumen(
+                            form.getValues(),
+                          )}`,
                         )}
                         target="_blank"
                         rel="noopener"

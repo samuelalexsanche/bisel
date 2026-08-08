@@ -54,8 +54,12 @@ const etiquetaTipo = (t: TipoPedido) =>
  * Mandar los 15 campos con 10 vacíos convierte cada aviso en algo que hay que
  * descifrar. Así el correo se lee de un vistazo y se puede contestar desde el
  * teléfono, que es como opera el taller.
+ *
+ * Exportado porque también alimenta el mensaje de WhatsApp del respaldo:
+ * si el envío por correo no está conectado, el formulario NO pierde los datos
+ * — el cliente los manda completos por WhatsApp (§7.3).
  */
-function resumen(datos: Cotizacion): string {
+export function resumen(datos: Cotizacion): string {
   const lineas: string[] = [`Tipo de pedido: ${etiquetaTipo(datos.tipo)}`, ""];
 
   for (const campo of CAMPOS_POR_TIPO[datos.tipo]) {
