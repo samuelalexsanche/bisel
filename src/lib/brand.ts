@@ -14,8 +14,8 @@ export const BRAND = {
   descriptor: "Taller de impresión 3D en Guadalajara",
   domain: "https://bisel3d.com",
   email: "hola@bisel3d.com",
-  /** PENDIENTE §14.6 — sin confirmar si es el mismo de Mattera o una línea nueva. */
-  whatsapp: "523327874747",
+  /** §14.6 — línea propia de Bisel, confirmada 2026-08-07 (33 2018 1810). */
+  whatsapp: "523320181810",
   city: "Guadalajara",
   state: "Jalisco",
   country: "MX",
