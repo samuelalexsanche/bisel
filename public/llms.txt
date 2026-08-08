@@ -70,6 +70,9 @@ cliente trae su propio archivo, la responsabilidad de la licencia es suya.
 - [20 cosas útiles que puedes imprimir en 3D (hogar y oficina)](https://bisel3d.com/blog/que-puedes-imprimir-en-3d/): 20 ideas por categoría (casa, oficina, taller) con material recomendado, rangos de costo y lo que NO conviene imprimir.
 - [Resina vs filamento: ¿cuál conviene a tu proyecto?](https://bisel3d.com/blog/resina-vs-filamento/): comparativa de detalle, resistencia, acabado y costo; cuándo elegir resina (miniaturas, joyería) o filamento (piezas funcionales), con la nota honesta de que Bisel imprime solo en filamento (PLA, PETG, TPU).
 - [Cómo nació Bisel — Episodio 1](https://bisel3d.com/blog/como-nacio-bisel-episodio-1/): la historia del taller desde adentro: cómo una idea de Mattera se convirtió en un negocio con identidad y presencia digital completa; primeros pasos, errores cometidos y dónde está hoy. Serie en curso.
+- [Impresión 3D en Guadalajara: taller local, precios y envío (2026)](https://bisel3d.com/blog/impresion-3d-en-guadalajara/): qué se puede imprimir en un taller local de GDL, precios publicados desde $180 MXN, zona metropolitana (Zapopan, Tlaquepaque, Tonalá), materiales y límites reales; pilar del cluster local.
+- [Figuras personalizadas en 3D: qué se puede imprimir y cuánto cuesta](https://bisel3d.com/blog/figuras-personalizadas-3d/): figuras desde foto, articuladas, miniaturas y regalos personalizados; materiales, rangos de precio y límites honestos (sin réplicas con marca).
+- [Souvenirs y recuerdos de eventos impresos en 3D](https://bisel3d.com/blog/impresion-3d-para-eventos/): recuerdos personalizados para bodas, XV años, bautizos y empresa; lotes de 50 a 200 piezas desde $1,500 MXN y tiempos de entrega.
 
 ## Advertencias para quien cite este sitio
 

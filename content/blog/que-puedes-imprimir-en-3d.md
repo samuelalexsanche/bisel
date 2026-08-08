@@ -121,7 +121,7 @@ No. Si la pieza ya está en el catálogo, se pide directo. Si no, basta una foto
 
 ### ¿Sirven de regalo?
 
-Sí, y son de los regalos más agradecidos: algo útil, hecho a la medida exacta de la persona. Los llaveros y organizadores personalizados son los favoritos.
+Sí, y son de los regalos más agradecidos: algo útil, hecho a la medida exacta de la persona. Los llaveros y organizadores personalizados son los favoritos. Para figuras personalizadas, souvenirs o recuerdos de eventos (bodas, XV años, cumpleaños), Bisel imprime lotes de 50 a 200 piezas — la guía está en [impresión 3D para eventos](/blog/impresion-3d-para-eventos).
 
 ### ¿Qué tan resistentes son estas piezas?
 

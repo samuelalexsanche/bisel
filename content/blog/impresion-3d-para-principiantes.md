@@ -240,6 +240,10 @@ Sí, es uno de los usos más comunes: piezas diseñadas para encajar en un lugar
 
 Sí. Bisel está en Guadalajara, Jalisco, y envía a todo el país. El envío nacional suma 2 a 5 días hábiles al tiempo de fabricación.
 
+### ¿Hay impresión 3D cerca de mí en Guadalajara?
+
+Sí: Bisel es un taller local de impresión 3D en Guadalajara (GDL) y la zona metropolitana — Zapopan, Tlaquepaque, Tonalá y alrededores. Puedes pedir por WhatsApp o por el formulario de cotización, y si prefieres recoger en persona se coordina por mensaje. Para el resto de México, el envío nacional llega en 2 a 5 días hábiles.
+
 ### ¿Qué pasa si la pieza llega dañada?
 
 Se reimprime sin costo. Avisa con una foto dentro de los 7 días siguientes a la entrega; si el error fue del taller, la reposición tampoco te cuesta el envío.
