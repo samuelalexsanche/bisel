@@ -1,8 +1,7 @@
 "use client";
 
-import { AlertCircle, CheckCircle2 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { useForm, useWatch, type UseFormReturn } from "react-hook-form";
+import { AlertCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";import { useForm, useWatch, type UseFormReturn } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,7 +20,7 @@ import {
   type TipoPedido,
 } from "@/lib/cotizacion";
 import { TRAZO } from "@/lib/iconos";
-import { enviarCotizacion, resumen, type ResultadoEnvio } from "@/lib/envio";
+import { resumen } from "@/lib/envio";
 import { trackLead } from "@/lib/pixel";
 
 type Campo = keyof Cotizacion;
@@ -157,8 +156,6 @@ function CampoOpciones({
 
 export function FormularioCotizacion() {
   const [tipo, setTipo] = useState<TipoPedido | null>(null);
-  const [resultado, setResultado] = useState<ResultadoEnvio | null>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
 
   const form = useForm<Cotizacion>({
     // Validar al salir del campo, no en cada tecla: el error aparece cuando la
@@ -171,10 +168,6 @@ export function FormularioCotizacion() {
      un campo y no rompe la memoización del compilador de React. */
   const fechaEvento = useWatch({ control: form.control, name: "fechaEvento" });
   const aviso = tipo ? alcanzaLaFecha(tipo, fechaEvento ?? "") : null;
-
-  useEffect(() => {
-    if (resultado) panelRef.current?.focus();
-  }, [resultado]);
 
   /* Llegar desde una ficha del catálogo con la rama y la pieza ya elegidas.
      Quien viene de una ficha no debería reescribir cuál pieza quiere.
@@ -213,52 +206,24 @@ export function FormularioCotizacion() {
     form.clearErrors();
   }
 
-  async function onSubmit(valores: Cotizacion) {
-    const r = await enviarCotizacion(valores);
-    setResultado(r);
-    // Lead = la conversión del negocio: una cotización llegó al taller (§14.7).
-    if (r.estado === "ok") {
-      trackLead({ tipo: valores.tipo, content_name: "cotizacion" });
-    }
+  function onSubmit(valores: Cotizacion) {
+    // Sin servidor ni intermediarios: el formulario arma el mensaje con TODOS
+    // los datos y lo manda al WhatsApp del taller (§7.3). El envío por correo
+    // (Web3Forms) no está conectado, y el formulario no finge: va al canal
+    // real del negocio.
+    //
+    // window.open en un gesto de usuario (submit) no lo bloquea el navegador.
+    window.open(
+      waLink(`Hola, quiero cotizar con ${BRAND.name}. Los datos que llené en el formulario:\n\n${resumen(valores)}`),
+      "_blank",
+      "noopener",
+    );
+    // Lead = la conversión del negocio: una cotización salió hacia el taller.
+    trackLead({ tipo: valores.tipo, content_name: "cotizacion" });
   }
 
   const campos = tipo ? CAMPOS_POR_TIPO[tipo] : [];
   const muestra = (c: Campo) => campos.includes(c);
-
-  /* ── Éxito, en la misma página y sin redirección (§7.2) ── */
-  if (resultado?.estado === "ok") {
-    return (
-      <div
-        ref={panelRef}
-        tabIndex={-1}
-        role="status"
-        className="border-2 border-grafito p-8"
-      >
-        <CheckCircle2
-          size={28}
-          strokeWidth={TRAZO}
-          aria-hidden="true"
-          className="text-grafito"
-        />
-        <h2 className="mt-4 font-titulo text-h3">Ya me llegó.</h2>
-        <p className="medida mt-3 text-texto-secundario">
-          Te contesto por WhatsApp con precio, material recomendado y fecha de
-          entrega. Si lo mandaste después de las 7 pm, te respondo mañana por la
-          mañana.
-        </p>
-        <dl className="mt-6 space-y-1 text-detalle text-texto-secundario">
-          <div className="flex gap-2">
-            <dt className="font-semibold text-grafito">A nombre de:</dt>
-            <dd>{form.getValues("nombre")}</dd>
-          </div>
-          <div className="flex gap-2">
-            <dt className="font-semibold text-grafito">Te contesto en:</dt>
-            <dd>{form.getValues("contacto")}</dd>
-          </div>
-        </dl>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -523,53 +488,17 @@ export function FormularioCotizacion() {
               />
             </div>
 
-            {/* Aviso de envío no configurado o error de red */}
-            {resultado &&
-              (resultado.estado === "sin-destino" ||
-                resultado.estado === "error") && (
-                <div
-                  ref={panelRef}
-                  tabIndex={-1}
-                  role="alert"
-                  className="border-2 border-arcilla-oscura bg-arcilla-suave p-6"
-                >
-                  <p className="flex items-center gap-2 font-titulo font-semibold text-grafito">
-                    <AlertCircle
-                      size={20}
-                      strokeWidth={TRAZO}
-                      aria-hidden="true"
-                    />
-                    No pude enviar el formulario
-                  </p>
-                  <p className="medida mt-2 text-detalle text-grafito">
-                    {resultado.estado === "error"
-                      ? resultado.mensaje
-                      : "El envío todavía no está conectado. Mándame lo mismo por WhatsApp y te contesto igual de rápido."}
-                  </p>
-                  <div className="mt-4">
-                    <Button asChild>
-                      <a
-                        href={waLink(
-                          `Hola, quiero cotizar con ${BRAND.name}. Los datos que llené en el formulario:\n\n${resumen(
-                            form.getValues(),
-                          )}`,
-                        )}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        Mandarlo por WhatsApp
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              )}
+            {/* Sin aviso de envío roto: el formulario NO finge y va directo
+                al canal real del negocio (WhatsApp con los datos, §7.3). */}
 
             <Button
               type="submit"
               size="lg"
               disabled={form.formState.isSubmitting}
             >
-              {form.formState.isSubmitting ? "Mandando…" : "Mandar cotización"}
+              {form.formState.isSubmitting
+                ? "Abriendo WhatsApp…"
+                : "Mandar cotización por WhatsApp"}
             </Button>
           </div>
         )}
