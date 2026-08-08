@@ -6,7 +6,8 @@ import { TRAZO } from "@/lib/iconos";
 
 /**
  * Icono de red social — §3.1, trazo fijo 1.75.
- * Instagram tiene su glifo; cualquier otra red cae en un globo genérico.
+ * Instagram y Facebook tienen glifo propio; cualquier otra red cae en un
+ * globo genérico.
  */
 function IconoRed(host: string) {
   if (host.includes("instagram")) {
@@ -25,6 +26,24 @@ function IconoRed(host: string) {
         <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
         <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+      </svg>
+    );
+  }
+  if (host.includes("facebook")) {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={TRAZO}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        {/* Glifo de Facebook: lucide no trae marcas comerciales. Trazo 1.75. */}
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
       </svg>
     );
   }
@@ -120,8 +139,18 @@ export function Footer() {
             <ul className="mt-4 flex gap-4">
               {REDES.map((u) => {
                 const host = new URL(u).hostname.replace("www.", "");
+                // La etiqueta es el handle legible. Facebook no lo expone en
+                // la URL (termina en ID numérico), así que se usa el nombre
+                // humano del segmento /people/ cuando existe.
+                const segmentos = new URL(u)
+                  .pathname.split("/")
+                  .filter(Boolean);
+                const iPeople = segmentos.indexOf("people");
                 const etiqueta =
-                  "@" + new URL(u).pathname.split("/").filter(Boolean).pop();
+                  "@" +
+                  (iPeople >= 0
+                    ? segmentos[iPeople + 1] ?? segmentos.at(-1)
+                    : segmentos.at(-1));
                 return (
                   <li key={u}>
                     <a
