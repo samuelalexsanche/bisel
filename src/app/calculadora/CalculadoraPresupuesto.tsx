@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { precioMXN, PRODUCTOS } from "@/lib/productos";
 import { waLink } from "@/lib/brand";
@@ -201,27 +201,37 @@ export function CalculadoraPresupuesto() {
     ancho > LIMITES_MEDIDA.ancho ||
     alto > LIMITES_MEDIDA.alto;
 
-  const mensajeWhatsApp = (() => {
+  const textoWhatsApp = (() => {
     if (modo === "catalogo") {
-      return waLink(
-        `Hola, me interesa "${producto.nombre}" del catálogo (${precioMXN(
-          producto.precio,
-        )}). ¿Está disponible?`,
-      );
+      return `Hola, me interesa "${producto.nombre}" del catálogo (${precioMXN(
+        producto.precio,
+      )}). ¿Está disponible?`;
     }
     if (modo === "lote") {
-      return waLink(
-        `Hola, vengo de la calculadora: un lote de ${lote.cantidad} piezas tamaño ${tamanoLote}. El estimado fue ${precioMXN(
-          lote.precioTotal,
-        )}. ¿Me confirmas?`,
-      );
+      return `Hola, vengo de la calculadora: un lote de ${lote.cantidad} piezas tamaño ${tamanoLote}. El estimado fue ${precioMXN(
+        lote.precioTotal,
+      )}. ¿Me confirmas?`;
     }
-    return waLink(
-      `Hola, vengo de la calculadora: una pieza a medida de ${largo} × ${ancho} × ${alto} cm en ${material}, x${cantidad}. El estimado fue ${precioMXN(
-        estimacion.precioMedio,
-      )}. ¿Me confirmas el precio?`,
-    );
+    return `Hola, vengo de la calculadora: una pieza a medida de ${largo} × ${ancho} × ${alto} cm en ${material}, x${cantidad}. El estimado fue ${precioMXN(
+      estimacion.precioMedio,
+    )}. ¿Me confirmas el precio?`;
   })();
+
+  const mensajeWhatsApp = waLink(textoWhatsApp);
+
+  // El presupuesto actual viaja al botón flotante de WhatsApp (que es global):
+  // quien está en la calculadora no debería mandar el mensaje genérico del
+  // sitio, sino los datos que acaba de calcular (§7.3).
+  //
+  // Se guarda en `window` además del evento: el flotante puede montarse
+  // después de que este efecto corra, y así lee el valor actual al montar.
+  useEffect(() => {
+    (window as Window & { __biselWaMensaje?: string }).__biselWaMensaje =
+      textoWhatsApp;
+    window.dispatchEvent(
+      new CustomEvent("bisel:wa-mensaje", { detail: textoWhatsApp }),
+    );
+  }, [textoWhatsApp]);
 
   return (
     <div className="space-y-10">
@@ -525,18 +535,6 @@ export function CalculadoraPresupuesto() {
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Cta
-                    href="/cotiza"
-                    onTrack={() =>
-                      trackContact({
-                        content_name: "calculadora-medida-cotiza",
-                        value: estimacion.precioMedio,
-                        currency: "MXN",
-                      })
-                    }
-                  >
-                    Cotizar esta pieza
-                  </Cta>
-                  <Cta
                     href={mensajeWhatsApp}
                     onTrack={() =>
                       trackContact({
@@ -634,18 +632,6 @@ export function CalculadoraPresupuesto() {
               final es gratis y sin compromiso.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Cta
-                href="/cotiza"
-                onTrack={() =>
-                  trackContact({
-                    content_name: "calculadora-lote-cotiza",
-                    value: lote.precioTotal,
-                    currency: "MXN",
-                  })
-                }
-              >
-                Cotizar este lote
-              </Cta>
               <Cta
                 href={mensajeWhatsApp}
                 onTrack={() =>

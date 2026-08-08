@@ -1,11 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 import { BRAND, waLink } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 import { TRAZO } from "@/lib/iconos";
 import { trackContact } from "@/lib/pixel";
+
+/**
+ * Mensaje contextual del botón flotante — §7.3.
+ *
+ * La calculadora publica el presupuesto actual en `window.__biselWaMensaje` y
+ * avisa con `bisel:wa-mensaje`. Aquí se lee como store externo: useSyncExternalStore
+ * garantiza que tras suscribirse se re-compara el snapshot y se re-renderiza si
+ * cambió, así el flotante nunca se queda con el mensaje genérico aunque el
+ * evento llegue antes de su suscripción (orden de montaje).
+ */
+const WA_MENSAJE_EVENTO = "bisel:wa-mensaje";
+
+function suscribirseAlMensaje(cb: () => void) {
+  window.addEventListener(WA_MENSAJE_EVENTO, cb);
+  return () => window.removeEventListener(WA_MENSAJE_EVENTO, cb);
+}
+
+function leerMensajeActual(): string | null {
+  return (
+    (window as Window & { __biselWaMensaje?: string }).__biselWaMensaje ?? null
+  );
+}
 
 /**
  * Botón flotante de WhatsApp — §7.0.
@@ -20,6 +42,11 @@ import { trackContact } from "@/lib/pixel";
  */
 export function WhatsAppFloat() {
   const [oculto, setOculto] = useState(false);
+  const mensaje = useSyncExternalStore(
+    suscribirseAlMensaje,
+    leerMensajeActual,
+    () => null, // snapshot de servidor: sin window, sin mensaje contextual
+  );
 
   useEffect(() => {
     const secciones = document.querySelectorAll('[data-acento="arcilla"]');
@@ -46,7 +73,8 @@ export function WhatsAppFloat() {
   return (
     <a
       href={waLink(
-        `Hola, vi el sitio de ${BRAND.name} y quiero preguntar por una pieza.`,
+        mensaje ??
+          `Hola, vi el sitio de ${BRAND.name} y quiero preguntar por una pieza.`,
       )}
       onClick={() => trackContact({ content_name: "whatsapp-flotante" })}
       target="_blank"
