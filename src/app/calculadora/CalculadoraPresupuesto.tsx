@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { precioMXN, PRODUCTOS } from "@/lib/productos";
 import { waLink } from "@/lib/brand";
+import { trackContact } from "@/lib/pixel";
 import {
   ACABADOS_CALCULADORA,
   COMPLEJIDADES_CALCULADORA,
@@ -107,10 +108,19 @@ function GrupoOpciones<T extends string>({
 }
 
 /** Botón principal — mismo estilo que el CTA del formulario. */
-function Cta({ href, children }: { href: string; children: React.ReactNode }) {
+function Cta({
+  href,
+  children,
+  onTrack,
+}: {
+  href: string;
+  children: React.ReactNode;
+  onTrack?: () => void;
+}) {
   return (
     <Link
       href={href}
+      onClick={onTrack}
       className="inline-flex min-h-[44px] items-center justify-center bg-grafito px-6 py-3 font-titulo text-detalle font-semibold text-hueso"
     >
       {children}
@@ -282,7 +292,19 @@ export function CalculadoraPresupuesto() {
               Confírmame disponibilidad y quedamos.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Cta href={mensajeWhatsApp}>Pedirla por WhatsApp</Cta>
+              <Cta
+                href={mensajeWhatsApp}
+                onTrack={() =>
+                  trackContact({
+                    content_name: "calculadora-catalogo",
+                    content_ids: [producto.id],
+                    value: producto.precio,
+                    currency: "MXN",
+                  })
+                }
+              >
+                Pedirla por WhatsApp
+              </Cta>
             </div>
           </section>
         </>
@@ -502,8 +524,30 @@ export function CalculadoraPresupuesto() {
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Cta href="/cotiza">Cotizar esta pieza</Cta>
-                  <Cta href={mensajeWhatsApp}>Cotizar por WhatsApp</Cta>
+                  <Cta
+                    href="/cotiza"
+                    onTrack={() =>
+                      trackContact({
+                        content_name: "calculadora-medida-cotiza",
+                        value: estimacion.precioMedio,
+                        currency: "MXN",
+                      })
+                    }
+                  >
+                    Cotizar esta pieza
+                  </Cta>
+                  <Cta
+                    href={mensajeWhatsApp}
+                    onTrack={() =>
+                      trackContact({
+                        content_name: "calculadora-medida-whatsapp",
+                        value: estimacion.precioMedio,
+                        currency: "MXN",
+                      })
+                    }
+                  >
+                    Cotizar por WhatsApp
+                  </Cta>
                 </div>
               </>
             )}
@@ -590,8 +634,30 @@ export function CalculadoraPresupuesto() {
               final es gratis y sin compromiso.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Cta href="/cotiza">Cotizar este lote</Cta>
-              <Cta href={mensajeWhatsApp}>Cotizar por WhatsApp</Cta>
+              <Cta
+                href="/cotiza"
+                onTrack={() =>
+                  trackContact({
+                    content_name: "calculadora-lote-cotiza",
+                    value: lote.precioTotal,
+                    currency: "MXN",
+                  })
+                }
+              >
+                Cotizar este lote
+              </Cta>
+              <Cta
+                href={mensajeWhatsApp}
+                onTrack={() =>
+                  trackContact({
+                    content_name: "calculadora-lote-whatsapp",
+                    value: lote.precioTotal,
+                    currency: "MXN",
+                  })
+                }
+              >
+                Cotizar por WhatsApp
+              </Cta>
             </div>
           </section>
         </>

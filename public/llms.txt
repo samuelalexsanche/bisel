@@ -7,6 +7,7 @@
 
 Sitio: https://bisel3d.com
 Contacto: hola@bisel3d.com · WhatsApp +52 33 2787 4747 · Instagram @bisel3d · Facebook /Bisel3D
+Medición: Meta Pixel (ID en secret del repo, inactivo si no está definido).
 
 ## Datos concretos
 

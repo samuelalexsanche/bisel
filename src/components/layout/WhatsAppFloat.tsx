@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { BRAND, waLink } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 import { TRAZO } from "@/lib/iconos";
+import { trackContact } from "@/lib/pixel";
 
 /**
  * Botón flotante de WhatsApp — §7.0.
@@ -47,6 +48,7 @@ export function WhatsAppFloat() {
       href={waLink(
         `Hola, vi el sitio de ${BRAND.name} y quiero preguntar por una pieza.`,
       )}
+      onClick={() => trackContact({ content_name: "whatsapp-flotante" })}
       target="_blank"
       rel="noopener"
       aria-label="Escribir por WhatsApp"

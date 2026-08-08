@@ -22,6 +22,7 @@ import {
 } from "@/lib/cotizacion";
 import { TRAZO } from "@/lib/iconos";
 import { enviarCotizacion, type ResultadoEnvio } from "@/lib/envio";
+import { trackLead } from "@/lib/pixel";
 
 type Campo = keyof Cotizacion;
 type Formulario = UseFormReturn<Cotizacion>;
@@ -213,7 +214,12 @@ export function FormularioCotizacion() {
   }
 
   async function onSubmit(valores: Cotizacion) {
-    setResultado(await enviarCotizacion(valores));
+    const r = await enviarCotizacion(valores);
+    setResultado(r);
+    // Lead = la conversión del negocio: una cotización llegó al taller (§14.7).
+    if (r.estado === "ok") {
+      trackLead({ tipo: valores.tipo, content_name: "cotizacion" });
+    }
   }
 
   const campos = tipo ? CAMPOS_POR_TIPO[tipo] : [];

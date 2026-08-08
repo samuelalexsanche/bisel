@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 
 import { JsonLd } from "@/components/JsonLd";
+import { MetaPixel } from "@/components/MetaPixel";
 import { Cargando } from "@/components/layout/Cargando";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -95,6 +96,8 @@ export default function RootLayout({
         <Cargando />
 
         <JsonLd datos={[schemaNegocio(), schemaSitio()]} />
+        {/* Meta Pixel: no-op sin NEXT_PUBLIC_META_PIXEL_ID (§14.7). */}
+        <MetaPixel />
         <Header />
         {children}
         <Footer />

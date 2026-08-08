@@ -37,6 +37,9 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://bisel3d.com
           # Indexable: sin esto el sitio va con noindex y no hay SEO que valga.
           NEXT_PUBLIC_INDEXABLE: "true"
+          # Meta Pixel (§14.7): se activa poniendo el ID en un secret del repo
+          # (Settings → Secrets → Actions → META_PIXEL_ID). Vacío = sin pixel.
+          NEXT_PUBLIC_META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
         run: npm run build
 
       - uses: actions/configure-pages@v5
