@@ -3,12 +3,15 @@
 **Versión:** 1.0 · **Fecha:** 2026-08-05 · **Autor:** Samuel (PM) + Asistente
 **Objetivo:** Lanzar blog con autoridad temática en impresión 3D (ES-MX), capturar intención informativa y alimentar el funnel hacia `/cotiza` y `/catalogo`. Optimizado para SEO (Google) y GEO (citaciones en ChatGPT, Perplexity, Gemini, AI Overviews).
 
-## Estado de avance — 2026-08-05
+## Estado de avance — 2026-08-21
 
 - ✅ **Cluster A completo (6/6):** A1-A6 redactados en `content/blog/` (Markdown + frontmatter).
 - ✅ **Ruta `/blog` implementada:** listado + `/blog/[slug]` con JSON-LD (BlogPosting + FAQPage + BreadcrumbList), sitemap actualizado y `llms.txt` con índice del blog. Build estático verificado (`DEPLOY_TARGET=pages`).
-- ✅ **Cluster B: B1-B3 listos** (materiales-impresion-3d pilar 2,049 palabras; pla-vs-abs-vs-petg 1,407; resina-vs-filamento 1,584). Siguen B4 (filamentos especiales), B5 (seguridad).
-- ⏳ **Siguiente:** B4-B5 y Cluster C (C1-C4) — con ritmo automático: cron jobs martes/jueves 9:00 generan el siguiente artículo del calendario.
+- ✅ **Cluster B completo (5/5):** B1-B3 (materiales-impresion-3d pilar, pla-vs-abs-vs-petg, resina-vs-filamento) + **B4 filamentos-especiales** y **B5 es-segura-la-impresion-3d** publicados el 2026-08-21 (commit c58fc08).
+- ✅ **Cluster C: C1-C2 publicados** el 2026-08-21 (commit c58fc08): **C1 impresion-3d-para-negocios** (pilar, 2,216 palabras) y **C2 prototipado-rapido** (1,335).
+- ⏳ **Siguiente:** C3 (piezas-de-repuesto-impresion-3d) y C4 (bajo-demanda-vs-comprar-impresora) — cron jobs martes/jueves 9:00 generan el siguiente artículo del calendario.
+
+> Nota: los cron de martes/jueves estuvieron inyectando el evento sin generar artículos (último post previo: 2026-08-07). El 2026-08-21 se pusieron al corriente los 4 artículos pendientes manualmente. Si vuelve a atrasarse, revisar que el systemEvent del cron se procese en la sesión main.
 
 ---
 
