@@ -8,6 +8,7 @@ import { BRAND } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 
 const NAV = [
+  { href: "/servicios", texto: "Servicios" },
   { href: "/catalogo", texto: "Catálogo" },
   { href: "/modelos", texto: "Modelos" },
   { href: "/calculadora", texto: "Calculadora" },

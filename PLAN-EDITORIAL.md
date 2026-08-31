@@ -3,15 +3,20 @@
 **Versión:** 1.0 · **Fecha:** 2026-08-05 · **Autor:** Samuel (PM) + Asistente
 **Objetivo:** Lanzar blog con autoridad temática en impresión 3D (ES-MX), capturar intención informativa y alimentar el funnel hacia `/cotiza` y `/catalogo`. Optimizado para SEO (Google) y GEO (citaciones en ChatGPT, Perplexity, Gemini, AI Overviews).
 
-## Estado de avance — 2026-08-21
+## Estado de avance — 2026-08-30
 
 - ✅ **Cluster A completo (6/6):** A1-A6 redactados en `content/blog/` (Markdown + frontmatter).
 - ✅ **Ruta `/blog` implementada:** listado + `/blog/[slug]` con JSON-LD (BlogPosting + FAQPage + BreadcrumbList), sitemap actualizado y `llms.txt` con índice del blog. Build estático verificado (`DEPLOY_TARGET=pages`).
 - ✅ **Cluster B completo (5/5):** B1-B3 (materiales-impresion-3d pilar, pla-vs-abs-vs-petg, resina-vs-filamento) + **B4 filamentos-especiales** y **B5 es-segura-la-impresion-3d** publicados el 2026-08-21 (commit c58fc08).
 - ✅ **Cluster C: C1-C2 publicados** el 2026-08-21 (commit c58fc08): **C1 impresion-3d-para-negocios** (pilar, 2,216 palabras) y **C2 prototipado-rapido** (1,335).
-- ⏳ **Siguiente:** C3 (piezas-de-repuesto-impresion-3d) y C4 (bajo-demanda-vs-comprar-impresora) — cron jobs martes/jueves 9:00 generan el siguiente artículo del calendario.
+- ✅ **C3 y C4 publicados el 2026-08-30:** **C3 piezas-de-repuesto-impresion-3d** y **C4 bajo-demanda-vs-comprar-impresora** (soporte de negocios; pendiente verificar que el cron no los duplique).
+- ✅ **D1 publicado el 2026-08-30:** **como-pedir-impresion-3d-en-linea** (transaccional, cluster principiantes) — la puerta directa a `/cotiza`.
+- ✅ **Nuevo: maquetas-arquitectonicas-impresion-3d** publicado el 2026-08-30 (soporte negocios, nicho desocupado en GDL).
+- ✅ **Página `/servicios` creada** el 2026-08-30: "Servicio de impresión 3D en Guadalajara", 6 servicios con rangos, cobertura ZMG, materiales, tiempos, FAQ local + JSON-LD (Service ×3 + FAQPage + BreadcrumbList). Enlazada en el menú y en el sitemap.
+- ⏳ **Pendiente Fase 2:** D2 (modelos STL gratis), D3 (post-procesado), C5 (productos rentables).
+- ⏳ **Pendiente Fase 3:** E1-E7 (por industria, Querétaro/México, tolerancias, vs inyección, preparar STL, tirada corta, refresh precios).
 
-> Nota: los cron de martes/jueves estuvieron inyectando el evento sin generar artículos (último post previo: 2026-08-07). El 2026-08-21 se pusieron al corriente los 4 artículos pendientes manualmente. Si vuelve a atrasarse, revisar que el systemEvent del cron se procese en la sesión main.
+> Nota: los cron de martes/jueves estuvieron inyectando el evento sin generar artículos (último post previo: 2026-08-07). El 2026-08-21 se pusieron al corriente los 4 artículos pendientes manualmente. El 2026-08-30 se publicaron C3, C4 y D1 manualmente junto con el nuevo de maquetas. Si vuelve a atrasarse, revisar que el systemEvent del cron se procese en la sesión main.
 
 ---
 

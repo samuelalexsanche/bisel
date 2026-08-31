@@ -23,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: url("/servicios"),
+      lastModified: ahora,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: url("/cotiza"),
       lastModified: ahora,
       changeFrequency: "monthly",

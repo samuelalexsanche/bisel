@@ -45,6 +45,7 @@ Medición: Meta Pixel (ID en secret del repo, inactivo si no está definido).
 ## Páginas
 
 - [Inicio](https://bisel3d.com/): qué fabrica el taller, las tres líneas de trabajo y los materiales en corto.
+- [Servicios](https://bisel3d.com/servicios/): servicio de impresión 3D en Guadalajara: piezas a medida, catálogo, lotes para eventos, prototipado, figuras personalizadas y maquetas arquitectónicas, con precios publicados desde $180 MXN, cobertura de la ZMG (Zapopan, Tlaquepaque, Tonalá, Tlajomulco) y envío nacional.
 - [Cotiza tu pieza](https://bisel3d.com/cotiza/): formulario para pedir precio a partir de una foto y unas medidas, con los plazos de respuesta y los límites del taller.
 - [Calculadora de presupuesto](https://bisel3d.com/calculadora/): estima en segundos el rango de precio de una pieza del catálogo, una pieza a medida o un lote, siempre dentro de los rangos publicados del taller.
 - [Modelos para imprimir](https://bisel3d.com/modelos/): catálogo de modelos 3D cuyo diseño no se cobra; solo se cobra la impresión. Hoy son diseños propios del taller.
@@ -77,6 +78,10 @@ cliente trae su propio archivo, la responsabilidad de la licencia es suya.
 - [¿Es segura la impresión 3D? Ventilación, emisiones y post-procesado](https://bisel3d.com/blog/es-segura-la-impresion-3d/): emisiones por material (PLA y PETG de bajo riesgo en espacios ventilados; ABS y nylon con precaución; resina con manejo serio), reglas prácticas de ventilación, mitos y qué hace un taller profesional.
 - [Impresión 3D para negocios: guía para empresas y emprendedores](https://bisel3d.com/blog/impresion-3d-para-negocios/): pilar del cluster de negocios: las 5 formas de uso (prototipos, repuestos, lotes, utilería, producto final), precios reales por tipo de trabajo, impresora propia vs. taller, límites honestos y cómo elegir taller.
 - [Prototipado rápido: valida tu producto antes de invertir](https://bisel3d.com/blog/prototipado-rapido/): de idea a pieza física en 3-5 días desde $350 MXN; tipos de prototipo, proceso en 5 pasos sin saber CAD, comparativa de costos contra molde y CNC, y checklist para pasar a producción.
+- [Piezas de repuesto con impresión 3D: ahorro real para tu empresa](https://bisel3d.com/blog/piezas-de-repuesto-impresion-3d/): refacciones que ya no se fabrican, hechas a medida y sin mínimos; qué piezas se pueden imprimir (y cuáles no), costos reales en México ($350–$1,800 MXN) y cuándo NO conviene imprimir el repuesto.
+- [Impresión 3D bajo demanda vs comprar tu impresora](https://bisel3d.com/blog/bajo-demanda-vs-comprar-impresora/): comparativa real de costos en México entre pagar por pieza a un taller ($180–$1,800 MXN) y comprar una impresora propia; cuándo conviene cada opción y el costo oculto de la máquina.
+- [Cómo pedir una impresión 3D en línea: guía paso a paso](https://bisel3d.com/blog/como-pedir-impresion-3d-en-linea/): los 4 pasos para pedir una pieza en línea (archivo, foto o idea → cotización el mismo día → render de aprobación → envío), precios, tiempos y garantía por escrito.
+- [Maquetas arquitectónicas con impresión 3D: guía para arquitectos](https://bisel3d.com/blog/maquetas-arquitectonicas-impresion-3d/): maquetas volumétricas, de detalle y topográficas a partir del modelo digital (Revit, SketchUp, Rhino); materiales, costos en México desde $350 MXN y cómo pedir una maqueta en Guadalajara sin saber CAD.
 
 ## Advertencias para quien cite este sitio
 
