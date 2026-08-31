@@ -3,20 +3,18 @@
 **Versión:** 1.0 · **Fecha:** 2026-08-05 · **Autor:** Samuel (PM) + Asistente
 **Objetivo:** Lanzar blog con autoridad temática en impresión 3D (ES-MX), capturar intención informativa y alimentar el funnel hacia `/cotiza` y `/catalogo`. Optimizado para SEO (Google) y GEO (citaciones en ChatGPT, Perplexity, Gemini, AI Overviews).
 
-## Estado de avance — 2026-08-30
+## Estado de avance — 2026-08-31
 
-- ✅ **Cluster A completo (6/6):** A1-A6 redactados en `content/blog/` (Markdown + frontmatter).
-- ✅ **Ruta `/blog` implementada:** listado + `/blog/[slug]` con JSON-LD (BlogPosting + FAQPage + BreadcrumbList), sitemap actualizado y `llms.txt` con índice del blog. Build estático verificado (`DEPLOY_TARGET=pages`).
-- ✅ **Cluster B completo (5/5):** B1-B3 (materiales-impresion-3d pilar, pla-vs-abs-vs-petg, resina-vs-filamento) + **B4 filamentos-especiales** y **B5 es-segura-la-impresion-3d** publicados el 2026-08-21 (commit c58fc08).
-- ✅ **Cluster C: C1-C2 publicados** el 2026-08-21 (commit c58fc08): **C1 impresion-3d-para-negocios** (pilar, 2,216 palabras) y **C2 prototipado-rapido** (1,335).
-- ✅ **C3 y C4 publicados el 2026-08-30:** **C3 piezas-de-repuesto-impresion-3d** y **C4 bajo-demanda-vs-comprar-impresora** (soporte de negocios; pendiente verificar que el cron no los duplique).
-- ✅ **D1 publicado el 2026-08-30:** **como-pedir-impresion-3d-en-linea** (transaccional, cluster principiantes) — la puerta directa a `/cotiza`.
-- ✅ **Nuevo: maquetas-arquitectonicas-impresion-3d** publicado el 2026-08-30 (soporte negocios, nicho desocupado en GDL).
-- ✅ **Página `/servicios` creada** el 2026-08-30: "Servicio de impresión 3D en Guadalajara", 6 servicios con rangos, cobertura ZMG, materiales, tiempos, FAQ local + JSON-LD (Service ×3 + FAQPage + BreadcrumbList). Enlazada en el menú y en el sitemap.
-- ⏳ **Pendiente Fase 2:** D2 (modelos STL gratis), D3 (post-procesado), C5 (productos rentables).
-- ⏳ **Pendiente Fase 3:** E1-E7 (por industria, Querétaro/México, tolerancias, vs inyección, preparar STL, tirada corta, refresh precios).
+- ✅ **Cluster A completo (6/6):** A1-A6.
+- ✅ **Cluster B completo (5/5):** B1-B5.
+- ✅ **Cluster C completo (6/6):** C1-C4 + C5 (productos-rentables-impresion-3d, publicado 2026-08-31).
+- ✅ **Fase 2 completa (4/4):** C5, D1 (como-pedir-impresion-3d-en-linea, 2026-08-30), D2 (modelos-stl-gratis, 2026-08-31), D3 (post-procesado-impresion-3d, 2026-08-31).
+- ✅ **Bonus publicados 2026-08-31:** bambu-lab-p2s-en-el-taller (cluster marca, E-E-A-T con timelapse real) y dia-de-muertos-impresion-3d (casos-de-uso, temporada 2026: análisis de holidays indica que Día de Muertos es el siguiente relevante; navidad NO es el más próximo y se omite).
+- ✅ **Página `/servicios`** (2026-08-30): "Servicio de impresión 3D en Guadalajara", en menú y sitemap.
+- ⏳ **Pendiente Fase 3 (E1-E7):** E1 impresión-3d-por-industria, E2 impresión-3d-queretaro-mexico, E3 tolerancias-precision, E4 vs-inyeccion, E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
+- **Blog total:** 27 artículos publicados + 8 páginas = 35 URLs en sitemap.
 
-> Nota: los cron de martes/jueves estuvieron inyectando el evento sin generar artículos (último post previo: 2026-08-07). El 2026-08-21 se pusieron al corriente los 4 artículos pendientes manualmente. El 2026-08-30 se publicaron C3, C4 y D1 manualmente junto con el nuevo de maquetas. Si vuelve a atrasarse, revisar que el systemEvent del cron se procese en la sesión main.
+> Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
 
 ---
 
