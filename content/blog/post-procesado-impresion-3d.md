@@ -1,6 +1,6 @@
 ---
 slug: post-procesado-impresion-3d
-titulo: "Acabados y post-procesado: piezas con aspecto profesional"
+titulo: "Acabados y post-procesado: aspecto profesional"
 descripcion: "Acabados y post-procesado de impresión 3D: cómo se pasa de una pieza con capas visibles a una con aspecto profesional. Lijado, imprimación, pintura y cuándo conviene pedirlo."
 keywords:
   - post procesado impresión 3d

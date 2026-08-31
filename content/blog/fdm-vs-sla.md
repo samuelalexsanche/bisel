@@ -1,6 +1,6 @@
 ---
 slug: fdm-vs-sla
-titulo: "FDM vs SLA: ¿qué tecnología de impresión 3D necesitas?"
+titulo: "FDM vs SLA: ¿qué tecnología necesitas?"
 descripcion: "FDM y SLA comparadas de frente: precisión, resistencia, acabado, materiales y costo. Cómo decidir entre filamento y resina según tu proyecto."
 keywords:
   - fdm vs sla

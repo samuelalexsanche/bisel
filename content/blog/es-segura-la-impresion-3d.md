@@ -1,6 +1,6 @@
 ---
 slug: es-segura-la-impresion-3d
-titulo: "¿Es segura la impresión 3D? Ventilación, emisiones y post-procesado"
+titulo: "¿Es segura la impresión 3D? Ventilación y emisiones"
 descripcion: "La impresión 3D con PLA y PETG es segura en espacios ventilados; el ABS y el nylon exigen cuidado extra. Qué emite cada material, cómo ventilar y qué hace un taller profesional."
 keywords:
   - impresión 3d segura

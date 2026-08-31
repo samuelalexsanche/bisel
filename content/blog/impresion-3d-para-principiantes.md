@@ -1,6 +1,6 @@
 ---
 slug: impresion-3d-para-principiantes
-titulo: "Impresión 3D para principiantes: guía completa (2026)"
+titulo: "Impresión 3D para principiantes: guía (2026)"
 descripcion: "Qué es la impresión 3D, cómo funciona, qué tecnologías y materiales existen y cuánto cuesta en México. Guía clara para imprimir tu primera pieza sin rodeos."
 keywords:
   - impresión 3d para principiantes

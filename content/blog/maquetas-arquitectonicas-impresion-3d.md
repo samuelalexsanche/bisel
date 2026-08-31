@@ -1,6 +1,6 @@
 ---
 slug: maquetas-arquitectonicas-impresion-3d
-titulo: "Maquetas arquitectónicas con impresión 3D: guía para arquitectos"
+titulo: "Maquetas arquitectónicas en 3D para arquitectos"
 descripcion: "Maquetas arquitectónicas impresas en 3D: qué se puede imprimir, materiales, costos en México y cómo pedir la maqueta de tu proyecto en Guadalajara sin saber CAD."
 keywords:
   - maquetas arquitectónicas impresión 3d

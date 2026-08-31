@@ -1,6 +1,6 @@
 ---
 slug: que-puedes-imprimir-en-3d
-titulo: "20 cosas útiles que puedes imprimir en 3D (hogar y oficina)"
+titulo: "20 cosas útiles para imprimir en 3D"
 descripcion: "20 ideas reales de cosas útiles para imprimir en 3D: organizadores, soportes, repuestos y objetos para la casa y la oficina. Con material recomendado."
 keywords:
   - cosas para imprimir en 3d

@@ -1,6 +1,6 @@
 ---
 slug: bambu-lab-p2s-en-el-taller
-titulo: "La Bambu Lab P2S del taller: qué imprime y cómo (timelapse real)"
+titulo: "Bambu Lab P2S: qué imprime el taller (timelapse)"
 descripcion: "Así trabaja la Bambu Lab P2S del taller Bisel: volumen de impresión, materiales que imprime, tolerancias reales y el timelapse grabado por su cámara interna."
 keywords:
   - bambu lab p2s

@@ -1,6 +1,6 @@
 ---
 slug: impresion-3d-para-eventos
-titulo: "Souvenirs y recuerdos de eventos impresos en 3D: bodas, XV años y empresa"
+titulo: "Souvenirs de eventos impresos en 3D: bodas y XV años"
 descripcion: "Souvenirs, recuerdos y regalos personalizados impresos en 3D para bodas, XV años, bautizos y eventos de empresa. Lotes de 50 a 200 piezas desde $1,500 MXN."
 keywords:
   - souvenirs impresión 3d

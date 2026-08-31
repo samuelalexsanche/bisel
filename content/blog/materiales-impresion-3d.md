@@ -1,6 +1,6 @@
 ---
 slug: materiales-impresion-3d
-titulo: "Materiales de impresión 3D: guía completa de filamentos y resinas"
+titulo: "Materiales de impresión 3D: filamentos y resinas"
 descripcion: "Todos los materiales de impresión 3D explicados: filamentos (PLA, PETG, TPU, ABS, nylon), resinas y polvos. Cuál elegir según temperatura, uso y presupuesto."
 keywords:
   - materiales impresión 3d

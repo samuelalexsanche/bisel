@@ -1,6 +1,6 @@
 ---
 slug: impresion-3d-en-guadalajara
-titulo: "Impresión 3D en Guadalajara: taller local, precios y envío (2026)"
+titulo: "Impresión 3D en Guadalajara: taller local (2026)"
 descripcion: "¿Buscas impresión 3D en Guadalajara (GDL)? Taller local con precios publicados desde $180 MXN, piezas a medida, lotes para eventos y envío a todo México. Cotiza gratis."
 keywords:
   - impresión 3d guadalajara

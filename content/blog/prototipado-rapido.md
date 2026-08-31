@@ -1,6 +1,6 @@
 ---
 slug: prototipado-rapido
-titulo: "Prototipado rápido: valida tu producto antes de invertir"
+titulo: "Prototipado rápido: valida antes de invertir"
 descripcion: "Prototipado rápido con impresión 3D: de idea a pieza física en 3-5 días desde $350 MXN. Cómo validar tu producto antes de invertir en moldes o producción, con casos reales."
 keywords:
   - prototipado rápido

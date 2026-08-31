@@ -1,6 +1,6 @@
 ---
 slug: como-pedir-impresion-3d-en-linea
-titulo: "Cómo pedir una impresión 3D en línea: guía paso a paso"
+titulo: "Cómo pedir una impresión 3D en línea"
 descripcion: "Pedir una impresión 3D en línea en México: qué necesitas (archivo, foto o idea), cómo funciona el envío, cuánto tarda y cuánto cuesta. Guía paso a paso sin sorpresas."
 keywords:
   - pedir impresión 3d en línea

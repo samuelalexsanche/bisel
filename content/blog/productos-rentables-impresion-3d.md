@@ -1,6 +1,6 @@
 ---
 slug: productos-rentables-impresion-3d
-titulo: "10 productos rentables para vender con impresión 3D"
+titulo: "10 productos rentables con impresión 3D"
 descripcion: "10 productos rentables para vender hechos con impresión 3D en México: organizadores, figuras, accesorios y piezas de nicho con margen real. Cuánto cuesta producirlos y cuánto se venden."
 keywords:
   - vender impresión 3d

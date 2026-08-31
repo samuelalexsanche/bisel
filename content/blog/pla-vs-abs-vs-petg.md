@@ -1,6 +1,6 @@
 ---
 slug: pla-vs-abs-vs-petg
-titulo: "PLA vs ABS vs PETG: cómo elegir el filamento correcto"
+titulo: "PLA vs ABS vs PETG: cómo elegir filamento"
 descripcion: "PLA, ABS y PETG comparados de frente: temperatura, resistencia, exterior, facilidad de impresión y precio. Cuál elegir según tu proyecto."
 keywords:
   - pla vs abs

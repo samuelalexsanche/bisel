@@ -1,6 +1,6 @@
 ---
 slug: como-funciona-la-impresion-3d
-titulo: "¿Cómo funciona la impresión 3D? FDM, SLA y SLS explicadas"
+titulo: "¿Cómo funciona la impresión 3D? FDM, SLA y SLS"
 descripcion: "El proceso de impresión 3D paso a paso: modelo digital, rebanado e impresión capa por capa. FDM, SLA y SLS explicadas con sus diferencias reales."
 keywords:
   - cómo funciona la impresión 3d

@@ -1,6 +1,6 @@
 ---
 slug: errores-comunes-impresion-3d
-titulo: "7 errores comunes al empezar con impresión 3D (y cómo evitarlos)"
+titulo: "7 errores comunes al empezar con impresión 3D"
 descripcion: "Los errores que más se repiten al encargar o hacer impresiones 3D: material equivocado, medidas faltantes, relleno de más y expectativas irreales. Cómo evitarlos."
 keywords:
   - errores impresión 3d

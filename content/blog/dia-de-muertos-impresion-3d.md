@@ -1,6 +1,6 @@
 ---
 slug: dia-de-muertos-impresion-3d
-titulo: "Catrinas, calaveras y altares: Día de Muertos impreso en 3D"
+titulo: "Catrinas y calaveras: Día de Muertos impreso en 3D"
 descripcion: "Decoración de Día de Muertos impresa en 3D: catrinas, calaveras, figuras personalizadas y piezas para tu altar. Qué se puede imprimir, cuánto cuesta y cómo pedirlo en Guadalajara."
 keywords:
   - día de muertos impresión 3d

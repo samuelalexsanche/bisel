@@ -1,6 +1,6 @@
 ---
 slug: figuras-personalizadas-3d
-titulo: "Figuras personalizadas en 3D: qué se puede imprimir y cuánto cuesta"
+titulo: "Figuras personalizadas en 3D: qué y cuánto cuesta"
 descripcion: "Figuras personalizadas, articuladas y miniaturas impresas en 3D: qué se puede hacer, materiales, precios desde $180 MXN y cómo pedir la tuya en Guadalajara."
 keywords:
   - figuras personalizadas 3d

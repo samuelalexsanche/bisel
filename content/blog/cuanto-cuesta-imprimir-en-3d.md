@@ -1,6 +1,6 @@
 ---
 slug: cuanto-cuesta-imprimir-en-3d
-titulo: "¿Cuánto cuesta imprimir en 3D? Precios reales en México (2026)"
+titulo: "Precios de impresión 3D en México (2026)"
 descripcion: "Precios reales de impresión 3D en México: cuánto cuesta una pieza a medida, del catálogo o un lote completo, qué mueve el precio y cómo cotizar sin sorpresas."
 keywords:
   - cuánto cuesta imprimir en 3d

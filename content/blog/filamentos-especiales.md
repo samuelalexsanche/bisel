@@ -1,6 +1,6 @@
 ---
 slug: filamentos-especiales
-titulo: "Filamentos especiales: TPU, nylon, fibra de carbono y más"
+titulo: "Filamentos especiales: TPU, nylon y fibra de carbono"
 descripcion: "TPU flexible, nylon resistente, fibra de carbono ligera: qué es cada filamento especial, para qué sirve y cuándo conviene. Con datos reales de impresión y precios."
 keywords:
   - filamento tpu

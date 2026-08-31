@@ -117,7 +117,10 @@ function extraerPreguntas(cuerpo: string): Articulo["preguntas"] {
 function parsearArchivo(nombre: string): Articulo {
   const crudo = fs.readFileSync(path.join(DIR, nombre), "utf8");
   const { data, content } = matter(crudo);
-  const cuerpo = content.trim();
+  /* El `# Título` del Markdown duplicaría el <h1> que ya renderiza la página
+     (la página muestra el título del frontmatter como <h1>). Se elimina del
+     cuerpo: el título vive solo en el frontmatter (SEO: un solo h1 por página). */
+  const cuerpo = content.trim().replace(/^# .+\n+/, "");
 
   return {
     slug: String(data.slug ?? nombre.replace(/\.md$/, "")),

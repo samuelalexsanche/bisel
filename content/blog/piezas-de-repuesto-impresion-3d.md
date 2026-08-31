@@ -1,6 +1,6 @@
 ---
 slug: piezas-de-repuesto-impresion-3d
-titulo: "Piezas de repuesto con impresión 3D: ahorro real para tu empresa"
+titulo: "Piezas de repuesto impresas en 3D: ahorro real"
 descripcion: "Piezas de repuesto con impresión 3D: refacciones que ya no se fabrican, hechas a medida y sin mínimos. Costos reales en México, cuándo conviene imprimir y cuándo no."
 keywords:
   - piezas de repuesto impresión 3d

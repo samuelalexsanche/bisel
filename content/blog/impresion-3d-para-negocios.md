@@ -1,6 +1,6 @@
 ---
 slug: impresion-3d-para-negocios
-titulo: "Impresión 3D para negocios: guía para empresas y emprendedores"
+titulo: "Impresión 3D para negocios: guía para empresas"
 descripcion: "Cómo usan las empresas la impresión 3D: prototipos, piezas de repuesto, lotes y productos. Con costos reales en México, tiempos de entrega y cuándo conviene un taller bajo demanda."
 keywords:
   - impresión 3d para negocios

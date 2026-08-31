@@ -1,6 +1,6 @@
 ---
 slug: resina-vs-filamento
-titulo: "Resina vs filamento: ¿cuál conviene a tu proyecto?"
+titulo: "Resina vs filamento: ¿cuál conviene?"
 descripcion: "Resina vs filamento comparados de frente: precisión, resistencia, acabado y precio. Cuándo conviene cada uno y cómo decidir para tu proyecto."
 keywords:
   - resina vs filamento
