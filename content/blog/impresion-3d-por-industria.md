@@ -1,6 +1,6 @@
 ---
 slug: impresion-3d-por-industria
-titulo: "Impresión 3D por industria: automotriz, salud, arquitectura"
+titulo: "Impresión 3D por industria: automotriz, salud y más"
 descripcion: "Cómo se usa la impresión 3D en automotriz, salud, arquitectura y educación: casos reales por industria, materiales, tolerancias y cómo contratarla en México sin comprar impresora."
 keywords:
   - impresión 3d industria

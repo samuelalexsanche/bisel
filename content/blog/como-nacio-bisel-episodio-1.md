@@ -1,6 +1,6 @@
 ---
 slug: como-nacio-bisel-episodio-1
-titulo: "Cómo nació Bisel — Episodio 1: la idea y los errores"
+titulo: "Cómo nació Bisel — Episodio 1: idea y errores"
 descripcion: "La historia de Bisel desde adentro: cómo una idea de Mattera se convirtió en un taller de impresión 3D con identidad y presencia digital completa. Primeros pasos, errores cometidos y dónde estamos hoy."
 keywords:
   - historia de bisel

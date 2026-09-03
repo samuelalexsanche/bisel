@@ -113,7 +113,7 @@ Ritmo: **2 artículos/semana** (ej. martes y jueves). Los pilares primero, para 
 ## 6. Reglas editoriales (aplicar a TODOS los artículos)
 
 ### SEO on-page
-- **1 keyword primaria + 2-3 secundarias** por artículo; ubicadas en: title (≤60 chars), H1, primeros 100 caracteres, algún H2, URL, alt de imágenes y meta description escrita a mano.
+- **1 keyword primaria + 2-3 secundarias** por artículo; ubicadas en: title (≤55 chars — el layout agrega ` · Bisel`, título final ≤63, lejos del límite de Bing >70), H1, primeros 100 caracteres, algún H2, URL, alt de imágenes y meta description escrita a mano.
 - **URLs:** `/blog/[slug]` en kebab-case, sin fechas → `bisel3d.com/blog/impresion-3d-para-principiantes`.
 - **Extensión:** pilar 2,000-2,500 palabras · soporte 1,200-1,800.
 - **Internal linking:** cada artículo enlaza a su pilar + 2-3 artículos del mismo cluster + 1 CTA a página de servicio. Máximo 2 CTAs por artículo.
