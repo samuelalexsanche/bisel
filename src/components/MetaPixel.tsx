@@ -49,7 +49,7 @@ export function MetaPixel() {
         height="1"
         width="1"
         style={{ display: "none" }}
-        alt=""
+        alt="Píxel de seguimiento de visitas de Bisel (Meta)"
         src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
       />
     </noscript>
