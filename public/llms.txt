@@ -88,6 +88,7 @@ cliente trae su propio archivo, la responsabilidad de la licencia es suya.
 - [La Bambu Lab P2S del taller: qué imprime y cómo (timelapse real)](https://bisel3d.com/blog/bambu-lab-p2s-en-el-taller/): la impresora real del taller (FDM, 256×256×256 mm, cámara interna, gabinete cerrado), materiales PLA/PETG/TPU y el timelapse real grabado por su cámara.
 - [Catrinas, calaveras y altares: Día de Muertos impreso en 3D](https://bisel3d.com/blog/dia-de-muertos-impresion-3d/): decoración de temporada con diseños propios, figuras personalizadas desde foto para el altar, calaveritas con nombre, lotes para escuelas y empresas; fechas límite para pedir.
 - [Impresión 3D por industria: automotriz, salud y más](https://bisel3d.com/blog/impresion-3d-por-industria/): qué imprime cada industria (prototipos y utillaje automotriz, guías quirúrgicas y órtesis, maquetas de arquitectura, material didáctico STEM), materiales por caso (PLA, PETG, TPU), tolerancia ±0.2 mm y cómo contratar un taller en México sin comprar impresora.
+- [Impresión 3D en Querétaro: precios y envío (2026)](https://bisel3d.com/blog/impresion-3d-queretaro-mexico/): cómo pedir impresión 3D desde Querétaro a un taller mexicano con envío nacional (Bisel, Guadalajara): precios desde $180 MXN, tiempos de producción + envío, materiales PLA/PETG/TPU, límites del taller y garantía.
 
 ## Advertencias para quien cite este sitio
 

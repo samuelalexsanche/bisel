@@ -3,7 +3,7 @@
 **Versión:** 1.0 · **Fecha:** 2026-08-05 · **Autor:** Samuel (PM) + Asistente
 **Objetivo:** Lanzar blog con autoridad temática en impresión 3D (ES-MX), capturar intención informativa y alimentar el funnel hacia `/cotiza` y `/catalogo`. Optimizado para SEO (Google) y GEO (citaciones en ChatGPT, Perplexity, Gemini, AI Overviews).
 
-## Estado de avance — 2026-08-31
+## Estado de avance — 2026-09-03
 
 - ✅ **Cluster A completo (6/6):** A1-A6.
 - ✅ **Cluster B completo (5/5):** B1-B5.
@@ -12,8 +12,9 @@
 - ✅ **Bonus publicados 2026-08-31:** bambu-lab-p2s-en-el-taller (cluster marca, E-E-A-T con timelapse real) y dia-de-muertos-impresion-3d (casos-de-uso, temporada 2026: análisis de holidays indica que Día de Muertos es el siguiente relevante; navidad NO es el más próximo y se omite).
 - ✅ **Página `/servicios`** (2026-08-30): "Servicio de impresión 3D en Guadalajara", en menú y sitemap.
 - ✅ **E1 impresión-3d-por-industria** (2026-09-01): automotriz, salud, arquitectura y educación; keyword "impresión 3d industria".
-- ⏳ **Pendiente Fase 3 (E2-E7):** E2 impresión-3d-queretaro-mexico, E3 tolerancias-precision, E4 vs-inyeccion, E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
-- **Blog total:** 28 artículos publicados + 8 páginas = 36 URLs en sitemap.
+- ✅ **E2 impresión-3d-queretaro-mexico** (2026-09-03): guía para pedir impresión 3D desde Querétaro a un taller mexicano con envío nacional; keywords "impresión 3d querétaro" / "impresión 3d méxico".
+- ⏳ **Pendiente Fase 3 (E3-E7):** E3 tolerancias-precision, E4 vs-inyeccion, E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
+- **Blog total:** 29 artículos publicados + 8 páginas = 37 URLs en sitemap.
 
 > Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
 
@@ -82,7 +83,7 @@ Funnel: MoFu/BoFu → tráfico de mayor valor comercial (empresas, emprendedores
 | # | Título tentativo | Keyword objetivo | Prioridad |
 |---|------------------|------------------|-----------|
 | E1 ✅ | Impresión 3D por industria: automotriz, salud, arquitectura, educación | "impresión 3d industria" | Alta |
-| E2 | Servicio de impresión 3D en Querétaro y México: guía local | "impresión 3d querétaro" / "impresión 3d méxico" | **Alta** (local SEO/GEO) |
+| E2 ✅ | Servicio de impresión 3D en Querétaro y México: guía local | "impresión 3d querétaro" / "impresión 3d méxico" | **Alta** (local SEO/GEO) |
 | E3 | Tolerancias y precisión en impresión 3D: qué esperar | "precisión impresión 3d" | Media |
 | E4 | Impresión 3D vs inyección de plástico: cuándo usar cada una | "impresión 3d vs inyección" | Media |
 | E5 | Cómo preparar tu archivo STL para imprimir (guía práctica) | "preparar archivo stl" | Alta |
