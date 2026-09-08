@@ -13,7 +13,8 @@
 - ✅ **Página `/servicios`** (2026-08-30): "Servicio de impresión 3D en Guadalajara", en menú y sitemap.
 - ✅ **E1 impresión-3d-por-industria** (2026-09-01): automotriz, salud, arquitectura y educación; keyword "impresión 3d industria".
 - ✅ **E2 impresión-3d-queretaro-mexico** (2026-09-03): guía para pedir impresión 3D desde Querétaro a un taller mexicano con envío nacional; keywords "impresión 3d querétaro" / "impresión 3d méxico".
-- ⏳ **Pendiente Fase 3 (E3-E7):** E3 tolerancias-precision, E4 vs-inyeccion, E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
+- ✅ **E3 tolerancias-precision** (2026-09-08): tolerancia ±0.2 mm FDM, factores que la afectan, cómo pedir piezas que ensamblen, garantía de medidas de Bisel; keyword "precisión impresión 3d".
+- ⏳ **Pendiente Fase 3 (E4-E7):** E4 vs-inyeccion, E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
 - **Blog total:** 29 artículos publicados + 8 páginas = 37 URLs en sitemap.
 
 > Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
