@@ -3,7 +3,7 @@
 **Versión:** 1.0 · **Fecha:** 2026-08-05 · **Autor:** Samuel (PM) + Asistente
 **Objetivo:** Lanzar blog con autoridad temática en impresión 3D (ES-MX), capturar intención informativa y alimentar el funnel hacia `/cotiza` y `/catalogo`. Optimizado para SEO (Google) y GEO (citaciones en ChatGPT, Perplexity, Gemini, AI Overviews).
 
-## Estado de avance — 2026-09-03
+## Estado de avance — 2026-09-11
 
 - ✅ **Cluster A completo (6/6):** A1-A6.
 - ✅ **Cluster B completo (5/5):** B1-B5.
@@ -14,8 +14,9 @@
 - ✅ **E1 impresión-3d-por-industria** (2026-09-01): automotriz, salud, arquitectura y educación; keyword "impresión 3d industria".
 - ✅ **E2 impresión-3d-queretaro-mexico** (2026-09-03): guía para pedir impresión 3D desde Querétaro a un taller mexicano con envío nacional; keywords "impresión 3d querétaro" / "impresión 3d méxico".
 - ✅ **E3 tolerancias-precision** (2026-09-08): tolerancia ±0.2 mm FDM, factores que la afectan, cómo pedir piezas que ensamblen, garantía de medidas de Bisel; keyword "precisión impresión 3d".
-- ⏳ **Pendiente Fase 3 (E4-E7):** E4 vs-inyeccion, E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
-- **Blog total:** 29 artículos publicados + 8 páginas = 37 URLs en sitemap.
+- ✅ **E4 impresion-3d-vs-inyeccion** (2026-09-11): impresión 3D vs inyección de plástico — costo por pieza vs inversión en molde, plazos, tolerancia, cuándo conviene cada proceso; keyword "impresión 3d vs inyección".
+- ⏳ **Pendiente Fase 3 (E5-E7):** E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
+- **Blog total:** 30 artículos publicados + 8 páginas = 38 URLs en sitemap.
 
 > Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
 
@@ -86,7 +87,7 @@ Funnel: MoFu/BoFu → tráfico de mayor valor comercial (empresas, emprendedores
 | E1 ✅ | Impresión 3D por industria: automotriz, salud, arquitectura, educación | "impresión 3d industria" | Alta |
 | E2 ✅ | Servicio de impresión 3D en Querétaro y México: guía local | "impresión 3d querétaro" / "impresión 3d méxico" | **Alta** (local SEO/GEO) |
 | E3 | Tolerancias y precisión en impresión 3D: qué esperar | "precisión impresión 3d" | Media |
-| E4 | Impresión 3D vs inyección de plástico: cuándo usar cada una | "impresión 3d vs inyección" | Media |
+| E4 ✅ | Impresión 3D vs inyección de plástico: cuál elegir | "impresión 3d vs inyección" | Media |
 | E5 | Cómo preparar tu archivo STL para imprimir (guía práctica) | "preparar archivo stl" | Alta |
 | E6 | De prototipo a tirada corta: escalando producción con impresión 3D | "producción impresión 3d" | Media |
 | E7 | Actualización anual: precios de impresión 3D en México (2027) | refresh de A4 | Alta (cada año) |
