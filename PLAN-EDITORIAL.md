@@ -15,8 +15,9 @@
 - ✅ **E2 impresión-3d-queretaro-mexico** (2026-09-03): guía para pedir impresión 3D desde Querétaro a un taller mexicano con envío nacional; keywords "impresión 3d querétaro" / "impresión 3d méxico".
 - ✅ **E3 tolerancias-precision** (2026-09-08): tolerancia ±0.2 mm FDM, factores que la afectan, cómo pedir piezas que ensamblen, garantía de medidas de Bisel; keyword "precisión impresión 3d".
 - ✅ **E4 impresion-3d-vs-inyeccion** (2026-09-11): impresión 3D vs inyección de plástico — costo por pieza vs inversión en molde, plazos, tolerancia, cuándo conviene cada proceso; keyword "impresión 3d vs inyección".
-- ⏳ **Pendiente Fase 3 (E5-E7):** E5 preparar-archivo-stl, E6 tirada-corta, E7 refresh precios 2027. El cron martes/jueves tomará el primero pendiente automáticamente.
-- **Blog total:** 30 artículos publicados + 8 páginas = 38 URLs en sitemap.
+- ✅ **E5 preparar-archivo-stl** (2026-09-15): qué necesita un STL para imprimirse (malla cerrada, milímetros, escala, ≤25×21×21 cm), exportación desde CAD, reparación de mallas rotas, STL vs 3MF vs STEP y checklist previo al envío; keyword "preparar archivo stl".
+- ⏳ **Pendiente Fase 3 (E6-E7):** E6 tirada-corta (de prototipo a producción: "producción impresión 3d"), E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes). El cron martes/jueves tomará el primero pendiente automáticamente.
+- **Blog total:** 31 artículos publicados + 8 páginas = 39 URLs en sitemap.
 
 > Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
 

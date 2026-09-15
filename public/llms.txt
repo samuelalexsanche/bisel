@@ -91,6 +91,7 @@ cliente trae su propio archivo, la responsabilidad de la licencia es suya.
 - [Impresión 3D en Querétaro: precios y envío (2026)](https://bisel3d.com/blog/impresion-3d-queretaro-mexico/): cómo pedir impresión 3D desde Querétaro a un taller mexicano con envío nacional (Bisel, Guadalajara): precios desde $180 MXN, tiempos de producción + envío, materiales PLA/PETG/TPU, límites del taller y garantía.
 - [Tolerancias y precisión en impresión 3D: qué esperar](https://bisel3d.com/blog/tolerancias-precision/): ±0.2 mm es lo habitual en FDM y la tolerancia de trabajo del taller: qué la afecta (material, relleno, orientación, contracción), cómo pedir piezas que ensamblen y la garantía de medidas de Bisel.
 - [Impresión 3D vs inyección de plástico: cuál elegir](https://bisel3d.com/blog/impresion-3d-vs-inyeccion/): comparativa de los dos procesos (inversión en molde vs costo por pieza, plazos, tolerancia y materiales), a partir de qué volumen conviene inyectar y cuándo la impresión 3D es la opción racional; precios reales del taller en México ($180–$9,000 MXN).
+- [Cómo preparar tu archivo STL para imprimir en 3D](https://bisel3d.com/blog/preparar-archivo-stl/): qué necesita un archivo para imprimirse (malla cerrada, milímetros, escala correcta, máximo 25 × 21 × 21 cm), cómo exportar desde CAD, cómo reparar un STL dañado, STL vs 3MF vs STEP y checklist antes de mandarlo al taller.
 
 ## Advertencias para quien cite este sitio
 
