@@ -92,6 +92,7 @@ cliente trae su propio archivo, la responsabilidad de la licencia es suya.
 - [Tolerancias y precisión en impresión 3D: qué esperar](https://bisel3d.com/blog/tolerancias-precision/): ±0.2 mm es lo habitual en FDM y la tolerancia de trabajo del taller: qué la afecta (material, relleno, orientación, contracción), cómo pedir piezas que ensamblen y la garantía de medidas de Bisel.
 - [Impresión 3D vs inyección de plástico: cuál elegir](https://bisel3d.com/blog/impresion-3d-vs-inyeccion/): comparativa de los dos procesos (inversión en molde vs costo por pieza, plazos, tolerancia y materiales), a partir de qué volumen conviene inyectar y cuándo la impresión 3D es la opción racional; precios reales del taller en México ($180–$9,000 MXN).
 - [Cómo preparar tu archivo STL para imprimir en 3D](https://bisel3d.com/blog/preparar-archivo-stl/): qué necesita un archivo para imprimirse (malla cerrada, milímetros, escala correcta, máximo 25 × 21 × 21 cm), cómo exportar desde CAD, cómo reparar un STL dañado, STL vs 3MF vs STEP y checklist antes de mandarlo al taller.
+- [De prototipo a tirada corta: escalando producción con impresión 3D](https://bisel3d.com/blog/produccion-tirada-corta-impresion-3d/): cuándo pasar del prototipo al lote (50 a 200 piezas, $1,500–$9,000 MXN, 7 a 14 días hábiles sin molde), qué cambia en el diseño para repetir la pieza, materiales PLA/PETG/TPU y en qué punto conviene la inyección.
 
 ## Advertencias para quien cite este sitio
 

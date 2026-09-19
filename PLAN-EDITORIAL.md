@@ -16,8 +16,9 @@
 - ✅ **E3 tolerancias-precision** (2026-09-08): tolerancia ±0.2 mm FDM, factores que la afectan, cómo pedir piezas que ensamblen, garantía de medidas de Bisel; keyword "precisión impresión 3d".
 - ✅ **E4 impresion-3d-vs-inyeccion** (2026-09-11): impresión 3D vs inyección de plástico — costo por pieza vs inversión en molde, plazos, tolerancia, cuándo conviene cada proceso; keyword "impresión 3d vs inyección".
 - ✅ **E5 preparar-archivo-stl** (2026-09-15): qué necesita un STL para imprimirse (malla cerrada, milímetros, escala, ≤25×21×21 cm), exportación desde CAD, reparación de mallas rotas, STL vs 3MF vs STEP y checklist previo al envío; keyword "preparar archivo stl".
-- ⏳ **Pendiente Fase 3 (E6-E7):** E6 tirada-corta (de prototipo a producción: "producción impresión 3d"), E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes). El cron martes/jueves tomará el primero pendiente automáticamente.
-- **Blog total:** 31 artículos publicados + 8 páginas = 39 URLs en sitemap.
+- ✅ **E6 produccion-tirada-corta-impresion-3d** (2026-09-18): de prototipo a tirada corta (50 a 200 piezas, $1,500–$9,000 MXN, 7 a 14 días hábiles sin molde), cuándo escalar, diseño para repetir la pieza, materiales y punto de cruce con la inyección; keyword "producción impresión 3d".
+- ⏳ **Pendiente Fase 3 (E7):** E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes). No hay más artículos nuevos en el calendario: al agotarse, el cron debe reportar y sugerir temas nuevos.
+- **Blog total:** 32 artículos publicados + 8 páginas = 40 URLs en sitemap.
 
 > Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
 
@@ -90,7 +91,7 @@ Funnel: MoFu/BoFu → tráfico de mayor valor comercial (empresas, emprendedores
 | E3 | Tolerancias y precisión en impresión 3D: qué esperar | "precisión impresión 3d" | Media |
 | E4 ✅ | Impresión 3D vs inyección de plástico: cuál elegir | "impresión 3d vs inyección" | Media |
 | E5 | Cómo preparar tu archivo STL para imprimir (guía práctica) | "preparar archivo stl" | Alta |
-| E6 | De prototipo a tirada corta: escalando producción con impresión 3D | "producción impresión 3d" | Media |
+| E6 ✅ | De prototipo a tirada corta: escalando producción con impresión 3D | "producción impresión 3d" | Media |
 | E7 | Actualización anual: precios de impresión 3D en México (2027) | refresh de A4 | Alta (cada año) |
 
 ---
