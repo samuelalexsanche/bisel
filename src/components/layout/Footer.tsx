@@ -69,6 +69,7 @@ function IconoRed(host: string) {
 const NAV = [
   { href: "/catalogo", texto: "Catálogo" },
   { href: "/modelos", texto: "Modelos" },
+  { href: "/descargar-modelos-stl", texto: "Descargar STL" },
   { href: "/cotiza", texto: "Cotiza tu pieza" },
   { href: "/como-funciona", texto: "Cómo funciona" },
   { href: "/quien-hace-esto", texto: "Quién hace esto" },
