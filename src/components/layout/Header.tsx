@@ -11,7 +11,6 @@ const NAV = [
   { href: "/servicios", texto: "Servicios" },
   { href: "/catalogo", texto: "Catálogo" },
   { href: "/modelos", texto: "Modelos" },
-  { href: "/descargar-modelos-stl", texto: "Sitios STL" },
   { href: "/calculadora", texto: "Calculadora" },
   { href: "/blog", texto: "Blog" },
   { href: "/cotiza", texto: "Cotiza tu pieza" },

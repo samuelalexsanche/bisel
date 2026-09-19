@@ -96,7 +96,7 @@ Ya tienes el STL. Ahora:
 3. **Elige material con ayuda:** PLA para interior, PETG para exterior o carga, TPU para flexibilidad.
 4. **Recibe tu pieza** en 3 a 5 días hábiles, con envío a todo México y garantía por escrito.
 
-¿No tienes archivo pero quieres imprimir algo ya diseñado? El [catálogo de modelos de Bisel](/modelos) tiene diseños listos cuyo modelado no se cobra: solo pagas la impresión.
+¿No tienes archivo pero quieres imprimir algo ya diseñado? El [catálogo de piezas de Bisel](/catalogo) tiene diseños listos cuyo modelado no se cobra: solo pagas la impresión.
 
 ---
 

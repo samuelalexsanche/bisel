@@ -47,12 +47,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: url("/descargar-modelos-stl"),
-      lastModified: ahora,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: url("/catalogo"),
       lastModified: ahora,
       changeFrequency: "weekly",
