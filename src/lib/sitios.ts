@@ -9,6 +9,8 @@
 export type Sitio = {
   id: string;
   nombre: string;
+  /** Dos o tres letras para la miniatura (monograma propio, no el logo ajeno). */
+  siglas: string;
   url: string;
   fuerte: string;
   resumen: string;
@@ -20,6 +22,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "printables",
     nombre: "Printables",
+    siglas: "PR",
     url: "https://www.printables.com",
     fuerte: "Perfiles de impresión listos",
     resumen:
@@ -30,6 +33,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "thingiverse",
     nombre: "Thingiverse",
+    siglas: "TH",
     url: "https://www.thingiverse.com",
     fuerte: "Cantidad y variedad",
     resumen:
@@ -40,6 +44,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "cults3d",
     nombre: "Cults 3D",
+    siglas: "C3",
     url: "https://cults3d.com",
     fuerte: "Modelos de pago y gratis",
     resumen:
@@ -50,6 +55,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "makerworld",
     nombre: "MakerWorld",
+    siglas: "MW",
     url: "https://makerworld.com",
     fuerte: "Perfiles y modelos para Bambu Lab",
     resumen:
@@ -60,6 +66,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "myminifactory",
     nombre: "MyMiniFactory",
+    siglas: "MM",
     url: "https://www.myminifactory.com",
     fuerte: "Miniaturas y cosplay",
     resumen:
@@ -70,6 +77,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "thangs",
     nombre: "Thangs",
+    siglas: "TG",
     url: "https://thangs.com",
     fuerte: "Busca en varios repositorios",
     resumen:
@@ -80,6 +88,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "grabcad",
     nombre: "GrabCAD Community",
+    siglas: "GC",
     url: "https://grabcad.com",
     fuerte: "Ingeniería y CAD",
     resumen:
@@ -90,6 +99,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "cgtrader",
     nombre: "CGTrader",
+    siglas: "CG",
     url: "https://www.cgtrader.com",
     fuerte: "Modelos 3D de calidad",
     resumen:
@@ -100,6 +110,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "free3d",
     nombre: "Free3D",
+    siglas: "F3",
     url: "https://free3d.com",
     fuerte: "Formatos variados",
     resumen:
@@ -110,6 +121,7 @@ export const SITIOS: readonly Sitio[] = [
   {
     id: "pinshape",
     nombre: "Pinshape",
+    siglas: "PS",
     url: "https://pinshape.com",
     fuerte: "Filtrar por licencia",
     resumen:

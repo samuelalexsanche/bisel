@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { FondoFoto } from "@/components/layout/FondoFoto";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
+import { Thumb } from "@/components/sitios/Thumb";
 import { BRAND, url } from "@/lib/brand";
 import { schemaMigas } from "@/lib/schema";
 import { BUSCADORES, EDITORES, SITIOS } from "@/lib/sitios";
@@ -131,14 +132,21 @@ export default function Modelos() {
                 {SITIOS.map((s) => (
                   <tr key={s.id} className="border-t border-cemento">
                     <th scope="row" className="p-3 text-left font-normal">
-                      <a
-                        href={s.url}
-                        target="_blank"
-                        rel="noopener nofollow"
-                        className="text-arcilla-oscura underline underline-offset-4 hover:text-grafito"
-                      >
-                        {s.nombre}
-                      </a>
+                      <span className="flex items-center gap-3">
+                        <Thumb
+                          siglas={s.siglas}
+                          nombre={s.nombre}
+                          tamano="sm"
+                        />
+                        <a
+                          href={s.url}
+                          target="_blank"
+                          rel="noopener nofollow"
+                          className="text-arcilla-oscura underline underline-offset-4 hover:text-grafito"
+                        >
+                          {s.nombre}
+                        </a>
+                      </span>
                     </th>
                     <td className="p-3 text-texto-secundario">{s.fuerte}</td>
                     <td className="p-3 text-texto-secundario">{s.cuenta}</td>
@@ -160,11 +168,14 @@ export default function Modelos() {
               <li key={s.id}>
                 <Reveal delay={((i % 2) + 1) as 1 | 2}>
                   <article className="flex h-full flex-col border border-cemento bg-hueso p-6">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <h3 className="font-titulo text-h3">{s.nombre}</h3>
-                      <span className="cifra text-detalle text-texto-secundario">
-                        {s.fuerte}
-                      </span>
+                    <div className="flex items-start gap-4">
+                      <Thumb siglas={s.siglas} nombre={s.nombre} />
+                      <div className="min-w-0">
+                        <h3 className="font-titulo text-h3">{s.nombre}</h3>
+                        <p className="cifra mt-1 text-detalle text-texto-secundario">
+                          {s.fuerte}
+                        </p>
+                      </div>
                     </div>
                     <p className="mt-3 grow text-texto-secundario">
                       {s.resumen}
