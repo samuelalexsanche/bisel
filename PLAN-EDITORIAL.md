@@ -17,6 +17,7 @@
 - ✅ **E4 impresion-3d-vs-inyeccion** (2026-09-11): impresión 3D vs inyección de plástico — costo por pieza vs inversión en molde, plazos, tolerancia, cuándo conviene cada proceso; keyword "impresión 3d vs inyección".
 - ✅ **E5 preparar-archivo-stl** (2026-09-15): qué necesita un STL para imprimirse (malla cerrada, milímetros, escala, ≤25×21×21 cm), exportación desde CAD, reparación de mallas rotas, STL vs 3MF vs STEP y checklist previo al envío; keyword "preparar archivo stl".
 - ✅ **E6 produccion-tirada-corta-impresion-3d** (2026-09-18): de prototipo a tirada corta (50 a 200 piezas, $1,500–$9,000 MXN, 7 a 14 días hábiles sin molde), cuándo escalar, diseño para repetir la pieza, materiales y punto de cruce con la inyección; keyword "producción impresión 3d".
+- ✅ **Fase 4 (en curso) — regalos-navidad-impresion-3d** (2026-10-28): regalos y decoración navideña impresa en 3D; esferas con nombre, coronas, calendario de adviento, figuras y llaveros; PLA vs PETG para interior/exterior, fechas límite de temporada (30-nov piezas, 15-nov lotes) y precios reales; keywords "regalos navidad impresión 3d" / "decoración navideña 3d".
 - ⏳ **Pendiente Fase 3 (E7):** E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes). No hay más artículos nuevos en el calendario: al agotarse, el cron debe reportar y sugerir temas nuevos.
 - **Blog total:** 32 artículos publicados + 8 páginas = 40 URLs en sitemap.
 
@@ -168,3 +169,20 @@ Ritmo: **2 artículos/semana** (ej. martes y jueves). Los pilares primero, para 
 2. ¿Las imágenes serán fotos reales del taller de Bisel o stock/generadas? (recomendado: reales, por E-E-A-T)
 3. ¿Autor visible con nombre real o marca "Bisel"? (recomendado: nombre real + rol)
 4. ¿Empezamos redactando A1 y A2 en markdown para el repo?
+
+---
+
+## 4b. Fase 4 — contenido 2026-2027 (arrancada 2026-10-28)
+
+El calendario original (Fases 1-3) se agotó el 2026-09-18. Estos son los temas que siguen, ordenados por impacto según la auditoría de keywords del 2026-08-30.
+
+| # | Título | Keyword objetivo | Prioridad | Estado |
+|---|--------|------------------|-----------|--------|
+| F4-1 | Regalos y decoración navideña impresa en 3D | regalos navidad impresión 3d | **Alta** (temporada oct-nov) | ✅ publicado 2026-10-28 |
+| F4-2 | Servicio de impresión 3D en Zapopan (landing local) | impresión 3d zapopan / tlaquepaque / tonalá | **Alta** (brecha #1 local) | pendiente |
+| F4-3 | Qué impresora 3D comprar en 2026 | qué impresora 3d comprar | Alta (informativa masiva) | pendiente |
+| F4-4 | Impresión 3D por WhatsApp: cómo pedir sin vueltas | impresión 3d por whatsapp | Alta (nadie lo explota) | pendiente |
+| F4-5 | Maquetas arquitectónicas en Guadalajara (pilar B2B) | maquetas arquitectónicas guadalajara | Media-alta (nicho desocupado) | pendiente |
+| F4-6 | Impresión 3D para escuelas y material didáctico | impresión 3d escuelas / material didáctico | Media (B2B recurrente) | pendiente |
+
+**Regla:** un artículo por corrida de cron; al terminar los seis, proponer Fase 5 antes de que vuelva a agotarse.
