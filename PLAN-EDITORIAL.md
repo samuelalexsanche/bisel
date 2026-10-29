@@ -179,10 +179,10 @@ El calendario original (Fases 1-3) se agotó el 2026-09-18. Estos son los temas 
 | # | Título | Keyword objetivo | Prioridad | Estado |
 |---|--------|------------------|-----------|--------|
 | F4-1 | Regalos y decoración navideña impresa en 3D | regalos navidad impresión 3d | **Alta** (temporada oct-nov) | ✅ publicado 2026-10-28 |
-| F4-2 | Servicio de impresión 3D en Zapopan (landing local) | impresión 3d zapopan / tlaquepaque / tonalá | **Alta** (brecha #1 local) | pendiente |
-| F4-3 | Qué impresora 3D comprar en 2026 | qué impresora 3d comprar | Alta (informativa masiva) | pendiente |
-| F4-4 | Impresión 3D por WhatsApp: cómo pedir sin vueltas | impresión 3d por whatsapp | Alta (nadie lo explota) | pendiente |
-| F4-5 | Maquetas arquitectónicas en Guadalajara (pilar B2B) | maquetas arquitectónicas guadalajara | Media-alta (nicho desocupado) | pendiente |
-| F4-6 | Impresión 3D para escuelas y material didáctico | impresión 3d escuelas / material didáctico | Media (B2B recurrente) | pendiente |
+| F4-2 | Servicio de impresión 3D en Zapopan (landing local) — slug: servicio-impresion-3d-zapopan | impresión 3d zapopan / tlaquepaque / tonalá | **Alta** (brecha #1 local) | pendiente |
+| F4-3 | Qué impresora 3D comprar en 2026 — slug: que-impresora-3d-comprar | qué impresora 3d comprar | Alta (informativa masiva) | pendiente |
+| F4-4 | Impresión 3D por WhatsApp: cómo pedir sin vueltas — slug: impresion-3d-por-whatsapp | impresión 3d por whatsapp | Alta (nadie lo explota) | pendiente |
+| F4-5 | Maquetas arquitectónicas en Guadalajara (pilar B2B) — slug: maquetas-arquitectonicas-guadalajara | maquetas arquitectónicas guadalajara | Media-alta (nicho desocupado) | pendiente |
+| F4-6 | Impresión 3D para escuelas y material didáctico — slug: impresion-3d-para-escuelas | impresión 3d escuelas / material didáctico | Media (B2B recurrente) | pendiente |
 
 **Regla:** un artículo por corrida de cron; al terminar los seis, proponer Fase 5 antes de que vuelva a agotarse.
