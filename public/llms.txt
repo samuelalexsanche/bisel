@@ -95,6 +95,7 @@ responsabilidad de la licencia es suya.
 - [Impresión 3D vs inyección de plástico: cuál elegir](https://bisel3d.com/blog/impresion-3d-vs-inyeccion/): comparativa de los dos procesos (inversión en molde vs costo por pieza, plazos, tolerancia y materiales), a partir de qué volumen conviene inyectar y cuándo la impresión 3D es la opción racional; precios reales del taller en México ($180–$9,000 MXN).
 - [Cómo preparar tu archivo STL para imprimir en 3D](https://bisel3d.com/blog/preparar-archivo-stl/): qué necesita un archivo para imprimirse (malla cerrada, milímetros, escala correcta, máximo 25 × 21 × 21 cm), cómo exportar desde CAD, cómo reparar un STL dañado, STL vs 3MF vs STEP y checklist antes de mandarlo al taller.
 - [De prototipo a tirada corta: escalando producción con impresión 3D](https://bisel3d.com/blog/produccion-tirada-corta-impresion-3d/): cuándo pasar del prototipo al lote (50 a 200 piezas, $1,500–$9,000 MXN, 7 a 14 días hábiles sin molde), qué cambia en el diseño para repetir la pieza, materiales PLA/PETG/TPU y en qué punto conviene la inyección.
+- [Qué impresora 3D comprar en 2026: guía honesta](https://bisel3d.com/blog/que-impresora-3d-comprar/): cuándo conviene comprar una impresora y cuándo mandar a imprimir; FDM vs resina, volumen útil, materiales (PLA 55 °C, PETG 75 °C, TPU 60 °C), especificaciones que importan, presupuesto en México ($8,000–$40,000+ MXN) y la máquina real del taller (Bambu Lab P2S, 256×256×256 mm).
 
 ## Advertencias para quien cite este sitio
 
