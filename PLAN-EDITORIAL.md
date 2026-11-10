@@ -20,7 +20,9 @@
 - ✅ **Fase 4 (en curso) — regalos-navidad-impresion-3d** (2026-10-28): regalos y decoración navideña impresa en 3D; esferas con nombre, coronas, calendario de adviento, figuras y llaveros; PLA vs PETG para interior/exterior, fechas límite de temporada (30-nov piezas, 15-nov lotes) y precios reales; keywords "regalos navidad impresión 3d" / "decoración navideña 3d".
 - ✅ **F4-3 que-impresora-3d-comprar** (2026-11-03): guía de compra de impresora 3D; cuándo comprar y cuándo mandar a imprimir, FDM vs resina, volumen útil, especificaciones que importan, presupuesto en México y la Bambu Lab P2S del taller como referencia real; keyword "qué impresora 3d comprar".
 - ✅ **F4-4 impresion-3d-por-whatsapp** (2026-11-05): cómo pedir una impresión 3D por WhatsApp sin vueltas; qué mandar en el primer mensaje, plantilla para copiar, envío de STL/3MF/STEP, qué debe incluir la respuesta del taller, errores que alargan la cotización y precios reales del taller; keyword "impresión 3d por whatsapp".
-- ⏳ **Pendiente Fase 4:** F4-5 (maquetas-arquitectonicas-guadalajara), F4-6 (impresion-3d-para-escuelas).
+- ✅ **F4-6 impresion-3d-para-escuelas** (2026-11-10): qué imprime una escuela en 3D (manipulativos, anatomía, robótica, maquetas, reconocimientos), materiales, costos por grupo, seguridad en el aula, licencias y cómo pedir sin comprar impresora; 1,799 palabras; keyword "impresión 3d escuelas".
+- ⚠️ **F4-5 maquetas-arquitectonicas-guadalajara:** cubierto por el artículo existente maquetas-arquitectonicas-impresion-3d (publicado 2026-08-30, ya apunta a "maquetas 3d guadalajara"). No se duplica para evitar canibalización; si se quiere landing local, conviene refrescar ese artículo, no crear otro.
+- ⏳ **Pendiente Fase 4:** ninguno. Al agotarse, proponer Fase 5.
 - ⏳ **Pendiente Fase 3 (E7):** E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes). No hay más artículos nuevos en el calendario: al agotarse, el cron debe reportar y sugerir temas nuevos.
 - **Blog total:** 35 artículos publicados + 8 páginas en sitemap.
 
@@ -186,6 +188,6 @@ El calendario original (Fases 1-3) se agotó el 2026-09-18. Estos son los temas 
 | F4-3 | Qué impresora 3D comprar en 2026 — slug: que-impresora-3d-comprar | qué impresora 3d comprar | Alta (informativa masiva) | ✅ publicado 2026-11-03 |
 | F4-4 | Impresión 3D por WhatsApp: cómo pedir sin vueltas — slug: impresion-3d-por-whatsapp | impresión 3d por whatsapp | Alta (nadie lo explota) | ✅ publicado 2026-11-05 |
 | F4-5 | Maquetas arquitectónicas en Guadalajara (pilar B2B) — slug: maquetas-arquitectonicas-guadalajara | maquetas arquitectónicas guadalajara | Media-alta (nicho desocupado) | pendiente |
-| F4-6 | Impresión 3D para escuelas y material didáctico — slug: impresion-3d-para-escuelas | impresión 3d escuelas / material didáctico | Media (B2B recurrente) | pendiente |
+| F4-6 | Impresión 3D para escuelas y material didáctico — slug: impresion-3d-para-escuelas | impresión 3d escuelas / material didáctico | Media (B2B recurrente) | ✅ publicado 2026-11-10 |
 
 **Regla:** un artículo por corrida de cron; al terminar los seis, proponer Fase 5 antes de que vuelva a agotarse.
