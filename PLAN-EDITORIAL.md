@@ -3,7 +3,7 @@
 **Versión:** 1.0 · **Fecha:** 2026-08-05 · **Autor:** Samuel (PM) + Asistente
 **Objetivo:** Lanzar blog con autoridad temática en impresión 3D (ES-MX), capturar intención informativa y alimentar el funnel hacia `/cotiza` y `/catalogo`. Optimizado para SEO (Google) y GEO (citaciones en ChatGPT, Perplexity, Gemini, AI Overviews).
 
-## Estado de avance — 2026-11-05
+## Estado de avance — 2026-11-12
 
 - ✅ **Cluster A completo (6/6):** A1-A6.
 - ✅ **Cluster B completo (5/5):** B1-B5.
@@ -22,9 +22,10 @@
 - ✅ **F4-4 impresion-3d-por-whatsapp** (2026-11-05): cómo pedir una impresión 3D por WhatsApp sin vueltas; qué mandar en el primer mensaje, plantilla para copiar, envío de STL/3MF/STEP, qué debe incluir la respuesta del taller, errores que alargan la cotización y precios reales del taller; keyword "impresión 3d por whatsapp".
 - ✅ **F4-6 impresion-3d-para-escuelas** (2026-11-10): qué imprime una escuela en 3D (manipulativos, anatomía, robótica, maquetas, reconocimientos), materiales, costos por grupo, seguridad en el aula, licencias y cómo pedir sin comprar impresora; 1,799 palabras; keyword "impresión 3d escuelas".
 - ⚠️ **F4-5 maquetas-arquitectonicas-guadalajara:** cubierto por el artículo existente maquetas-arquitectonicas-impresion-3d (publicado 2026-08-30, ya apunta a "maquetas 3d guadalajara"). No se duplica para evitar canibalización; si se quiere landing local, conviene refrescar ese artículo, no crear otro.
-- ⏳ **Pendiente Fase 4:** ninguno. Al agotarse, proponer Fase 5.
-- ⏳ **Pendiente Fase 3 (E7):** E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes). No hay más artículos nuevos en el calendario: al agotarse, el cron debe reportar y sugerir temas nuevos.
-- **Blog total:** 35 artículos publicados + 8 páginas en sitemap.
+- ⏳ **Pendiente Fase 4:** ninguno. Fase 4 cerrada el 2026-11-12 (F4-1 a F4-6 cubiertos; F4-5 no se duplica).
+- ⏳ **Pendiente Fase 3 (E7):** E7 refresh precios 2027 (refresh de A4; revisar en enero de 2027, no antes).
+- 🛑 **Calendario agotado desde 2026-11-12:** no queda ningún artículo nuevo pendiente en Fases 1-4. El cron de martes/jueves no debe inventar temas ni duplicar slugs existentes. Siguiente paso: aprobar la propuesta de Fase 5 (§4c).
+- **Blog total:** 37 artículos publicados + 8 páginas en sitemap.
 
 > Nota: los cron de martes/jueves leen el plan y eligen el siguiente slug pendiente; no duplican. Verificado que el cron del 2026-08-30 ejecutó sin generar (el trabajo fue manual).
 
@@ -191,3 +192,18 @@ El calendario original (Fases 1-3) se agotó el 2026-09-18. Estos son los temas 
 | F4-6 | Impresión 3D para escuelas y material didáctico — slug: impresion-3d-para-escuelas | impresión 3d escuelas / material didáctico | Media (B2B recurrente) | ✅ publicado 2026-11-10 |
 
 **Regla:** un artículo por corrida de cron; al terminar los seis, proponer Fase 5 antes de que vuelva a agotarse.
+
+## 4c. Fase 5 — propuesta (pendiente de aprobación, 2026-11-12)
+
+Fase 4 quedó cerrada. Estos seis temas no están cubiertos por los 37 artículos publicados y no canibalizan los existentes (verificado contra `content/blog/`). **No se escriben hasta que Samuel apruebe la fase**; el cron solo debe reportar mientras el estado siga en «pendiente de aprobación».
+
+| # | Título | Keyword objetivo | Intención | Ext. | Estado |
+|---|--------|------------------|-----------|------|--------|
+| F5-1 | Cómo elegir un taller de impresión 3D: 7 señales de confianza — slug: como-elegir-taller-impresion-3d | cómo elegir un taller de impresión 3d / taller de impresión 3d confiable | Comercial | 1,500 | pendiente de aprobación |
+| F5-2 | Diseño 3D a medida: del boceto al archivo imprimible — slug: diseno-3d-a-medida | diseño 3d a medida / modelado 3d para imprimir | Comercial | 1,500 | pendiente de aprobación |
+| F5-3 | Jigs, fixtures y herramentales con impresión 3D — slug: herramentales-impresion-3d | herramentales impresión 3d / jigs y fixtures | Comercial B2B | 1,600 | pendiente de aprobación |
+| F5-4 | Impresión 3D para joyería: prototipos y moldes con resina — slug: impresion-3d-joyeria | impresión 3d joyería / resina para joyería | Comercial nicho | 1,400 | pendiente de aprobación |
+| F5-5 | Imprimir en 3D desde el celular: apps, escaneo y cómo mandar tu archivo — slug: imprimir-en-3d-desde-el-celular | imprimir en 3d desde el celular / escanear objeto 3d | Informativa ToFu | 1,300 | pendiente de aprobación |
+| F5-6 | ¿Cuánto tarda una impresión 3D? Tiempos reales por pieza — slug: cuanto-tarda-una-impresion-3d | cuánto tarda una impresión 3d | Transaccional | 1,300 | pendiente de aprobación |
+
+**Prioridad sugerida:** F5-1 y F5-2 primero (mayor intención comercial y alimentan `/cotiza`), luego F5-6 y F5-3, después F5-4 y F5-5. Al aprobarse, mover la fila al calendario activo con fecha y marcar «publicado» al commitear.
