@@ -179,6 +179,16 @@ export function Footer() {
           <p>
             Hecho en {BRAND.city}, {BRAND.state}
           </p>
+          <p>
+            <a
+              href="https://matterasystems.com/"
+              target="_blank"
+              rel="noopener"
+              className="transition-colors duration-[120ms] hover:text-hueso"
+            >
+              Sitio por Mattera Systems
+            </a>
+          </p>
         </div>
       </div>
     </footer>
